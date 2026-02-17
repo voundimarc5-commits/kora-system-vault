@@ -41,7 +41,7 @@ const DashboardBackground = () => {
       }
       dataLines.push({
         y: (i + 1) * (canvas.height / (lineCount + 1)),
-        speed: 0.3 + Math.random() * 1.2,
+        speed: 0.15 + Math.random() * 0.5,
         segments,
         label: lineLabels[i],
       });
@@ -161,12 +161,12 @@ const DashboardBackground = () => {
       }
 
       // Spawn packets
-      if (Math.random() > 0.92) {
+      if (Math.random() > 0.96) {
         const li = Math.floor(Math.random() * dataLines.length);
         packets.push({
           lineIdx: li,
           x: -10,
-          speed: 2 + Math.random() * 4,
+          speed: 1 + Math.random() * 2,
           size: 3 + Math.random() * 2,
           trailLen: 40 + Math.random() * 80,
         });
