@@ -1,4 +1,5 @@
 import { Layers, Lock, Globe, Cog } from "lucide-react";
+import serverImg from "@/assets/server-infrastructure.jpg";
 
 const differentiators = [
   {
@@ -38,6 +39,16 @@ const WhyKGSSection = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
             Why KORA Global Systems
           </h2>
+        </div>
+
+        {/* Image banner */}
+        <div className="mb-12 rounded-lg overflow-hidden border border-border">
+          <img
+            src={serverImg}
+            alt="Enterprise server infrastructure"
+            className="w-full h-48 md:h-64 object-cover"
+            loading="lazy"
+          />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">

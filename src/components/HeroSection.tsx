@@ -1,13 +1,25 @@
 import KGSLogo from "./KGSLogo";
 import DashboardBackground from "./DashboardBackground";
+import citySkyline from "@/assets/city-skyline.jpg";
 
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      {/* City skyline background image */}
+      <div className="absolute inset-0">
+        <img
+          src={citySkyline}
+          alt="Modern city skyline"
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-background/80" />
+      </div>
+
       <DashboardBackground />
 
       {/* Radial overlay for depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(220_25%_6%_/_0.7)_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(220_25%_6%_/_0.6)_70%)]" />
 
       <div className="max-w-7xl mx-auto px-6 py-24 text-center relative z-10">
         <div className="flex justify-center mb-10">
