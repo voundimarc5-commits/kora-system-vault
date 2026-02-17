@@ -22,7 +22,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(220_25%_6%_/_0.6)_70%)]" />
 
       <div className="max-w-7xl mx-auto px-6 py-24 text-center relative z-10">
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-6 -mt-8">
           <KGSLogo size="lg" />
         </div>
 
