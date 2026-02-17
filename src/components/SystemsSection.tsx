@@ -50,13 +50,13 @@ const SystemsSection = () => {
           {systems.map((s) => (
             <div
               key={s.name}
-              className="bg-card border border-border rounded-lg p-8 hover:border-primary/40 transition-colors group"
+              className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all hover:shadow-[0_0_30px_-10px_hsl(var(--primary)_/_0.2)] group"
             >
-              <s.icon className="h-10 w-10 text-primary mb-6 group-hover:text-gold-light transition-colors" />
+              <s.icon className="h-10 w-10 text-primary mb-6 group-hover:text-accent transition-colors" />
               <h3 className="font-display text-xl font-bold text-foreground mb-2">
                 {s.name}
               </h3>
-              <p className="text-primary/80 text-sm mb-5 italic">{s.tagline}</p>
+              <p className="text-primary/70 text-sm mb-5 italic">{s.tagline}</p>
               <ul className="space-y-3">
                 {s.points.map((p) => (
                   <li key={p} className="text-muted-foreground text-sm flex items-start gap-2">

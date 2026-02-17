@@ -42,7 +42,7 @@ const ApproachSection = () => {
           {steps.map((s, i) => (
             <div key={s.number} className="relative">
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-full w-full h-px bg-border -translate-x-4" />
+                <div className="hidden md:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-primary/30 to-transparent -translate-x-4" />
               )}
               <div className="font-display text-4xl font-bold text-primary/20 mb-3">
                 {s.number}
