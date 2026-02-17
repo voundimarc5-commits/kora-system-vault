@@ -1,3 +1,5 @@
+import teamMeeting from "@/assets/team-meeting.jpg";
+
 const AboutSection = () => {
   return (
     <section id="about" className="py-24 border-t border-border relative">
@@ -12,25 +14,38 @@ const AboutSection = () => {
               <br />
               Infrastructure, Not Tasks.
             </h2>
+            <div className="space-y-5 text-muted-foreground leading-relaxed">
+              <p>
+                KORA Global Systems is a digital systems and infrastructure company
+                positioned at the intersection of automation, financial technology,
+                and intelligent operations.
+              </p>
+              <p>
+                We don't deliver projects — we engineer systems. Our focus is on
+                building and operating the infrastructure that enables businesses and
+                institutions to scale securely and efficiently.
+              </p>
+              <p>
+                From automating complex business processes to securing cross-border
+                financial flows and deploying smart access infrastructure, KGS
+                provides long-term, operationally embedded solutions designed for
+                the demands of modern enterprise.
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-5 text-muted-foreground leading-relaxed">
-            <p>
-              KORA Global Systems is a digital systems and infrastructure company
-              positioned at the intersection of automation, financial technology,
-              and intelligent operations.
-            </p>
-            <p>
-              We don't deliver projects — we engineer systems. Our focus is on
-              building and operating the infrastructure that enables businesses and
-              institutions to scale securely and efficiently.
-            </p>
-            <p>
-              From automating complex business processes to securing cross-border
-              financial flows and deploying smart access infrastructure, KGS
-              provides long-term, operationally embedded solutions designed for
-              the demands of modern enterprise.
-            </p>
+          <div className="relative">
+            <div className="rounded-lg overflow-hidden border border-border shadow-[0_0_40px_-15px_hsl(var(--primary)_/_0.2)]">
+              <img
+                src={teamMeeting}
+                alt="KGS team strategizing in a modern office"
+                className="w-full h-80 object-cover"
+                loading="lazy"
+              />
+            </div>
+            {/* Decorative accent */}
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-primary/20 rounded-lg -z-10" />
+            <div className="absolute -top-4 -left-4 w-16 h-16 border-2 border-primary/10 rounded-lg -z-10" />
           </div>
         </div>
       </div>
