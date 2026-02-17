@@ -1,4 +1,4 @@
-import teamMeeting from "@/assets/team-meeting.jpg";
+import cyberOps from "@/assets/cyber-operations.jpg";
 
 const AboutSection = () => {
   return (
@@ -37,8 +37,8 @@ const AboutSection = () => {
           <div className="relative">
             <div className="rounded-lg overflow-hidden border border-border shadow-[0_0_40px_-15px_hsl(var(--primary)_/_0.2)]">
               <img
-                src={teamMeeting}
-                alt="KGS team strategizing in a modern office"
+                src={cyberOps}
+                alt="KGS cybersecurity operations center"
                 className="w-full h-80 object-cover"
                 loading="lazy"
               />
