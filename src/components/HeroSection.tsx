@@ -1,10 +1,13 @@
 import KGSLogo from "./KGSLogo";
+import DashboardBackground from "./DashboardBackground";
 
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(43_56%_54%_/_0.06)_0%,_transparent_70%)]" />
+      <DashboardBackground />
+
+      {/* Radial overlay for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(220_25%_6%_/_0.7)_70%)]" />
 
       <div className="max-w-7xl mx-auto px-6 py-24 text-center relative z-10">
         <div className="flex justify-center mb-10">
@@ -24,7 +27,7 @@ const HeroSection = () => {
 
         <a
           href="#systems"
-          className="inline-block px-8 py-3 bg-primary text-primary-foreground font-display font-semibold tracking-wide text-sm rounded hover:bg-gold-light transition-colors"
+          className="inline-block px-8 py-3 bg-primary text-primary-foreground font-display font-semibold tracking-wide text-sm rounded hover:brightness-110 transition-all"
         >
           Discover Our Systems
         </a>

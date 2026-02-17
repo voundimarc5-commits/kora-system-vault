@@ -1,6 +1,6 @@
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 border-t border-border">
+    <section id="about" className="py-24 border-t border-border relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>

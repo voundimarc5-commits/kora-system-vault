@@ -17,7 +17,7 @@ const ContactSection = () => {
 
         <a
           href="mailto:contact@koraglobalsystems.com"
-          className="inline-flex items-center gap-3 px-8 py-3 bg-primary text-primary-foreground font-display font-semibold tracking-wide text-sm rounded hover:bg-gold-light transition-colors"
+          className="inline-flex items-center gap-3 px-8 py-3 bg-primary text-primary-foreground font-display font-semibold tracking-wide text-sm rounded hover:brightness-110 transition-all"
         >
           <Mail className="h-4 w-4" />
           contact@koraglobalsystems.com

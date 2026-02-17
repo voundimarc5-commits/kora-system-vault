@@ -44,7 +44,7 @@ const WhyKGSSection = () => {
           {differentiators.map((d) => (
             <div
               key={d.title}
-              className="flex gap-5 p-6 rounded-lg bg-card border border-border hover:border-primary/30 transition-colors"
+              className="flex gap-5 p-6 rounded-lg bg-card border border-border hover:border-primary/30 transition-all hover:shadow-[0_0_20px_-8px_hsl(var(--primary)_/_0.15)]"
             >
               <d.icon className="h-8 w-8 text-primary shrink-0 mt-1" />
               <div>
