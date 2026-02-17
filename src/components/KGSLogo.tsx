@@ -4,47 +4,58 @@ const KGSLogo = ({ className = "", size = "md" }: { className?: string; size?: "
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <svg width={d} height={d} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Outer circle */}
-        <circle cx="50" cy="50" r="46" stroke="hsl(var(--primary))" strokeWidth="1.5" opacity="0.6" />
-        <circle cx="50" cy="50" r="42" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3" />
+      <svg width={d} height={d} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Globe outer circle */}
+        <circle cx="50" cy="60" r="38" stroke="url(#globeGrad)" strokeWidth="3" fill="none" />
 
-        {/* Globe horizontal lines */}
-        <ellipse cx="50" cy="50" rx="42" ry="14" stroke="hsl(var(--primary))" strokeWidth="0.8" opacity="0.5" />
-        <ellipse cx="50" cy="50" rx="42" ry="28" stroke="hsl(var(--primary))" strokeWidth="0.8" opacity="0.4" />
+        {/* Globe horizontal ellipses (latitude lines) */}
+        <ellipse cx="50" cy="60" rx="38" ry="12" stroke="url(#globeGrad)" strokeWidth="1.8" fill="none" />
+        <ellipse cx="50" cy="60" rx="38" ry="26" stroke="url(#globeGrad)" strokeWidth="1.2" fill="none" opacity="0.6" />
 
-        {/* Globe vertical ellipses */}
-        <ellipse cx="50" cy="50" rx="14" ry="42" stroke="hsl(var(--primary))" strokeWidth="0.8" opacity="0.5" />
-        <ellipse cx="50" cy="50" rx="28" ry="42" stroke="hsl(var(--primary))" strokeWidth="0.8" opacity="0.4" />
+        {/* Globe vertical ellipses (longitude lines) */}
+        <ellipse cx="50" cy="60" rx="12" ry="38" stroke="url(#globeGrad)" strokeWidth="1.8" fill="none" />
+        <ellipse cx="50" cy="60" rx="26" ry="38" stroke="url(#globeGrad)" strokeWidth="1.2" fill="none" opacity="0.6" />
 
         {/* Center vertical line */}
-        <line x1="50" y1="8" x2="50" y2="92" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3" />
+        <line x1="50" y1="22" x2="50" y2="98" stroke="url(#globeGrad)" strokeWidth="1.5" opacity="0.5" />
         {/* Center horizontal line */}
-        <line x1="8" y1="50" x2="92" y2="50" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3" />
+        <line x1="12" y1="60" x2="88" y2="60" stroke="url(#globeGrad)" strokeWidth="1.5" opacity="0.5" />
 
-        {/* Connectivity nodes */}
-        <circle cx="50" cy="8" r="3" fill="hsl(var(--primary))" opacity="0.8" />
-        <circle cx="50" cy="92" r="3" fill="hsl(var(--primary))" opacity="0.8" />
-        <circle cx="8" cy="50" r="3" fill="hsl(var(--primary))" opacity="0.8" />
-        <circle cx="92" cy="50" r="3" fill="hsl(var(--primary))" opacity="0.8" />
-        <circle cx="22" cy="22" r="2.5" fill="hsl(var(--glow))" opacity="0.7" />
-        <circle cx="78" cy="22" r="2.5" fill="hsl(var(--glow))" opacity="0.7" />
-        <circle cx="22" cy="78" r="2.5" fill="hsl(var(--glow))" opacity="0.7" />
-        <circle cx="78" cy="78" r="2.5" fill="hsl(var(--glow))" opacity="0.7" />
+        {/* Circuit stem coming from top-right of globe */}
+        <line x1="75" y1="32" x2="85" y2="18" stroke="url(#circuitGrad)" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="85" y1="18" x2="85" y2="8" stroke="url(#circuitGrad)" strokeWidth="2.5" strokeLinecap="round" />
 
-        {/* Connectivity lines from corners to center */}
-        <line x1="22" y1="22" x2="50" y2="50" stroke="hsl(var(--glow))" strokeWidth="0.5" opacity="0.4" />
-        <line x1="78" y1="22" x2="50" y2="50" stroke="hsl(var(--glow))" strokeWidth="0.5" opacity="0.4" />
-        <line x1="22" y1="78" x2="50" y2="50" stroke="hsl(var(--glow))" strokeWidth="0.5" opacity="0.4" />
-        <line x1="78" y1="78" x2="50" y2="50" stroke="hsl(var(--glow))" strokeWidth="0.5" opacity="0.4" />
+        {/* Circuit branch right */}
+        <line x1="85" y1="18" x2="105" y2="18" stroke="url(#circuitGrad)" strokeWidth="2.5" strokeLinecap="round" />
 
-        {/* Center glow dot */}
-        <circle cx="50" cy="50" r="4" fill="hsl(var(--primary))" />
-        <circle cx="50" cy="50" r="7" fill="hsl(var(--primary))" opacity="0.2" />
+        {/* Circuit branch up-right */}
+        <line x1="85" y1="8" x2="100" y2="8" stroke="url(#circuitGrad)" strokeWidth="2.5" strokeLinecap="round" />
 
-        {/* Outer decorative arcs */}
-        <path d="M 15 30 Q 5 50 15 70" stroke="hsl(var(--glow))" strokeWidth="0.8" fill="none" opacity="0.3" />
-        <path d="M 85 30 Q 95 50 85 70" stroke="hsl(var(--glow))" strokeWidth="0.8" fill="none" opacity="0.3" />
+        {/* Circuit branch down from junction */}
+        <line x1="85" y1="18" x2="85" y2="35" stroke="url(#circuitGrad)" strokeWidth="2.5" strokeLinecap="round" />
+
+        {/* Circuit nodes (dots) */}
+        <circle cx="105" cy="18" r="4" fill="url(#circuitGrad)" />
+        <circle cx="100" cy="8" r="3.5" fill="url(#circuitGrad)" />
+        <circle cx="85" cy="35" r="4" fill="url(#circuitGrad)" />
+        <circle cx="85" cy="8" r="3" fill="url(#circuitGrad)" />
+
+        {/* Junction dot */}
+        <circle cx="85" cy="18" r="3" fill="url(#circuitGrad)" />
+
+        {/* Globe anchor — small arc at bottom */}
+        <path d="M 38 92 Q 50 105 62 92" stroke="url(#globeGrad)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+
+        <defs>
+          <linearGradient id="globeGrad" x1="12" y1="22" x2="88" y2="98">
+            <stop offset="0%" stopColor="hsl(var(--primary))" />
+            <stop offset="100%" stopColor="hsl(var(--glow))" />
+          </linearGradient>
+          <linearGradient id="circuitGrad" x1="75" y1="35" x2="105" y2="8">
+            <stop offset="0%" stopColor="hsl(var(--primary))" />
+            <stop offset="100%" stopColor="hsl(var(--glow))" />
+          </linearGradient>
+        </defs>
       </svg>
 
       {size !== "sm" ? (
