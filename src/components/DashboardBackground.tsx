@@ -17,274 +17,270 @@ const DashboardBackground = () => {
     resize();
     window.addEventListener("resize", resize);
 
-    // System nodes — represent processing units
-    interface SystemNode {
+    // Horizontal data flow lines
+    interface DataLine {
+      y: number;
+      speed: number;
+      segments: { x: number; width: number; alpha: number; growing: boolean }[];
+      label: string;
+    }
+
+    const lineLabels = ["AUTH", "DB", "NET", "API", "TLS", "CDN", "FLOW", "PAY", "SEC", "DNS", "SYNC", "LOG"];
+    const dataLines: DataLine[] = [];
+    const lineCount = 12;
+    for (let i = 0; i < lineCount; i++) {
+      const segments: DataLine["segments"] = [];
+      const segCount = 3 + Math.floor(Math.random() * 5);
+      for (let s = 0; s < segCount; s++) {
+        segments.push({
+          x: Math.random() * canvas.width,
+          width: 30 + Math.random() * 120,
+          alpha: 0,
+          growing: true,
+        });
+      }
+      dataLines.push({
+        y: (i + 1) * (canvas.height / (lineCount + 1)),
+        speed: 0.3 + Math.random() * 1.2,
+        segments,
+        label: lineLabels[i],
+      });
+    }
+
+    // Vertical grid lines (faint)
+    const verticalLines: number[] = [];
+    const vCount = 16;
+    for (let i = 0; i < vCount; i++) {
+      verticalLines.push((i + 1) * (canvas.width / (vCount + 1)));
+    }
+
+    // Intersection pulses — where horizontal meets vertical
+    interface Pulse {
       x: number;
       y: number;
-      label: string;
-      size: number;
-      pulse: number;
-      active: boolean;
-      activeCooldown: number;
+      radius: number;
+      maxRadius: number;
+      alpha: number;
     }
+    const pulses: Pulse[] = [];
 
-    const nodeLabels = ["AUTH", "DB", "API", "CDN", "DNS", "TLS", "FLOW", "SYNC", "LOG", "NET", "PAY", "SEC"];
-    const systemNodes: SystemNode[] = [];
-    for (let i = 0; i < 12; i++) {
-      const angle = (i / 12) * Math.PI * 2;
-      const radius = Math.min(canvas.width, canvas.height) * 0.3;
-      systemNodes.push({
-        x: canvas.width * 0.5 + Math.cos(angle) * radius * (0.6 + Math.random() * 0.8),
-        y: canvas.height * 0.5 + Math.sin(angle) * radius * (0.5 + Math.random() * 0.7),
-        label: nodeLabels[i],
-        size: 18 + Math.random() * 12,
-        pulse: Math.random() * Math.PI * 2,
-        active: false,
-        activeCooldown: 0,
-      });
-    }
-
-    // Data packets traveling between nodes
-    interface DataPacket {
-      fromNode: number;
-      toNode: number;
-      progress: number;
+    // Data packets moving along horizontal lines
+    interface Packet {
+      lineIdx: number;
+      x: number;
       speed: number;
       size: number;
-      type: "data" | "auth" | "payment";
+      trailLen: number;
     }
+    const packets: Packet[] = [];
 
-    const packets: DataPacket[] = [];
-    const packetColors = {
-      data: { r: 40, g: 100, b: 180 },
-      auth: { r: 50, g: 140, b: 200 },
-      payment: { r: 30, g: 80, b: 160 },
-    };
+    // Throughput bars along the bottom
+    const throughputBars: number[] = new Array(60).fill(0).map(() => Math.random() * 0.2);
 
-    const spawnPacket = () => {
-      if (packets.length > 30) return;
-      const from = Math.floor(Math.random() * systemNodes.length);
-      let to = Math.floor(Math.random() * systemNodes.length);
-      while (to === from) to = Math.floor(Math.random() * systemNodes.length);
-      const types: DataPacket["type"][] = ["data", "data", "data", "auth", "payment"];
-      packets.push({
-        fromNode: from,
-        toNode: to,
-        progress: 0,
-        speed: 0.005 + Math.random() * 0.012,
-        size: 2 + Math.random() * 3,
-        type: types[Math.floor(Math.random() * types.length)],
-      });
-    };
-
-    // Throughput graph data (bottom bar)
-    const throughputData: number[] = new Array(80).fill(0).map(() => Math.random() * 0.3);
-
-    // Log lines scrolling
-    const logLines: { text: string; alpha: number; y: number }[] = [];
+    // Log readouts (right side, vertically stacked)
     const logMessages = [
-      "SYS → Packet routed via TLS gateway",
-      "NET → Connection established [200 OK]",
-      "AUTH → Token verified ✓",
-      "FLOW → Transaction processed $12,450",
-      "DB → Query executed (2.1ms)",
-      "SEC → Firewall rule applied",
-      "CDN → Cache invalidated",
-      "API → Request forwarded to cluster",
-      "SYNC → Data replicated across nodes",
-      "PAY → Settlement batch confirmed",
-      "DNS → Resolution: 0.8ms",
-      "LOG → Audit trail recorded",
+      "TLS handshake verified ✓",
+      "Packet routed → gateway",
+      "Query executed (1.2ms)",
+      "Token refresh ✓",
+      "Settlement confirmed",
+      "Firewall rule applied",
+      "Cache invalidated",
+      "Request forwarded",
+      "Data replicated ✓",
+      "DNS resolved (0.4ms)",
+      "Audit trail recorded",
+      "Session validated ✓",
     ];
-    let lastLogTime = 0;
+    interface LogEntry {
+      text: string;
+      alpha: number;
+      age: number;
+    }
+    const logs: LogEntry[] = [];
+    let lastLogSpawn = 0;
 
     const draw = (time: number) => {
       const t = time * 0.001;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update throughput
-      if (Math.random() > 0.7) {
-        throughputData.shift();
-        throughputData.push(0.1 + Math.random() * 0.6);
+      // Draw vertical grid lines
+      for (const vx of verticalLines) {
+        ctx.beginPath();
+        ctx.moveTo(vx, 0);
+        ctx.lineTo(vx, canvas.height);
+        ctx.strokeStyle = "rgba(30, 60, 120, 0.06)";
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+
+      // Draw horizontal base lines and labels
+      for (let i = 0; i < dataLines.length; i++) {
+        const line = dataLines[i];
+
+        // Base line
+        ctx.beginPath();
+        ctx.moveTo(0, line.y);
+        ctx.lineTo(canvas.width, line.y);
+        ctx.strokeStyle = "rgba(30, 60, 120, 0.08)";
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+
+        // Label on the left
+        ctx.font = "9px monospace";
+        ctx.fillStyle = `rgba(50, 120, 180, ${0.15 + 0.05 * Math.sin(t + i)})`;
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.fillText(line.label, 8, line.y - 8);
+
+        // Animated data segments flowing along this line
+        for (const seg of line.segments) {
+          seg.x += line.speed;
+          if (seg.x > canvas.width + seg.width) {
+            seg.x = -seg.width - Math.random() * 200;
+          }
+
+          // Fade in/out
+          if (seg.growing) {
+            seg.alpha = Math.min(seg.alpha + 0.01, 0.25 + Math.random() * 0.1);
+            if (seg.alpha >= 0.3) seg.growing = false;
+          } else {
+            seg.alpha = 0.15 + 0.1 * Math.sin(t * 2 + seg.x * 0.01);
+          }
+
+          // Draw the data segment as a glowing bar
+          const grad = ctx.createLinearGradient(seg.x, 0, seg.x + seg.width, 0);
+          grad.addColorStop(0, `rgba(30, 70, 150, 0)`);
+          grad.addColorStop(0.2, `rgba(40, 100, 180, ${seg.alpha})`);
+          grad.addColorStop(0.8, `rgba(40, 100, 180, ${seg.alpha})`);
+          grad.addColorStop(1, `rgba(30, 70, 150, 0)`);
+
+          ctx.fillStyle = grad;
+          ctx.fillRect(seg.x, line.y - 1.5, seg.width, 3);
+        }
       }
 
       // Spawn packets
-      if (Math.random() > 0.85) spawnPacket();
-
-      // Activate random nodes
-      for (const node of systemNodes) {
-        if (node.activeCooldown > 0) {
-          node.activeCooldown--;
-          node.active = true;
-        } else {
-          node.active = false;
-          if (Math.random() > 0.995) node.activeCooldown = 60 + Math.floor(Math.random() * 120);
-        }
+      if (Math.random() > 0.92) {
+        const li = Math.floor(Math.random() * dataLines.length);
+        packets.push({
+          lineIdx: li,
+          x: -10,
+          speed: 2 + Math.random() * 4,
+          size: 3 + Math.random() * 2,
+          trailLen: 40 + Math.random() * 80,
+        });
       }
 
-      // Draw connection lines between all nodes (faint network topology)
-      for (let i = 0; i < systemNodes.length; i++) {
-        for (let j = i + 1; j < systemNodes.length; j++) {
-          const a = systemNodes[i];
-          const b = systemNodes[j];
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < canvas.width * 0.35) {
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(30, 70, 140, ${0.06 - dist / (canvas.width * 8)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Draw and update packets
+      // Update & draw packets
       for (let i = packets.length - 1; i >= 0; i--) {
         const p = packets[i];
-        p.progress += p.speed;
+        p.x += p.speed;
 
-        if (p.progress >= 1) {
-          systemNodes[p.toNode].activeCooldown = 30;
+        if (p.x > canvas.width + 50) {
           packets.splice(i, 1);
           continue;
         }
 
-        const from = systemNodes[p.fromNode];
-        const to = systemNodes[p.toNode];
+        const ly = dataLines[p.lineIdx].y;
 
-        // Curved path via control point
-        const mx = (from.x + to.x) / 2 + (from.y - to.y) * 0.15;
-        const my = (from.y + to.y) / 2 + (to.x - from.x) * 0.15;
-
-        const t1 = p.progress;
-        const t2 = 1 - t1;
-        const px = t2 * t2 * from.x + 2 * t2 * t1 * mx + t1 * t1 * to.x;
-        const py = t2 * t2 * from.y + 2 * t2 * t1 * my + t1 * t1 * to.y;
-
-        const c = packetColors[p.type];
+        // Check intersection with vertical lines → pulse
+        for (const vx of verticalLines) {
+          if (Math.abs(p.x - vx) < p.speed * 1.5) {
+            if (Math.random() > 0.7) {
+              pulses.push({ x: vx, y: ly, radius: 0, maxRadius: 15 + Math.random() * 15, alpha: 0.4 });
+            }
+          }
+        }
 
         // Packet trail
-        for (let trail = 0; trail < 5; trail++) {
-          const tt = Math.max(0, p.progress - trail * 0.015);
-          const tt2 = 1 - tt;
-          const trailX = tt2 * tt2 * from.x + 2 * tt2 * tt * mx + tt * tt * to.x;
-          const trailY = tt2 * tt2 * from.y + 2 * tt2 * tt * my + tt * tt * to.y;
-          ctx.beginPath();
-          ctx.arc(trailX, trailY, p.size * (1 - trail * 0.15), 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${0.4 - trail * 0.07})`;
-          ctx.fill();
-        }
+        const trailGrad = ctx.createLinearGradient(p.x - p.trailLen, 0, p.x, 0);
+        trailGrad.addColorStop(0, "rgba(40, 100, 200, 0)");
+        trailGrad.addColorStop(1, "rgba(60, 150, 220, 0.5)");
+        ctx.fillStyle = trailGrad;
+        ctx.fillRect(p.x - p.trailLen, ly - 1, p.trailLen, 2);
 
-        // Packet glow
-        const grad = ctx.createRadialGradient(px, py, 0, px, py, p.size * 5);
-        grad.addColorStop(0, `rgba(${c.r + 40}, ${c.g + 50}, ${c.b + 60}, 0.3)`);
-        grad.addColorStop(1, `rgba(${c.r}, ${c.g}, ${c.b}, 0)`);
-        ctx.fillStyle = grad;
+        // Packet head
+        const headGrad = ctx.createRadialGradient(p.x, ly, 0, p.x, ly, p.size * 3);
+        headGrad.addColorStop(0, "rgba(100, 180, 240, 0.8)");
+        headGrad.addColorStop(1, "rgba(40, 100, 200, 0)");
+        ctx.fillStyle = headGrad;
         ctx.beginPath();
-        ctx.arc(px, py, p.size * 5, 0, Math.PI * 2);
+        ctx.arc(p.x, ly, p.size * 3, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(p.x, ly, p.size * 0.8, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(180, 220, 255, 0.9)";
         ctx.fill();
       }
 
-      // Draw system nodes
-      for (const node of systemNodes) {
-        const brightness = node.active ? 0.7 : 0.15 + 0.1 * Math.sin(t * 1.5 + node.pulse);
-
-        // Node outer ring
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(40, 100, 180, ${brightness * 0.6})`;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        // Node fill
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.size - 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(15, 35, 70, ${brightness * 0.8})`;
-        ctx.fill();
-
-        // Node label
-        ctx.font = `${node.size * 0.45}px monospace`;
-        ctx.fillStyle = `rgba(80, 160, 220, ${brightness * 1.2})`;
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(node.label, node.x, node.y);
-
-        // Active indicator
-        if (node.active) {
-          ctx.beginPath();
-          ctx.arc(node.x, node.y, node.size + 4, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(60, 150, 220, ${0.3 + 0.2 * Math.sin(t * 6)})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      }
-
-      // Throughput mini-graph (bottom-right area)
-      const graphX = canvas.width - 280;
-      const graphY = canvas.height - 80;
-      const graphW = 240;
-      const graphH = 50;
-
-      ctx.strokeStyle = "rgba(40, 100, 180, 0.15)";
-      ctx.lineWidth = 0.5;
-      ctx.strokeRect(graphX, graphY, graphW, graphH);
-
-      ctx.font = "9px monospace";
-      ctx.fillStyle = "rgba(60, 140, 200, 0.3)";
-      ctx.textAlign = "left";
-      ctx.fillText("THROUGHPUT", graphX + 4, graphY - 4);
-
-      ctx.beginPath();
-      for (let i = 0; i < throughputData.length; i++) {
-        const x = graphX + (i / throughputData.length) * graphW;
-        const y = graphY + graphH - throughputData[i] * graphH;
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = "rgba(50, 130, 200, 0.4)";
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      // Fill under the line
-      ctx.lineTo(graphX + graphW, graphY + graphH);
-      ctx.lineTo(graphX, graphY + graphH);
-      ctx.closePath();
-      ctx.fillStyle = "rgba(40, 100, 180, 0.05)";
-      ctx.fill();
-
-      // Log lines (left side)
-      if (t - lastLogTime > 1.5 + Math.random() * 2) {
-        lastLogTime = t;
-        logLines.push({
-          text: logMessages[Math.floor(Math.random() * logMessages.length)],
-          alpha: 0.5,
-          y: canvas.height - 30,
-        });
-        if (logLines.length > 8) logLines.shift();
-      }
-
-      for (let i = logLines.length - 1; i >= 0; i--) {
-        const log = logLines[i];
-        log.y -= 0.3;
-        log.alpha -= 0.0008;
-        if (log.alpha <= 0) {
-          logLines.splice(i, 1);
+      // Draw & update pulses
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const p = pulses[i];
+        p.radius += 0.5;
+        p.alpha -= 0.01;
+        if (p.alpha <= 0 || p.radius > p.maxRadius) {
+          pulses.splice(i, 1);
           continue;
         }
-        ctx.font = "10px monospace";
-        ctx.fillStyle = `rgba(60, 140, 200, ${log.alpha})`;
-        ctx.textAlign = "left";
-        ctx.fillText(log.text, 20, log.y);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(60, 140, 200, ${p.alpha})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
       }
 
-      // Status indicator top-right
+      // Throughput mini-bars (bottom)
+      if (Math.random() > 0.6) {
+        throughputBars.shift();
+        throughputBars.push(0.05 + Math.random() * 0.5);
+      }
+
+      const barArea = { x: canvas.width - 260, y: canvas.height - 60, w: 220, h: 35 };
+      ctx.strokeStyle = "rgba(30, 70, 140, 0.12)";
+      ctx.lineWidth = 0.5;
+      ctx.strokeRect(barArea.x, barArea.y, barArea.w, barArea.h);
+      ctx.font = "8px monospace";
+      ctx.fillStyle = "rgba(50, 120, 180, 0.25)";
+      ctx.textAlign = "left";
+      ctx.fillText("THROUGHPUT", barArea.x + 3, barArea.y - 3);
+
+      const barW = barArea.w / throughputBars.length;
+      for (let i = 0; i < throughputBars.length; i++) {
+        const h = throughputBars[i] * barArea.h;
+        ctx.fillStyle = `rgba(40, 100, 180, ${0.15 + throughputBars[i] * 0.3})`;
+        ctx.fillRect(barArea.x + i * barW, barArea.y + barArea.h - h, barW - 1, h);
+      }
+
+      // Log readouts (right side)
+      if (t - lastLogSpawn > 2 + Math.random() * 1.5) {
+        lastLogSpawn = t;
+        logs.unshift({
+          text: logMessages[Math.floor(Math.random() * logMessages.length)],
+          alpha: 0.45,
+          age: 0,
+        });
+        if (logs.length > 6) logs.pop();
+      }
+
+      const logX = canvas.width - 250;
+      for (let i = 0; i < logs.length; i++) {
+        const log = logs[i];
+        log.age++;
+        log.alpha = Math.max(0, 0.45 - log.age * 0.0005);
+        const logY = 50 + i * 18;
+        ctx.font = "9px monospace";
+        ctx.fillStyle = `rgba(60, 140, 200, ${log.alpha})`;
+        ctx.textAlign = "left";
+        ctx.fillText(`› ${log.text}`, logX, logY);
+      }
+
+      // Status indicator
       ctx.font = "9px monospace";
-      ctx.fillStyle = `rgba(50, 160, 120, ${0.3 + 0.15 * Math.sin(t * 2)})`;
-      ctx.textAlign = "right";
-      ctx.fillText("● SYSTEMS OPERATIONAL", canvas.width - 30, 30);
+      ctx.fillStyle = `rgba(40, 160, 110, ${0.25 + 0.12 * Math.sin(t * 2)})`;
+      ctx.textAlign = "left";
+      ctx.fillText("● SYSTEMS ONLINE", 20, 30);
 
       animId = requestAnimationFrame(draw);
     };
@@ -301,7 +297,7 @@ const DashboardBackground = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.75 }}
+      style={{ opacity: 0.8 }}
     />
   );
 };

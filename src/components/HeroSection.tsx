@@ -13,7 +13,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-0 bg-background/70" />
       </div>
 
       <DashboardBackground />
@@ -26,10 +26,14 @@ const HeroSection = () => {
           <KGSLogo size="lg" />
         </div>
 
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight max-w-4xl mx-auto mb-6">
-          Intelligent Systems for{" "}
-          <span className="text-primary">Modern Infrastructure</span>
+        <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-bold text-foreground leading-none max-w-5xl mx-auto mb-8 uppercase tracking-wider">
+          INTELLIGENT
+          <br />
+          <span className="text-primary">SYSTEMS</span>
         </h1>
+        <p className="font-display text-lg md:text-xl text-muted-foreground tracking-[0.3em] uppercase mb-8">
+          For Modern Infrastructure
+        </p>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
           KORA Global Systems designs, deploys, and operates intelligent systems
