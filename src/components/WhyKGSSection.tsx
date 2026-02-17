@@ -1,5 +1,5 @@
 import { Layers, Lock, Globe, Cog } from "lucide-react";
-import serverImg from "@/assets/server-infrastructure.jpg";
+import digitalNetwork from "@/assets/digital-network.jpg";
 
 const differentiators = [
   {
@@ -44,8 +44,8 @@ const WhyKGSSection = () => {
         {/* Image banner */}
         <div className="mb-12 rounded-lg overflow-hidden border border-border">
           <img
-            src={serverImg}
-            alt="Enterprise server infrastructure"
+            src={digitalNetwork}
+            alt="Global digital network infrastructure"
             className="w-full h-48 md:h-64 object-cover"
             loading="lazy"
           />

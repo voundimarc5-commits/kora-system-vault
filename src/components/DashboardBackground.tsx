@@ -10,7 +10,6 @@ const DashboardBackground = () => {
     if (!ctx) return;
 
     let animId: number;
-
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -18,243 +17,274 @@ const DashboardBackground = () => {
     resize();
     window.addEventListener("resize", resize);
 
-    // Particles flowing like data streams
-    interface Particle {
+    // System nodes — represent processing units
+    interface SystemNode {
       x: number;
       y: number;
-      vx: number;
-      vy: number;
+      label: string;
       size: number;
-      life: number;
-      maxLife: number;
-      stream: number; // which data stream it belongs to
+      pulse: number;
+      active: boolean;
+      activeCooldown: number;
     }
 
-    const particles: Particle[] = [];
-    const maxParticles = 150;
+    const nodeLabels = ["AUTH", "DB", "API", "CDN", "DNS", "TLS", "FLOW", "SYNC", "LOG", "NET", "PAY", "SEC"];
+    const systemNodes: SystemNode[] = [];
+    for (let i = 0; i < 12; i++) {
+      const angle = (i / 12) * Math.PI * 2;
+      const radius = Math.min(canvas.width, canvas.height) * 0.3;
+      systemNodes.push({
+        x: canvas.width * 0.5 + Math.cos(angle) * radius * (0.6 + Math.random() * 0.8),
+        y: canvas.height * 0.5 + Math.sin(angle) * radius * (0.5 + Math.random() * 0.7),
+        label: nodeLabels[i],
+        size: 18 + Math.random() * 12,
+        pulse: Math.random() * Math.PI * 2,
+        active: false,
+        activeCooldown: 0,
+      });
+    }
 
-    // Data stream paths (flowing curves across screen)
-    const streams = [
-      { startX: 0, startY: 0.3, endX: 1, endY: 0.6, speed: 1.2 },
-      { startX: 0.1, startY: 0, endX: 0.8, endY: 1, speed: 0.8 },
-      { startX: 1, startY: 0.2, endX: 0, endY: 0.8, speed: 1.0 },
-      { startX: 0.5, startY: 0, endX: 0.3, endY: 1, speed: 0.6 },
-      { startX: 1, startY: 0.7, endX: 0, endY: 0.4, speed: 0.9 },
-    ];
+    // Data packets traveling between nodes
+    interface DataPacket {
+      fromNode: number;
+      toNode: number;
+      progress: number;
+      speed: number;
+      size: number;
+      type: "data" | "auth" | "payment";
+    }
 
-    const spawnParticle = () => {
-      if (particles.length >= maxParticles) return;
-      const si = Math.floor(Math.random() * streams.length);
-      const s = streams[si];
-      const life = 200 + Math.random() * 300;
-      particles.push({
-        x: s.startX * canvas.width + (Math.random() - 0.5) * 60,
-        y: s.startY * canvas.height + (Math.random() - 0.5) * 60,
-        vx: (s.endX - s.startX) * s.speed * 1.5 + (Math.random() - 0.5) * 0.3,
-        vy: (s.endY - s.startY) * s.speed * 1.5 + (Math.random() - 0.5) * 0.3,
-        size: 1 + Math.random() * 2.5,
-        life,
-        maxLife: life,
-        stream: si,
+    const packets: DataPacket[] = [];
+    const packetColors = {
+      data: { r: 40, g: 100, b: 180 },
+      auth: { r: 50, g: 140, b: 200 },
+      payment: { r: 30, g: 80, b: 160 },
+    };
+
+    const spawnPacket = () => {
+      if (packets.length > 30) return;
+      const from = Math.floor(Math.random() * systemNodes.length);
+      let to = Math.floor(Math.random() * systemNodes.length);
+      while (to === from) to = Math.floor(Math.random() * systemNodes.length);
+      const types: DataPacket["type"][] = ["data", "data", "data", "auth", "payment"];
+      packets.push({
+        fromNode: from,
+        toNode: to,
+        progress: 0,
+        speed: 0.005 + Math.random() * 0.012,
+        size: 2 + Math.random() * 3,
+        type: types[Math.floor(Math.random() * types.length)],
       });
     };
 
-    // Floating hexagonal grid nodes
-    interface HexNode {
-      x: number;
-      y: number;
-      baseX: number;
-      baseY: number;
-      phase: number;
-      pulseSpeed: number;
-      size: number;
-    }
+    // Throughput graph data (bottom bar)
+    const throughputData: number[] = new Array(80).fill(0).map(() => Math.random() * 0.3);
 
-    const hexNodes: HexNode[] = [];
-    const hexSpacing = 120;
-    for (let row = 0; row < 12; row++) {
-      for (let col = 0; col < 20; col++) {
-        const offset = row % 2 === 0 ? 0 : hexSpacing * 0.5;
-        hexNodes.push({
-          x: col * hexSpacing + offset,
-          y: row * hexSpacing * 0.866,
-          baseX: col * hexSpacing + offset,
-          baseY: row * hexSpacing * 0.866,
-          phase: Math.random() * Math.PI * 2,
-          pulseSpeed: 0.5 + Math.random() * 1.5,
-          size: 1 + Math.random() * 1.5,
-        });
-      }
-    }
-
-    // Circuit-like connection paths
-    interface CircuitPath {
-      points: { x: number; y: number }[];
-      progress: number;
-      speed: number;
-      color: string;
-    }
-
-    const circuitPaths: CircuitPath[] = [];
-    const createCircuitPath = () => {
-      const points: { x: number; y: number }[] = [];
-      let x = Math.random() * canvas.width;
-      let y = Math.random() * canvas.height;
-      points.push({ x, y });
-      const segments = 4 + Math.floor(Math.random() * 4);
-      for (let i = 0; i < segments; i++) {
-        // Move either horizontally or vertically (circuit board style)
-        if (Math.random() > 0.5) {
-          x += (Math.random() - 0.5) * 300;
-        } else {
-          y += (Math.random() - 0.5) * 300;
-        }
-        points.push({ x: Math.max(0, Math.min(canvas.width, x)), y: Math.max(0, Math.min(canvas.height, y)) });
-      }
-      return {
-        points,
-        progress: 0,
-        speed: 0.002 + Math.random() * 0.003,
-        color: Math.random() > 0.5 ? "59, 130, 246" : "96, 165, 250",
-      };
-    };
-
-    for (let i = 0; i < 8; i++) {
-      circuitPaths.push(createCircuitPath());
-    }
+    // Log lines scrolling
+    const logLines: { text: string; alpha: number; y: number }[] = [];
+    const logMessages = [
+      "SYS → Packet routed via TLS gateway",
+      "NET → Connection established [200 OK]",
+      "AUTH → Token verified ✓",
+      "FLOW → Transaction processed $12,450",
+      "DB → Query executed (2.1ms)",
+      "SEC → Firewall rule applied",
+      "CDN → Cache invalidated",
+      "API → Request forwarded to cluster",
+      "SYNC → Data replicated across nodes",
+      "PAY → Settlement batch confirmed",
+      "DNS → Resolution: 0.8ms",
+      "LOG → Audit trail recorded",
+    ];
+    let lastLogTime = 0;
 
     const draw = (time: number) => {
       const t = time * 0.001;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Spawn particles
-      if (Math.random() > 0.4) spawnParticle();
+      // Update throughput
+      if (Math.random() > 0.7) {
+        throughputData.shift();
+        throughputData.push(0.1 + Math.random() * 0.6);
+      }
 
-      // Draw hex grid connections
-      for (let i = 0; i < hexNodes.length; i++) {
-        const node = hexNodes[i];
-        node.x = node.baseX + Math.sin(t * 0.3 + node.phase) * 3;
-        node.y = node.baseY + Math.cos(t * 0.2 + node.phase) * 3;
-        const brightness = 0.03 + 0.08 * (0.5 + 0.5 * Math.sin(t * node.pulseSpeed + node.phase));
+      // Spawn packets
+      if (Math.random() > 0.85) spawnPacket();
 
-        // Connect to nearby nodes
-        for (let j = i + 1; j < hexNodes.length; j++) {
-          const other = hexNodes[j];
-          const dx = node.x - other.x;
-          const dy = node.y - other.y;
+      // Activate random nodes
+      for (const node of systemNodes) {
+        if (node.activeCooldown > 0) {
+          node.activeCooldown--;
+          node.active = true;
+        } else {
+          node.active = false;
+          if (Math.random() > 0.995) node.activeCooldown = 60 + Math.floor(Math.random() * 120);
+        }
+      }
+
+      // Draw connection lines between all nodes (faint network topology)
+      for (let i = 0; i < systemNodes.length; i++) {
+        for (let j = i + 1; j < systemNodes.length; j++) {
+          const a = systemNodes[i];
+          const b = systemNodes[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < hexSpacing * 1.2) {
+          if (dist < canvas.width * 0.35) {
             ctx.beginPath();
-            ctx.moveTo(node.x, node.y);
-            ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${brightness * 0.4})`;
-            ctx.lineWidth = 0.3;
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(30, 70, 140, ${0.06 - dist / (canvas.width * 8)})`;
+            ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
-
-        // Draw node
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(96, 165, 250, ${brightness})`;
-        ctx.fill();
       }
 
-      // Draw circuit paths with flowing light
-      for (const path of circuitPaths) {
-        path.progress += path.speed;
-        if (path.progress > 1.3) {
-          path.progress = -0.3;
-        }
+      // Draw and update packets
+      for (let i = packets.length - 1; i >= 0; i--) {
+        const p = packets[i];
+        p.progress += p.speed;
 
-        // Draw the path
-        ctx.beginPath();
-        ctx.moveTo(path.points[0].x, path.points[0].y);
-        for (let i = 1; i < path.points.length; i++) {
-          ctx.lineTo(path.points[i].x, path.points[i].y);
-        }
-        ctx.strokeStyle = `rgba(${path.color}, 0.06)`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        // Flowing light along path
-        const totalLen = path.points.length - 1;
-        const pos = path.progress * totalLen;
-        const segIdx = Math.floor(pos);
-        const segFrac = pos - segIdx;
-        if (segIdx >= 0 && segIdx < totalLen) {
-          const p1 = path.points[segIdx];
-          const p2 = path.points[segIdx + 1];
-          const lx = p1.x + (p2.x - p1.x) * segFrac;
-          const ly = p1.y + (p2.y - p1.y) * segFrac;
-
-          const grad = ctx.createRadialGradient(lx, ly, 0, lx, ly, 20);
-          grad.addColorStop(0, `rgba(${path.color}, 0.5)`);
-          grad.addColorStop(1, `rgba(${path.color}, 0)`);
-          ctx.fillStyle = grad;
-          ctx.beginPath();
-          ctx.arc(lx, ly, 20, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      // Draw and update particles
-      for (let i = particles.length - 1; i >= 0; i--) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.life--;
-
-        if (p.life <= 0 || p.x < -50 || p.x > canvas.width + 50 || p.y < -50 || p.y > canvas.height + 50) {
-          particles.splice(i, 1);
+        if (p.progress >= 1) {
+          systemNodes[p.toNode].activeCooldown = 30;
+          packets.splice(i, 1);
           continue;
         }
 
-        const alpha = Math.min(1, p.life / 50, (p.maxLife - (p.maxLife - p.life)) / 50) * 0.6;
+        const from = systemNodes[p.fromNode];
+        const to = systemNodes[p.toNode];
 
-        // Particle glow
-        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 4);
-        grad.addColorStop(0, `rgba(96, 165, 250, ${alpha * 0.8})`);
-        grad.addColorStop(1, `rgba(59, 130, 246, 0)`);
+        // Curved path via control point
+        const mx = (from.x + to.x) / 2 + (from.y - to.y) * 0.15;
+        const my = (from.y + to.y) / 2 + (to.x - from.x) * 0.15;
+
+        const t1 = p.progress;
+        const t2 = 1 - t1;
+        const px = t2 * t2 * from.x + 2 * t2 * t1 * mx + t1 * t1 * to.x;
+        const py = t2 * t2 * from.y + 2 * t2 * t1 * my + t1 * t1 * to.y;
+
+        const c = packetColors[p.type];
+
+        // Packet trail
+        for (let trail = 0; trail < 5; trail++) {
+          const tt = Math.max(0, p.progress - trail * 0.015);
+          const tt2 = 1 - tt;
+          const trailX = tt2 * tt2 * from.x + 2 * tt2 * tt * mx + tt * tt * to.x;
+          const trailY = tt2 * tt2 * from.y + 2 * tt2 * tt * my + tt * tt * to.y;
+          ctx.beginPath();
+          ctx.arc(trailX, trailY, p.size * (1 - trail * 0.15), 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${0.4 - trail * 0.07})`;
+          ctx.fill();
+        }
+
+        // Packet glow
+        const grad = ctx.createRadialGradient(px, py, 0, px, py, p.size * 5);
+        grad.addColorStop(0, `rgba(${c.r + 40}, ${c.g + 50}, ${c.b + 60}, 0.3)`);
+        grad.addColorStop(1, `rgba(${c.r}, ${c.g}, ${c.b}, 0)`);
         ctx.fillStyle = grad;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Particle core
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 0.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200, 220, 255, ${alpha})`;
+        ctx.arc(px, py, p.size * 5, 0, Math.PI * 2);
         ctx.fill();
       }
 
-      // Pulsing dashboard-style HUD elements in corners
-      const hudAlpha = 0.04 + 0.03 * Math.sin(t * 0.8);
-      
-      // Top-left HUD bracket
-      ctx.strokeStyle = `rgba(59, 130, 246, ${hudAlpha * 3})`;
+      // Draw system nodes
+      for (const node of systemNodes) {
+        const brightness = node.active ? 0.7 : 0.15 + 0.1 * Math.sin(t * 1.5 + node.pulse);
+
+        // Node outer ring
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(40, 100, 180, ${brightness * 0.6})`;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Node fill
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.size - 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(15, 35, 70, ${brightness * 0.8})`;
+        ctx.fill();
+
+        // Node label
+        ctx.font = `${node.size * 0.45}px monospace`;
+        ctx.fillStyle = `rgba(80, 160, 220, ${brightness * 1.2})`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(node.label, node.x, node.y);
+
+        // Active indicator
+        if (node.active) {
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, node.size + 4, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(60, 150, 220, ${0.3 + 0.2 * Math.sin(t * 6)})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+
+      // Throughput mini-graph (bottom-right area)
+      const graphX = canvas.width - 280;
+      const graphY = canvas.height - 80;
+      const graphW = 240;
+      const graphH = 50;
+
+      ctx.strokeStyle = "rgba(40, 100, 180, 0.15)";
+      ctx.lineWidth = 0.5;
+      ctx.strokeRect(graphX, graphY, graphW, graphH);
+
+      ctx.font = "9px monospace";
+      ctx.fillStyle = "rgba(60, 140, 200, 0.3)";
+      ctx.textAlign = "left";
+      ctx.fillText("THROUGHPUT", graphX + 4, graphY - 4);
+
+      ctx.beginPath();
+      for (let i = 0; i < throughputData.length; i++) {
+        const x = graphX + (i / throughputData.length) * graphW;
+        const y = graphY + graphH - throughputData[i] * graphH;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = "rgba(50, 130, 200, 0.4)";
       ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(30, 80);
-      ctx.lineTo(30, 40);
-      ctx.lineTo(80, 40);
       ctx.stroke();
 
-      // Bottom-right HUD bracket
-      ctx.beginPath();
-      ctx.moveTo(canvas.width - 30, canvas.height - 80);
-      ctx.lineTo(canvas.width - 30, canvas.height - 40);
-      ctx.lineTo(canvas.width - 80, canvas.height - 40);
-      ctx.stroke();
+      // Fill under the line
+      ctx.lineTo(graphX + graphW, graphY + graphH);
+      ctx.lineTo(graphX, graphY + graphH);
+      ctx.closePath();
+      ctx.fillStyle = "rgba(40, 100, 180, 0.05)";
+      ctx.fill();
 
-      // Scanning line effect
-      const scanY = ((t * 30) % (canvas.height + 200)) - 100;
-      const scanGrad = ctx.createLinearGradient(0, scanY - 50, 0, scanY + 50);
-      scanGrad.addColorStop(0, "rgba(59, 130, 246, 0)");
-      scanGrad.addColorStop(0.5, "rgba(59, 130, 246, 0.015)");
-      scanGrad.addColorStop(1, "rgba(59, 130, 246, 0)");
-      ctx.fillStyle = scanGrad;
-      ctx.fillRect(0, scanY - 50, canvas.width, 100);
+      // Log lines (left side)
+      if (t - lastLogTime > 1.5 + Math.random() * 2) {
+        lastLogTime = t;
+        logLines.push({
+          text: logMessages[Math.floor(Math.random() * logMessages.length)],
+          alpha: 0.5,
+          y: canvas.height - 30,
+        });
+        if (logLines.length > 8) logLines.shift();
+      }
+
+      for (let i = logLines.length - 1; i >= 0; i--) {
+        const log = logLines[i];
+        log.y -= 0.3;
+        log.alpha -= 0.0008;
+        if (log.alpha <= 0) {
+          logLines.splice(i, 1);
+          continue;
+        }
+        ctx.font = "10px monospace";
+        ctx.fillStyle = `rgba(60, 140, 200, ${log.alpha})`;
+        ctx.textAlign = "left";
+        ctx.fillText(log.text, 20, log.y);
+      }
+
+      // Status indicator top-right
+      ctx.font = "9px monospace";
+      ctx.fillStyle = `rgba(50, 160, 120, ${0.3 + 0.15 * Math.sin(t * 2)})`;
+      ctx.textAlign = "right";
+      ctx.fillText("● SYSTEMS OPERATIONAL", canvas.width - 30, 30);
 
       animId = requestAnimationFrame(draw);
     };
@@ -271,7 +301,7 @@ const DashboardBackground = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.7 }}
+      style={{ opacity: 0.75 }}
     />
   );
 };
