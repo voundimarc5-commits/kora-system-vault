@@ -34,8 +34,8 @@ const ItemList = () => (
 );
 
 const Marquee = () => (
-  <div className="sticky top-16 z-40 w-full bg-background overflow-hidden border-b border-border">
-    <div className="animate-scroll flex items-center py-4 w-max">
+  <div className="sticky top-16 z-40 w-full bg-background/75 backdrop-blur-sm overflow-hidden border-b border-border">
+    <div className="animate-scroll flex items-center py-1 w-max">
       <ItemList />
       <Separator />
       <ItemList />
