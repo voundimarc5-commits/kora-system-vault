@@ -1,5 +1,8 @@
 import { Layers, Lock, Globe, Cog } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import digitalNetwork from "@/assets/digital-network.jpg";
+import ScrollReveal from "./ScrollReveal";
 
 const differentiators = [
   {
@@ -29,33 +32,43 @@ const differentiators = [
 ];
 
 const WhyKGSSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
   return (
-    <section id="why" className="py-24 border-t border-border">
+    <section id="why" className="py-24 border-t border-border" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <p className="text-primary font-display text-sm tracking-[0.3em] uppercase mb-4">
             Why KGS
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
             Why KORA Global Systems
           </h2>
-        </div>
+        </ScrollReveal>
 
-        {/* Image banner */}
-        <div className="mb-12 rounded-lg overflow-hidden border border-border">
-          <img
-            src={digitalNetwork}
-            alt="Global digital network infrastructure"
-            className="w-full h-48 md:h-64 object-cover"
-            loading="lazy"
-          />
-        </div>
+        <ScrollReveal delay={0.2}>
+          <div className="mb-12 rounded-lg overflow-hidden border border-border">
+            <motion.img
+              src={digitalNetwork}
+              alt="Global digital network infrastructure"
+              className="w-full h-48 md:h-64 object-cover"
+              loading="lazy"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.6 }}
+            />
+          </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {differentiators.map((d) => (
-            <div
+          {differentiators.map((d, i) => (
+            <motion.div
               key={d.title}
-              className="flex gap-5 p-6 rounded-lg bg-card border border-border hover:border-primary/30 transition-all hover:shadow-[0_0_20px_-8px_hsl(var(--primary)_/_0.15)]"
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 + i * 0.12 }}
+              whileHover={{ x: 8, transition: { duration: 0.25 } }}
+              className="flex gap-5 p-6 rounded-lg bg-card border border-border hover:border-primary/30 transition-shadow hover:shadow-[0_0_20px_-8px_hsl(var(--primary)_/_0.15)]"
             >
               <d.icon className="h-8 w-8 text-primary shrink-0 mt-1" />
               <div>
@@ -66,7 +79,7 @@ const WhyKGSSection = () => {
                   {d.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
