@@ -1,9 +1,7 @@
 import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ImageCarousel from "@/components/ImageCarousel";
-import SystemsSection from "@/components/SystemsSection";
-import ApproachSection from "@/components/ApproachSection";
+import SnapshotHero from "@/components/SnapshotHero";
+import BenefitsSection from "@/components/BenefitsSection";
+import SystemsApproachSection from "@/components/SystemsApproachSection";
 import WhyKGSSection from "@/components/WhyKGSSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -12,11 +10,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <ImageCarousel />
-      <SystemsSection />
-      <ApproachSection />
+      <SnapshotHero />
+      <BenefitsSection />
+      <SystemsApproachSection />
       <WhyKGSSection />
       <ContactSection />
       <Footer />
