@@ -111,15 +111,16 @@ const SnapshotHero = () => {
         <motion.img
           src={citySkyline}
           alt="Futuristic campus"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover origin-bottom"
           loading="eager"
           initial={{ scale: 1.15 }}
           animate={{
-            scale: [1.15, 1.05, 1.15],
-            x: [0, -15, 0],
-            y: [0, -10, 0],
+            scale: [1.15, 1.08, 1.12, 1.05, 1.15],
+            x: [0, -10, 5, -15, 0],
+            y: [0, -6, -3, -10, 0],
+            skewX: [0, 0.3, -0.2, 0.4, 0],
           }}
-          transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+          transition={{ duration: 20, ease: "easeInOut", repeat: Infinity }}
         />
         <div className="absolute inset-0 bg-background/80" />
       </div>
