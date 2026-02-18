@@ -105,7 +105,7 @@ const SnapshotHero = () => {
   };
 
   return (
-    <section id="snapshot" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section id="snapshot" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-4">
       {/* Background image with slow drift */}
       <div className="absolute inset-0">
         <motion.img
@@ -127,10 +127,10 @@ const SnapshotHero = () => {
 
       <DataFibersBackground />
 
-      <div className="max-w-4xl mx-auto px-6 py-20 relative z-10 w-full">
+      <div className="max-w-4xl mx-auto px-6 py-8 relative z-10 w-full">
         {/* Logo with subtle heartbeat */}
         <motion.div
-          className="flex justify-center mb-8"
+          className="flex justify-center mb-4"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{
             opacity: 1,
