@@ -5,9 +5,9 @@ import kgsAutomationsLogo from "@/assets/kgs-automations-logo.png";
 import kgsFlowLogo from "@/assets/kgs-flow-logo.png";
 
 const items = [
-  { label: "KGS Access", sub: "Secure Identity & Access Control", color: "text-[hsl(210,60%,65%)]", logo: kgsAccessLogo },
-  { label: "KGS Automations", sub: "Workflow & Business Process Automation", color: "text-[hsl(170,50%,55%)]", logo: kgsAutomationsLogo },
-  { label: "KGS Flow", sub: "Financial & Payment Flows", color: "text-[hsl(43,55%,60%)]", logo: kgsFlowLogo },
+  { label: "KGS Access", sub: "Secure Identity & Access Control", color: "text-[hsl(210,60%,65%)]", logo: kgsAccessLogo, imgClass: "h-20 md:h-24 scale-125" },
+  { label: "KGS Automations", sub: "Workflow & Business Process Automation", color: "text-[hsl(170,50%,55%)]", logo: kgsAutomationsLogo, imgClass: "h-20 md:h-24 scale-125" },
+  { label: "KGS Flow", sub: "Financial & Payment Flows", color: "text-[hsl(43,55%,60%)]", logo: kgsFlowLogo, imgClass: "h-14 md:h-16 scale-110" },
 ];
 
 const Marquee = () => {
@@ -48,7 +48,7 @@ const Marquee = () => {
   const renderItems = () =>
     items.map((item, i) => (
       <div key={i} className="flex items-center gap-1 px-3 shrink-0">
-        <img src={item.logo} alt={item.label} className="h-20 md:h-24 w-auto object-contain scale-125" />
+        <img src={item.logo} alt={item.label} className={`${item.imgClass} w-auto object-contain`} />
         <span className={`${item.color} font-medium text-sm tracking-widest uppercase whitespace-nowrap`}>
           {item.label}
         </span>
