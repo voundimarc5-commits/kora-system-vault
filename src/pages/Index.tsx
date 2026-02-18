@@ -10,8 +10,9 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Marquee />
       <Navigation />
+      <div className="h-16" /> {/* spacer for fixed nav */}
+      <Marquee />
       <SnapshotHero />
       <BenefitsSection />
       <SystemsApproachSection />
