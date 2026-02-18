@@ -1,11 +1,10 @@
 import { useEffect, useRef } from "react";
-import kgsParentLogo from "@/assets/kgs-parent-logo.png";
+
 import kgsAccessLogo from "@/assets/kgs-access-logo.png";
 import kgsAutomationsLogo from "@/assets/kgs-automations-logo.png";
 import kgsFlowLogo from "@/assets/kgs-flow-logo.png";
 
 const items = [
-  { label: "KORA Global Systems", color: "text-foreground", weight: "font-semibold", logo: kgsParentLogo },
   { label: "KGS Access", sub: "Secure Identity & Access Control", color: "text-[hsl(210,60%,65%)]", logo: kgsAccessLogo },
   { label: "KGS Automations", sub: "Workflow & Business Process Automation", color: "text-[hsl(170,50%,55%)]", logo: kgsAutomationsLogo },
   { label: "KGS Flow", sub: "Financial & Payment Flows", color: "text-[hsl(43,55%,60%)]", logo: kgsFlowLogo },
@@ -23,7 +22,7 @@ const Marquee = () => {
     // Wait for images to load to get correct width
     const start = () => {
       const halfWidth = el.scrollWidth / 2;
-      const speed = 0.5; // px per frame
+      const speed = 0.75; // px per frame
 
       const tick = () => {
         posRef.current -= speed;
@@ -48,9 +47,9 @@ const Marquee = () => {
 
   const renderItems = () =>
     items.map((item, i) => (
-      <div key={i} className="flex items-center gap-3 px-6 shrink-0">
+      <div key={i} className="flex items-center gap-2 px-3 shrink-0">
         <img src={item.logo} alt={item.label} className="h-16 md:h-20 w-auto object-contain" />
-        <span className={`${item.color} ${item.weight || "font-medium"} text-sm tracking-widest uppercase whitespace-nowrap`}>
+        <span className={`${item.color} font-medium text-sm tracking-widest uppercase whitespace-nowrap`}>
           {item.label}
         </span>
         {item.sub && (
@@ -58,7 +57,7 @@ const Marquee = () => {
             — {item.sub}
           </span>
         )}
-        <span className="mx-4 text-border select-none" aria-hidden>│</span>
+        <span className="mx-2 text-border select-none" aria-hidden>│</span>
       </div>
     ));
 
