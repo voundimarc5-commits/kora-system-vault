@@ -16,8 +16,11 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="#" className="z-10">
-          <KGSLogo size="sm" />
+        <a href="#" className="z-10 flex items-center gap-3">
+          <KGSLogo size="md" />
+          <span className="text-foreground font-semibold text-lg tracking-wide whitespace-nowrap" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            KORA Global Systems
+          </span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
