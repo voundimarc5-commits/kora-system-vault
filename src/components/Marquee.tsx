@@ -34,7 +34,9 @@ const ItemList = () => (
 );
 
 const Marquee = () => (
-  <div className="sticky top-16 z-40 w-full bg-background/75 backdrop-blur-sm overflow-hidden border-b border-border">
+  <div className="sticky top-16 z-40 w-full bg-background/75 backdrop-blur-sm overflow-hidden border-b border-border"
+    style={{ maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)" }}
+  >
     <div className="animate-scroll flex items-center py-1 w-max">
       <ItemList />
       <Separator />
