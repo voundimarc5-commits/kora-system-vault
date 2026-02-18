@@ -1,5 +1,4 @@
 import { Cpu, ArrowLeftRight, ShieldCheck } from "lucide-react";
-import ScrollReveal from "./ScrollReveal";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -36,47 +35,100 @@ const systems = [
   },
 ];
 
+const steps = [
+  { number: "01", title: "Assess", description: "Analyze infrastructure, workflows, and requirements to identify opportunities." },
+  { number: "02", title: "Architect", description: "Design modular, scalable system architectures tailored to your context." },
+  { number: "03", title: "Deploy", description: "Implement and integrate with precision, ensuring minimal disruption." },
+  { number: "04", title: "Operate", description: "Ongoing management and optimization as your business evolves." },
+];
+
 const SystemsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="systems" className="py-24 border-t border-border" ref={ref}>
+    <section id="systems" className="py-20 border-t border-border" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
-        <ScrollReveal className="text-center mb-16">
-          <p className="text-primary font-display text-sm tracking-[0.3em] uppercase mb-4">
-            Our Systems
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
-            Three Pillars of Digital Infrastructure
-          </h2>
-        </ScrollReveal>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {systems.map((s, i) => (
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Left: Systems */}
+          <div>
             <motion.div
-              key={s.name}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + i * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-shadow hover:shadow-[0_0_30px_-10px_hsl(var(--primary)_/_0.2)] group"
+              transition={{ duration: 0.5 }}
             >
-              <s.icon className="h-10 w-10 text-primary mb-6 group-hover:text-accent transition-colors" />
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                {s.name}
-              </h3>
-              <p className="text-primary/70 text-sm mb-5 italic">{s.tagline}</p>
-              <ul className="space-y-3">
-                {s.points.map((p) => (
-                  <li key={p} className="text-muted-foreground text-sm flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-primary font-display text-sm tracking-[0.3em] uppercase mb-3">
+                Our Systems
+              </p>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">
+                Three Pillars of Infrastructure
+              </h2>
             </motion.div>
-          ))}
+
+            <div className="space-y-6">
+              {systems.map((s, i) => (
+                <motion.div
+                  key={s.name}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
+                  className="flex gap-4 p-5 rounded-lg bg-card border border-border hover:border-primary/40 transition-all group"
+                >
+                  <s.icon className="h-8 w-8 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-display text-base font-bold text-foreground mb-1">
+                      {s.name}
+                    </h3>
+                    <p className="text-primary/60 text-xs mb-2 italic">{s.tagline}</p>
+                    <ul className="space-y-1">
+                      {s.points.map((p) => (
+                        <li key={p} className="text-muted-foreground text-xs flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-primary mt-1.5 shrink-0" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Approach */}
+          <div id="approach">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <p className="text-primary font-display text-sm tracking-[0.3em] uppercase mb-3">
+                Our Approach
+              </p>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">
+                How We Deliver
+              </h2>
+            </motion.div>
+
+            <div className="space-y-6">
+              {steps.map((s, i) => (
+                <motion.div
+                  key={s.number}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                  className="flex gap-5"
+                >
+                  <div className="font-display text-3xl font-bold text-primary/15 leading-none pt-1 shrink-0 w-10">
+                    {s.number}
+                  </div>
+                  <div className="border-l border-border pl-5 pb-2">
+                    <h3 className="font-display text-base font-bold text-foreground mb-1">{s.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{s.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
