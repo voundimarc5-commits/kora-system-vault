@@ -1,7 +1,7 @@
 import kgsLogo from "@/assets/kgs-logo.png";
 
 const KGSLogo = ({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" | "lg" }) => {
-  const heights = { sm: "h-9", md: "h-12", lg: "h-64" };
+  const heights = { sm: "h-12", md: "h-16", lg: "h-64" };
 
   return (
     <img
