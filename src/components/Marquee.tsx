@@ -44,12 +44,13 @@ const MarqueeItem = ({ item, containerRef }: { item: typeof items[0]; containerR
   return (
     <span
       ref={ref}
-      className="inline-flex items-center gap-3 whitespace-nowrap transition-transform duration-100"
-      style={{ transform: `scale(${scale})` }}
+      className="inline-flex items-center gap-3 whitespace-nowrap"
     >
-      <img src={item.logo} alt={item.label} className="h-16 md:h-20 w-auto object-contain" />
-      <span className={`${item.color} ${item.weight || "font-medium"} text-sm tracking-widest uppercase`}>
-        {item.label}
+      <span className="inline-flex items-center gap-2 transition-transform duration-100 origin-center" style={{ transform: `scale(${scale})` }}>
+        <img src={item.logo} alt={item.label} className="h-16 md:h-20 w-auto object-contain" />
+        <span className={`${item.color} ${item.weight || "font-medium"} text-sm tracking-widest uppercase`}>
+          {item.label}
+        </span>
       </span>
       {item.sub && (
         <span className="text-muted-foreground text-xs tracking-wide font-normal">
