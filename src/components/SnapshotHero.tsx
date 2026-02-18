@@ -155,7 +155,7 @@ const SnapshotHero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-center"
             >
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 tracking-tight">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 tracking-tight uppercase">
                 How aware is your
                 <br />
                 <span className="text-primary">organisation?</span>
