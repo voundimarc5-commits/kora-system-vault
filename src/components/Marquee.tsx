@@ -19,10 +19,14 @@ const Marquee = () => {
     const el = scrollRef.current;
     if (!el) return;
 
-    // Wait for images to load to get correct width
-    const start = () => {
+    // Wait for ALL images to load before measuring width
+    const images = el.querySelectorAll("img");
+    let loaded = 0;
+    const total = images.length;
+
+    const onAllLoaded = () => {
       const halfWidth = el.scrollWidth / 2;
-      const speed = 0.75; // px per frame
+      const speed = 0.75;
 
       const tick = () => {
         posRef.current -= speed;
@@ -36,11 +40,24 @@ const Marquee = () => {
       animationRef.current = requestAnimationFrame(tick);
     };
 
-    // Small delay to ensure layout is ready
-    const timeout = setTimeout(start, 100);
+    const checkLoaded = () => {
+      loaded++;
+      if (loaded >= total) onAllLoaded();
+    };
+
+    images.forEach((img) => {
+      if (img.complete) {
+        checkLoaded();
+      } else {
+        img.addEventListener("load", checkLoaded, { once: true });
+        img.addEventListener("error", checkLoaded, { once: true });
+      }
+    });
+
+    // Fallback if no images
+    if (total === 0) onAllLoaded();
 
     return () => {
-      clearTimeout(timeout);
       cancelAnimationFrame(animationRef.current);
     };
   }, []);
