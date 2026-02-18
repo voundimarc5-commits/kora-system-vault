@@ -70,13 +70,18 @@ const SystemsApproachSection = () => {
               {systems.map((s, i) => (
                 <motion.div
                   key={s.name}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
-                  whileHover={{ x: 6, transition: { duration: 0.2 } }}
-                  className="flex gap-4 p-5 rounded-lg border border-border bg-card hover:border-primary/30 transition-all hover:shadow-[0_0_25px_-10px_hsl(var(--primary)_/_0.12)]"
+                  initial={{ opacity: 0, x: -50, rotateY: -15 }}
+                  animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.15 + i * 0.15, type: "spring", stiffness: 80 }}
+                  whileHover={{ x: 10, scale: 1.02, transition: { duration: 0.2 } }}
+                  className="flex gap-4 p-5 rounded-lg border border-border bg-card hover:border-primary/30 transition-all hover:shadow-[0_0_30px_-10px_hsl(var(--primary)_/_0.15)]"
                 >
-                  <s.icon className="h-7 w-7 text-primary shrink-0 mt-0.5" />
+                  <motion.div
+                    animate={isInView ? { rotate: [0, 5, -5, 0] } : {}}
+                    transition={{ duration: 2, delay: 1 + i * 0.3, repeat: Infinity, repeatDelay: 4 }}
+                  >
+                    <s.icon className="h-7 w-7 text-primary shrink-0 mt-0.5" />
+                  </motion.div>
                   <div>
                     <h3 className="font-display text-base font-bold text-foreground mb-0.5">
                       {s.name}
@@ -115,12 +120,19 @@ const SystemsApproachSection = () => {
               {steps.map((s, i) => (
                 <motion.div
                   key={s.number}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                  className="p-4 rounded-lg border border-border bg-card"
+                  initial={{ opacity: 0, y: 30, scale: 0.85 }}
+                  animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                  transition={{ duration: 0.5, delay: 0.3 + i * 0.12, type: "spring", stiffness: 100 }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  className="p-4 rounded-lg border border-border bg-card hover:border-primary/20 hover:shadow-[0_0_20px_-8px_hsl(var(--primary)_/_0.1)] transition-shadow"
                 >
-                  <div className="font-display text-2xl font-bold text-primary/15 mb-1">{s.number}</div>
+                  <motion.div
+                    className="font-display text-2xl font-bold text-primary/15 mb-1"
+                    animate={isInView ? { opacity: [0, 1], scale: [2, 1] } : {}}
+                    transition={{ duration: 0.4, delay: 0.5 + i * 0.12 }}
+                  >
+                    {s.number}
+                  </motion.div>
                   <h3 className="font-display text-sm font-bold text-foreground mb-1">{s.title}</h3>
                   <p className="text-muted-foreground text-xs leading-relaxed">{s.description}</p>
                 </motion.div>
