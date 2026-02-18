@@ -6,6 +6,7 @@ import SystemsSection from "@/components/SystemsSection";
 import ApproachSection from "@/components/ApproachSection";
 import WhyKGSSection from "@/components/WhyKGSSection";
 import ContactSection from "@/components/ContactSection";
+import SecuritySnapshot from "@/components/SecuritySnapshot";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,6 +19,7 @@ const Index = () => {
       <SystemsSection />
       <ApproachSection />
       <WhyKGSSection />
+      <SecuritySnapshot />
       <ContactSection />
       <Footer />
     </div>
