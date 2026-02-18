@@ -31,10 +31,10 @@ const MarqueeItem = ({ item, containerRef }: { item: typeof items[0]; containerR
       const containerCenter = containerRect.left + containerRect.width / 2;
       const elCenter = elRect.left + elRect.width / 2;
       const distance = Math.abs(containerCenter - elCenter);
-      const maxDist = containerRect.width / 2;
+      const maxDist = containerRect.width / 3;
       const proximity = Math.max(0, 1 - distance / maxDist);
-      // Scale from 1 to 1.35 based on proximity to center
-      setScale(1 + proximity * 0.35);
+      // Scale from 1 to 1.2 based on proximity to center
+      setScale(1 + proximity * 0.2);
       raf = requestAnimationFrame(update);
     };
     raf = requestAnimationFrame(update);
