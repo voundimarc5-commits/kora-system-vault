@@ -47,8 +47,8 @@ const Marquee = () => {
 
   const renderItems = () =>
     items.map((item, i) => (
-      <div key={i} className="flex items-center gap-2 px-3 shrink-0">
-        <img src={item.logo} alt={item.label} className="h-16 md:h-20 w-auto object-contain" />
+      <div key={i} className="flex items-center gap-1 px-3 shrink-0">
+        <img src={item.logo} alt={item.label} className="h-20 md:h-24 w-auto object-contain scale-125" />
         <span className={`${item.color} font-medium text-sm tracking-widest uppercase whitespace-nowrap`}>
           {item.label}
         </span>
