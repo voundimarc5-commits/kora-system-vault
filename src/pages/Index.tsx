@@ -3,7 +3,6 @@ import SecuritySnapshot from "@/components/SecuritySnapshot";
 import BenefitsSection from "@/components/BenefitsSection";
 import AboutSection from "@/components/AboutSection";
 import SystemsSection from "@/components/SystemsSection";
-import ApproachSection from "@/components/ApproachSection";
 import WhyKGSSection from "@/components/WhyKGSSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -16,7 +15,6 @@ const Index = () => {
       <BenefitsSection />
       <AboutSection />
       <SystemsSection />
-      <ApproachSection />
       <WhyKGSSection />
       <ContactSection />
       <Footer />
