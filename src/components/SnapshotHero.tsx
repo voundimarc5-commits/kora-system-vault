@@ -106,16 +106,20 @@ const SnapshotHero = () => {
 
   return (
     <section id="snapshot" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Background image */}
+      {/* Background image with slow drift */}
       <div className="absolute inset-0">
         <motion.img
           src={citySkyline}
           alt="Futuristic campus"
           className="w-full h-full object-cover"
           loading="eager"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 3, ease: "easeOut" }}
+          initial={{ scale: 1.15 }}
+          animate={{
+            scale: [1.15, 1.05, 1.15],
+            x: [0, -15, 0],
+            y: [0, -10, 0],
+          }}
+          transition={{ duration: 30, ease: "linear", repeat: Infinity }}
         />
         <div className="absolute inset-0 bg-background/80" />
       </div>
@@ -123,12 +127,18 @@ const SnapshotHero = () => {
       <DataFibersBackground />
 
       <div className="max-w-4xl mx-auto px-6 py-20 relative z-10 w-full">
-        {/* Logo */}
+        {/* Logo with subtle heartbeat */}
         <motion.div
           className="flex justify-center mb-8"
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          animate={{
+            opacity: 1,
+            scale: [1, 1.02, 1, 1.01, 1],
+          }}
+          transition={{
+            opacity: { duration: 0.8, delay: 0.2 },
+            scale: { duration: 3, delay: 1.5, repeat: Infinity, ease: "easeInOut" },
+          }}
         >
           <KGSLogo size="lg" />
         </motion.div>

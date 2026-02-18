@@ -49,13 +49,18 @@ const WhyKGSSection = () => {
           {differentiators.map((d, i) => (
             <motion.div
               key={d.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
-              whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              className="p-6 rounded-lg border border-border bg-card text-center hover:border-primary/30 hover:shadow-[0_0_25px_-10px_hsl(var(--primary)_/_0.12)] transition-shadow"
+              initial={{ opacity: 0, y: 40, scale: 0.85 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.15 + i * 0.12, type: "spring", stiffness: 80 }}
+              whileHover={{ y: -8, scale: 1.05, transition: { duration: 0.25 } }}
+              className="p-6 rounded-lg border border-border bg-card text-center hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)_/_0.15)] transition-shadow"
             >
-              <d.icon className="h-7 w-7 text-primary mx-auto mb-3" />
+              <motion.div
+                animate={isInView ? { rotateY: [0, 360] } : {}}
+                transition={{ duration: 0.8, delay: 0.5 + i * 0.15 }}
+              >
+                <d.icon className="h-7 w-7 text-primary mx-auto mb-3" />
+              </motion.div>
               <h3 className="font-display text-sm font-bold text-foreground mb-2">{d.title}</h3>
               <p className="text-muted-foreground text-xs leading-relaxed">{d.description}</p>
             </motion.div>
