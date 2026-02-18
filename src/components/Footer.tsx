@@ -28,14 +28,6 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="pt-4">
-              <p className="text-foreground font-medium">
-                30 N Gould St, Sheridan,
-                <br />
-                WY 82801, États-Unis
-              </p>
-            </div>
-
             {/* Social Icons */}
             <div className="flex items-center gap-4 pt-2">
               <a
@@ -86,16 +78,23 @@ const Footer = () => {
           </div>
 
           {/* Right: Google Maps */}
-          <div className="rounded-lg overflow-hidden border border-border h-[300px] md:h-full min-h-[300px]">
+          <div className="relative rounded-xl overflow-hidden border border-primary/20 h-[300px] md:h-full min-h-[300px] shadow-[0_0_30px_-5px_hsl(var(--primary)/0.15)]">
+            {/* Futuristic overlay glow */}
+            <div className="absolute inset-0 pointer-events-none z-10 rounded-xl border border-primary/10 bg-gradient-to-t from-background/40 via-transparent to-primary/5" />
+            <div className="absolute top-3 left-3 z-20 flex items-center gap-2 bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-md border border-border">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-[10px] font-display tracking-widest uppercase text-primary">Live Location</span>
+            </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2832.!2d-106.956!3d44.797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5335fabc2a66677f%3A0x8f85bd81dbd4ccc7!2s30%20N%20Gould%20St%2C%20Sheridan%2C%20WY%2082801!5e0!3m2!1sen!2sus!4v1700000000000"
               width="100%"
               height="100%"
-              style={{ border: 0 }}
+              style={{ border: 0, filter: "saturate(0.3) contrast(1.1) brightness(0.95)" }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Kora Global Systems - Sheridan, WY"
+              className="relative z-0"
             />
           </div>
         </div>
