@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Systems", href: "#systems" },
   { label: "Approach", href: "#approach" },
   { label: "Why KGS", href: "#why" },
+  { label: "Snapshot", href: "#snapshot" },
   { label: "Contact", href: "#contact" },
 ];
 
