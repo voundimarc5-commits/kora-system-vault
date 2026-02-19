@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import kgsLogo from "@/assets/kgs-logo.png";
 
-const KGSLogo = ({ className = "", size = "md", animate = false }: { className?: string; size?: "sm" | "md" | "lg"; animate?: boolean }) => {
+const KGSLogo = ({ className = "", size = "md", animate = false, copper = false }: { className?: string; size?: "sm" | "md" | "lg"; animate?: boolean; copper?: boolean }) => {
   const heights = { sm: "h-12", md: "h-16", lg: "h-64" };
+  const copperFilter = copper ? "sepia(60%) saturate(200%) hue-rotate(-5deg) brightness(0.85)" : "";
 
   if (animate) {
     return (
@@ -10,6 +11,7 @@ const KGSLogo = ({ className = "", size = "md", animate = false }: { className?:
         src={kgsLogo}
         alt="KORA Global Systems"
         className={`${heights[size]} w-auto object-contain ${className}`}
+        style={copperFilter ? { filter: copperFilter } : undefined}
         animate={{
           scale: [1, 1.04, 1],
           filter: [
@@ -32,6 +34,7 @@ const KGSLogo = ({ className = "", size = "md", animate = false }: { className?:
       src={kgsLogo}
       alt="KORA Global Systems"
       className={`${heights[size]} w-auto object-contain ${className}`}
+      style={copperFilter ? { filter: copperFilter } : undefined}
     />
   );
 };

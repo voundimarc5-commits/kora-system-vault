@@ -40,7 +40,7 @@ const FounderHero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          <KGSLogo size="lg" animate />
+          <KGSLogo size="lg" animate copper />
         </motion.div>
 
         {/* Headline */}
