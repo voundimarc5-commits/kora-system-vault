@@ -1,31 +1,32 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Handshake } from "lucide-react";
 import KGSLogo from "./KGSLogo";
-import DashboardBackground from "./DashboardBackground";
-import africaSkyline from "@/assets/africa-skyline-hero.jpg";
+import africaGreen from "@/assets/africa-green-innovation.jpg";
 
 const FounderHero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Animated background image */}
+      {/* Animated background image — slow pan + subtle scale for wind/life effect */}
       <div className="absolute inset-0">
         <motion.img
-          src={africaSkyline}
-          alt="Modern African city skyline"
+          src={africaGreen}
+          alt="Modern eco-friendly African campus with greenery and innovation"
           className="w-full h-full object-cover"
           loading="eager"
-          initial={{ scale: 1.15 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 2.5, ease: "easeOut" }}
+          initial={{ scale: 1.18, x: 0 }}
+          animate={{ scale: 1.05, x: -20 }}
+          transition={{
+            duration: 20,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
         />
-        <div className="absolute inset-0 bg-background/75" />
+        <div className="absolute inset-0 bg-background/70" />
       </div>
 
-      {/* Canvas dashboard animation */}
-      <DashboardBackground />
-
       {/* Radial vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(0_0%_100%_/_0.4)_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(0_0%_100%_/_0.35)_70%)]" />
 
       <div className="max-w-7xl mx-auto px-6 py-24 text-center relative z-10">
         {/* Animated logo with heartbeat pulse */}
