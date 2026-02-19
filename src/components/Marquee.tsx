@@ -80,7 +80,7 @@ const Marquee = () => {
 
   return (
     <div
-      className="sticky top-16 z-40 w-full bg-background/75 backdrop-blur-sm border-b border-border overflow-hidden"
+      className="w-full bg-background/95 backdrop-blur-sm border-b border-border overflow-hidden"
     >
       {/* Fade edges */}
       <div className="absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-background/75 to-transparent pointer-events-none" />
