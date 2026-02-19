@@ -26,9 +26,42 @@ const Advisory = () => {
 
   return (
     <div
-      className="advisory-dark min-h-screen"
+      className="advisory-dark min-h-screen relative overflow-hidden"
       style={{ background: "hsl(var(--adv-bg))" }}
     >
+      {/* Ambient background — subtle radial gradients that drift slowly */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <motion.div
+          className="absolute w-[800px] h-[800px] rounded-full opacity-[0.04]"
+          style={{
+            background: "radial-gradient(circle, hsl(var(--adv-accent)) 0%, transparent 70%)",
+            top: "-200px",
+            right: "-200px",
+          }}
+          animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute w-[600px] h-[600px] rounded-full opacity-[0.03]"
+          style={{
+            background: "radial-gradient(circle, hsl(var(--adv-accent-dim)) 0%, transparent 70%)",
+            bottom: "-150px",
+            left: "-150px",
+          }}
+          animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {/* Faint grid texture */}
+        <div
+          className="absolute inset-0 opacity-[0.015]"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--adv-text-muted)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--adv-text-muted)) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </div>
+
       {/* Minimal top bar */}
       <nav
         className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between"
@@ -46,7 +79,7 @@ const Advisory = () => {
         </span>
       </nav>
 
-      <div className="pt-16">
+      <div className="pt-20 relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={step}
