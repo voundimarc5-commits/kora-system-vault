@@ -18,6 +18,7 @@ const WhoWeAreSection = () => {
       </svg>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-5 gap-12 items-center">
+          {/* Image with overlaid key message */}
           <motion.div
             ref={imgRef}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -28,16 +29,33 @@ const WhoWeAreSection = () => {
             <img
               src={glassBridge}
               alt="Modern glass bridge inside corporate headquarters"
-              className="w-full h-[400px] md:h-[450px] object-cover transition-transform duration-[2s] group-hover:scale-105"
+              className="w-full h-[400px] md:h-[480px] object-cover transition-transform duration-[2s] group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/40 to-transparent" />
-            <div className="absolute bottom-6 left-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
+
+            {/* Badge */}
+            <div className="absolute top-5 left-5">
               <span className="bg-primary/90 text-primary-foreground text-xs font-display tracking-widest uppercase px-4 py-1.5 rounded-full">
                 {t.whoWeAre.badge}
               </span>
             </div>
+
+            {/* Overlaid text card at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-7">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="bg-background/85 backdrop-blur-md rounded-xl border border-primary/15 p-4 md:p-5 shadow-[0_-8px_30px_-8px_hsl(var(--primary)_/_0.2)]"
+              >
+                <p className="text-foreground text-xs md:text-sm leading-relaxed">
+                  {t.whoWeAre.p3}
+                </p>
+              </motion.div>
+            </div>
           </motion.div>
 
+          {/* Text — 2 cols */}
           <div className="md:col-span-2">
             <ScrollReveal>
               <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
@@ -53,7 +71,6 @@ const WhoWeAreSection = () => {
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>{t.whoWeAre.p1}</p>
                 <p>{t.whoWeAre.p2}</p>
-                <p>{t.whoWeAre.p3}</p>
               </div>
             </ScrollReveal>
           </div>

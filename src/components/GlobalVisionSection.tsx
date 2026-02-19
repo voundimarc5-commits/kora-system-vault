@@ -21,6 +21,7 @@ const GlobalVisionSection = () => {
       </svg>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Text column */}
           <div>
             <ScrollReveal>
               <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">{t.globalVision.label}</p>
@@ -32,23 +33,11 @@ const GlobalVisionSection = () => {
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>{t.globalVision.p1}</p>
                 <p>{t.globalVision.p2}</p>
-                <ul className="space-y-3 pl-1">
-                  {points.map((pt, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <motion.div
-                        animate={{ rotateY: [0, 360] }}
-                        transition={{ duration: 1.5, ease: "easeInOut" as const, repeat: Infinity, repeatDelay: 3, delay: i * 1 }}
-                        style={{ perspective: 150 }}
-                      >
-                        <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                      </motion.div>
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </ScrollReveal>
           </div>
+
+          {/* Image with overlaid bullet points */}
           <motion.div
             ref={imgRef}
             initial={{ opacity: 0, x: 60 }}
@@ -56,8 +45,35 @@ const GlobalVisionSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative rounded-2xl overflow-hidden shadow-2xl"
           >
-            <img src={africaCoastalPort} alt="Tropical African coastal city with harbor and boats" className="w-full h-[400px] object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+            <img src={africaCoastalPort} alt="Tropical African coastal city with harbor and boats" className="w-full h-[450px] md:h-[500px] object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
+
+            {/* Overlaid bullet points card */}
+            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-7">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="bg-background/85 backdrop-blur-md rounded-xl border border-primary/15 p-4 md:p-5 shadow-[0_-8px_30px_-8px_hsl(var(--primary)_/_0.2)]"
+              >
+                <ul className="space-y-2.5">
+                  {points.map((pt, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -15 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 0.7 + i * 0.12 }}
+                      className="flex items-start gap-2.5"
+                    >
+                      <div className="mt-0.5 w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
+                        <Check className="h-3 w-3 text-primary" />
+                      </div>
+                      <span className="text-foreground text-xs md:text-sm leading-relaxed">{pt}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
