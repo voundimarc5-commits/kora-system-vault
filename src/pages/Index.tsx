@@ -14,7 +14,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(30 20% 95%) 15%, hsl(32 18% 93%) 40%, hsl(30 15% 94%) 65%, hsl(30 20% 95%) 85%, hsl(var(--background)) 100%)" }}>
       <Navigation />
       <div className="h-16" />
       <Marquee />

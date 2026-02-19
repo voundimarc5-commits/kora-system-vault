@@ -2,7 +2,7 @@ import ScrollReveal from "./ScrollReveal";
 
 const EthosSection = () => {
   return (
-    <section className="py-16 bg-card/50 relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden">
       {/* Decorative shapes */}
       <div className="absolute -top-28 -right-10 w-[550px] h-[550px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.16) 0%, transparent 65%)" }} />
       <div className="absolute -bottom-20 -left-28 w-[450px] h-[450px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.14) 0%, transparent 65%)" }} />
