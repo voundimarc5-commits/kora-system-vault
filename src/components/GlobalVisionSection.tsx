@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-import africaLogistics from "@/assets/africa-logistics.jpg";
+import africaCoastalPort from "@/assets/africa-coastal-port.jpg";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -58,14 +58,14 @@ const GlobalVisionSection = () => {
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative rounded-xl overflow-hidden shadow-xl"
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
           >
             <img
-              src={africaLogistics}
-              alt="African port and logistics infrastructure"
-              className="w-full h-[350px] object-cover"
+              src={africaCoastalPort}
+              alt="Tropical African coastal city with harbor and boats"
+              className="w-full h-[400px] object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
           </motion.div>
         </div>
       </div>

@@ -1,19 +1,19 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import africaSmartAccess from "@/assets/africa-smart-access.jpg";
-import africaDataCenter from "@/assets/africa-data-center.jpg";
-import africaBoardroom from "@/assets/africa-boardroom.jpg";
-import africaBusinessDistrict from "@/assets/africa-business-district.jpg";
-import africaLogistics from "@/assets/africa-logistics.jpg";
-import africaSkyline from "@/assets/africa-skyline-hero.jpg";
+import realAccessGate from "@/assets/real-access-gate.jpg";
+import realOperationsRoom from "@/assets/real-operations-room.jpg";
+import realArchitecturePlanning from "@/assets/real-architecture-planning.jpg";
+import africaCoastalPort from "@/assets/africa-coastal-port.jpg";
+import realSolarInfra from "@/assets/real-solar-infrastructure.jpg";
+import realNetworkInfra from "@/assets/real-network-infra.jpg";
 
 const images = [
-  { src: africaSmartAccess, alt: "Smart access control villa", label: "KGS Access — Secure Environments" },
-  { src: africaDataCenter, alt: "Data center infrastructure", label: "KGS Core — Infrastructure" },
-  { src: africaBoardroom, alt: "Corporate boardroom", label: "KGS Advisory — Strategic Partnerships" },
-  { src: africaBusinessDistrict, alt: "African business district", label: "KGS Global — Emerging Markets" },
-  { src: africaLogistics, alt: "Port and logistics hub", label: "KGS Flow — Operational Systems" },
-  { src: africaSkyline, alt: "Modern African skyline", label: "KGS Campus — Smart Infrastructure" },
+  { src: realAccessGate, alt: "Smart access gate system", label: "KGS Access — Secure Entry Systems" },
+  { src: realOperationsRoom, alt: "Operations control room", label: "KGS Ops — Monitoring & Control" },
+  { src: realSolarInfra, alt: "Solar energy infrastructure", label: "KGS Energy — Sustainable Systems" },
+  { src: africaCoastalPort, alt: "Coastal port infrastructure", label: "KGS Global — Trade & Logistics" },
+  { src: realNetworkInfra, alt: "Network infrastructure", label: "KGS Core — Connectivity" },
+  { src: realArchitecturePlanning, alt: "Architecture planning", label: "KGS Advisory — Strategic Design" },
 ];
 
 const ImageCarousel = () => {
@@ -36,7 +36,6 @@ const ImageCarousel = () => {
         </h2>
       </motion.div>
 
-      {/* Infinite scrolling carousel */}
       <div className="relative">
         <motion.div
           initial={{ opacity: 0 }}
