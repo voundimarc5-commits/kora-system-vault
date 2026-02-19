@@ -1,23 +1,27 @@
-import Marquee from "@/components/Marquee";
 import Navigation from "@/components/Navigation";
-import SnapshotHero from "@/components/SnapshotHero";
-import BenefitsSection from "@/components/BenefitsSection";
-import SystemsApproachSection from "@/components/SystemsApproachSection";
-import WhyKGSSection from "@/components/WhyKGSSection";
-import ContactSection from "@/components/ContactSection";
+import FounderHero from "@/components/FounderHero";
+import WhoWeAreSection from "@/components/WhoWeAreSection";
+import PhilosophySection from "@/components/PhilosophySection";
+import WhatWeDoSection from "@/components/WhatWeDoSection";
+import GlobalVisionSection from "@/components/GlobalVisionSection";
+import TrustSection from "@/components/TrustSection";
+import EthosSection from "@/components/EthosSection";
+import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <div className="h-16" /> {/* spacer for fixed nav */}
-      <Marquee />
-      <SnapshotHero />
-      <BenefitsSection />
-      <SystemsApproachSection />
-      <WhyKGSSection />
-      <ContactSection />
+      <div className="h-16" />
+      <FounderHero />
+      <WhoWeAreSection />
+      <PhilosophySection />
+      <WhatWeDoSection />
+      <GlobalVisionSection />
+      <TrustSection />
+      <EthosSection />
+      <FooterCTA />
       <Footer />
     </div>
   );
