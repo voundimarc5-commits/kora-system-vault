@@ -31,7 +31,7 @@ const AfricaQuote = () => {
               Africa is not a "future market"
             </span>
             <br className="hidden md:block" />
-            <span className="text-muted-foreground/70"> — it is a </span>
+            <span className="text-muted-foreground/70"> it is a </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-[hsl(35_65%_55%)]">
               current innovation ground.
             </span>

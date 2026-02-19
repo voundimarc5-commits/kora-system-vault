@@ -8,7 +8,10 @@ const FooterCTA = () => {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="contact" className="py-16" ref={ref}>
+    <section id="contact" className="py-16 relative overflow-hidden" ref={ref}>
+      {/* Decorative shapes */}
+      <div className="absolute top-0 right-1/4 w-60 h-60 rounded-full opacity-[0.05]" style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }} />
+      <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full opacity-[0.04]" style={{ background: "radial-gradient(circle, hsl(var(--glow)) 0%, transparent 70%)" }} />
       <div className="max-w-3xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
