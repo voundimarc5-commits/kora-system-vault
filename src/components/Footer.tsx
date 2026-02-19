@@ -1,4 +1,5 @@
 import { Mail, Globe, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 import KGSLogo from "./KGSLogo";
 
 const Footer = () => {
@@ -105,10 +106,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom copyright */}
-        <div className="mt-12 pt-8 border-t border-border text-center">
+        <div className="mt-12 pt-8 border-t border-border text-center space-y-2">
           <p className="text-muted-foreground text-xs tracking-wide">
             © 2024 KORA Global Systems. All rights reserved.
           </p>
+          <Link
+            to="/terms"
+            className="text-muted-foreground/50 hover:text-muted-foreground text-[11px] tracking-wide transition-colors"
+          >
+            Terms & Conditions
+          </Link>
         </div>
       </div>
     </footer>

@@ -10,6 +10,7 @@ import AfricaQuote from "@/components/AfricaQuote";
 import TrustSection from "@/components/TrustSection";
 import EthosSection from "@/components/EthosSection";
 import FooterCTA from "@/components/FooterCTA";
+import PreviewReport from "@/components/PreviewReport";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -28,6 +29,7 @@ const Index = () => {
       <TrustSection />
       <EthosSection />
       <FooterCTA />
+      <PreviewReport />
       <Footer />
     </div>
   );

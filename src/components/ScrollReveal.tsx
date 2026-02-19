@@ -31,8 +31,8 @@ const ScrollReveal = ({
     <motion.div
       ref={ref}
       className={className}
-      initial={{ opacity: 0, x: offset.x, y: offset.y }}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
+      initial={{ opacity: 0, x: offset.x, y: offset.y, filter: "blur(4px)" }}
+      animate={isInView ? { opacity: 1, x: 0, y: 0, filter: "blur(0px)" } : {}}
       transition={{ duration, delay, ease: [0.25, 0.4, 0.25, 1] }}
     >
       {children}
