@@ -42,7 +42,7 @@ const FooterCTA = () => {
             Contact
           </motion.a>
           <motion.a
-            href="mailto:partnerships@koraglobalsystems.com"
+            href="mailto:contact@koraglobalsystems.com"
             className="inline-flex items-center gap-2 px-7 py-3 border border-border text-foreground font-display font-semibold text-sm rounded-lg hover:border-primary/40 transition-colors"
             whileHover={{ scale: 1.03 }}
           >
