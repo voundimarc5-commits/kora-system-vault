@@ -3,20 +3,17 @@ import ScrollReveal from "./ScrollReveal";
 import africaCoastalPort from "@/assets/africa-coastal-port.jpg";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
-const points = [
-  "Design solutions resilient to climate and infrastructure variability",
-  "Bridge gaps between global platforms and local execution",
-  "Support projects ranging from private developments to enterprise-scale initiatives",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const GlobalVisionSection = () => {
   const imgRef = useRef(null);
   const isInView = useInView(imgRef, { once: true, margin: "-80px" });
+  const { t } = useLanguage();
+
+  const points = [t.globalVision.point1, t.globalVision.point2, t.globalVision.point3];
 
   return (
     <section id="vision" className="py-16 relative overflow-hidden">
-      {/* Decorative elements */}
       <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.15) 0%, transparent 65%)" }} />
       <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <path d="M-50,120 C300,60 500,200 900,100 S1300,180 1700,120" stroke="hsl(var(--primary) / 0.1)" strokeWidth="2" fill="none" />
@@ -26,36 +23,21 @@ const GlobalVisionSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <ScrollReveal>
-              <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
-                Global Vision, Africa-First Reality
-              </p>
+              <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">{t.globalVision.label}</p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 leading-tight">
-                International standards. Local intelligence.
-              </h2>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 leading-tight">{t.globalVision.title}</h2>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
-                <p>
-                  While Kora Global Systems operates with a global outlook, our
-                  solutions are deeply informed by African and emerging market
-                  realities, environments where adaptability, resilience, and trust
-                  matter more than buzzwords.
-                </p>
-                <p>This dual perspective allows us to:</p>
+                <p>{t.globalVision.p1}</p>
+                <p>{t.globalVision.p2}</p>
                 <ul className="space-y-3 pl-1">
                   {points.map((pt, i) => (
-                    <li key={pt} className="flex items-start gap-3">
+                    <li key={i} className="flex items-start gap-3">
                       <motion.div
                         animate={{ rotateY: [0, 360] }}
-                        transition={{
-                          duration: 1.5,
-                          ease: "easeInOut" as const,
-                          repeat: Infinity,
-                          repeatDelay: 3,
-                          delay: i * 1,
-                        }}
+                        transition={{ duration: 1.5, ease: "easeInOut" as const, repeat: Infinity, repeatDelay: 3, delay: i * 1 }}
                         style={{ perspective: 150 }}
                       >
                         <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
@@ -74,11 +56,7 @@ const GlobalVisionSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative rounded-2xl overflow-hidden shadow-2xl"
           >
-            <img
-              src={africaCoastalPort}
-              alt="Tropical African coastal city with harbor and boats"
-              className="w-full h-[400px] object-cover"
-            />
+            <img src={africaCoastalPort} alt="Tropical African coastal city with harbor and boats" className="w-full h-[400px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
           </motion.div>
         </div>
