@@ -3,10 +3,9 @@ import KGSLogo from "./KGSLogo";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Snapshot", href: "#snapshot" },
-  { label: "Systems", href: "#systems" },
-  { label: "Approach", href: "#approach" },
-  { label: "Why KGS", href: "#why" },
+  { label: "About", href: "#about" },
+  { label: "Solutions", href: "#solutions" },
+  { label: "Vision", href: "#vision" },
   { label: "Contact", href: "#contact" },
 ];
 
