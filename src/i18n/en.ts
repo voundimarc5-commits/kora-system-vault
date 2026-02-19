@@ -54,9 +54,9 @@ export const en = {
   scopeGovernance: {
     label: "Scope & Governance",
     title: "Scope & Governance",
-    p1: "Kora Global Systems operates as a multi-vertical technology group delivering advisory, systems design, deployment, and operational coordination across security, infrastructure, and intelligent systems.",
-    p2: "Certain activities within the Kora Global Systems ecosystem are delivered through specialized solution lines or independent third-party partners, each operating under their own regulatory and operational frameworks.",
-    p3: "Where applicable, financial, transactional, or regulated services are performed exclusively by licensed third-party providers. Kora Global Systems does not position itself as a financial institution or payment service provider.",
+    p1: "Kora Global Systems operates as a multi-vertical technology group providing advisory, design, and orchestration layers across security, infrastructure, and operational systems.",
+    p2: "Kora Global Systems does not directly execute regulated activities such as financial transactions, asset custody, or payment processing. Execution layers, when required, are handled by independent third-party providers operating under their own regulatory obligations.",
+    p3: "This structural separation ensures transparency, scalability, and regulatory alignment across jurisdictions.",
   },
   globalVision: {
     label: "Global Vision, Africa-First Reality",
@@ -123,7 +123,10 @@ export const en = {
     location: "United States — Wyoming (WY)",
     copyright: "© 2024 KORA Global Systems. All rights reserved.",
     terms: "Terms & Conditions",
-    legalNotice: "Kora Global Systems is a technology group providing advisory, systems architecture, and operational coordination services. Certain activities may involve independent licensed third-party providers operating under their own regulatory frameworks.",
+    legalNoticePage: "Legal Notice",
+    termsOfUse: "Terms of Use",
+    privacyPolicy: "Privacy Policy",
+    disclaimer: "Kora Global Systems does not execute transactions, process payments, or custody funds. All regulated financial operations are performed by licensed third-party providers.",
   },
   whyKGS: {
     label: "Why KGS",

@@ -54,9 +54,9 @@ export const fr = {
   scopeGovernance: {
     label: "Périmètre & Gouvernance",
     title: "Périmètre & Gouvernance",
-    p1: "Kora Global Systems opère en tant que groupe technologique multi-vertical offrant des services de conseil, de conception de systèmes, de déploiement et de coordination opérationnelle dans les domaines de la sécurité, de l'infrastructure et des systèmes intelligents.",
-    p2: "Certaines activités au sein de l'écosystème Kora Global Systems sont assurées par des lignes de solutions spécialisées ou des partenaires tiers indépendants, chacun opérant sous ses propres cadres réglementaires et opérationnels.",
-    p3: "Le cas échéant, les services financiers, transactionnels ou réglementés sont effectués exclusivement par des prestataires tiers agréés. Kora Global Systems ne se positionne pas comme une institution financière ou un prestataire de services de paiement.",
+    p1: "Kora Global Systems opère en tant que groupe technologique multi-vertical fournissant des couches de conseil, de conception et d'orchestration dans les domaines de la sécurité, de l'infrastructure et des systèmes opérationnels.",
+    p2: "Kora Global Systems n'exécute pas directement d'activités réglementées telles que les transactions financières, la garde d'actifs ou le traitement des paiements. Les couches d'exécution, lorsqu'elles sont nécessaires, sont gérées par des prestataires tiers indépendants opérant sous leurs propres obligations réglementaires.",
+    p3: "Cette séparation structurelle garantit la transparence, la scalabilité et l'alignement réglementaire à travers les juridictions.",
   },
   globalVision: {
     label: "Vision Mondiale, Réalité Africaine",
@@ -123,7 +123,10 @@ export const fr = {
     location: "États-Unis — Wyoming (WY)",
     copyright: "© 2024 KORA Global Systems. Tous droits réservés.",
     terms: "Conditions Générales",
-    legalNotice: "Kora Global Systems est un groupe technologique fournissant des services de conseil, d'architecture de systèmes et de coordination opérationnelle. Certaines activités peuvent impliquer des prestataires tiers agréés indépendants opérant sous leurs propres cadres réglementaires.",
+    legalNoticePage: "Mentions Légales",
+    termsOfUse: "Conditions d'Utilisation",
+    privacyPolicy: "Politique de Confidentialité",
+    disclaimer: "Kora Global Systems n'exécute pas de transactions, ne traite pas de paiements et ne détient pas de fonds. Toutes les opérations financières réglementées sont effectuées par des prestataires tiers agréés.",
   },
   whyKGS: {
     label: "Pourquoi KGS",
