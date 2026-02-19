@@ -34,7 +34,7 @@ const FooterCTA = () => {
         >
           <motion.a
             href="mailto:contact@koraglobalsystems.com"
-            className="inline-flex items-center gap-2 px-7 py-3 bg-primary text-primary-foreground font-display font-semibold tracking-wide text-sm rounded-lg"
+            className="inline-flex items-center gap-2 px-7 py-3 bg-primary/75 text-primary-foreground font-display font-semibold tracking-wide text-sm rounded-lg"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -43,7 +43,7 @@ const FooterCTA = () => {
           </motion.a>
           <motion.a
             href="mailto:contact@koraglobalsystems.com"
-            className="inline-flex items-center gap-2 px-7 py-3 border border-border text-foreground font-display font-semibold text-sm rounded-lg hover:border-primary/40 transition-colors"
+            className="inline-flex items-center gap-2 px-7 py-3 border border-border/60 text-foreground/75 font-display font-semibold text-sm rounded-lg hover:border-primary/40 transition-colors"
             whileHover={{ scale: 1.03 }}
           >
             Partnerships
@@ -51,7 +51,7 @@ const FooterCTA = () => {
           </motion.a>
           <motion.a
             href="#about"
-            className="inline-flex items-center gap-2 px-7 py-3 border border-border text-muted-foreground font-display text-sm rounded-lg hover:border-primary/40 transition-colors"
+            className="inline-flex items-center gap-2 px-7 py-3 border border-border/60 text-muted-foreground/75 font-display text-sm rounded-lg hover:border-primary/40 transition-colors"
             whileHover={{ scale: 1.03 }}
           >
             <FileText className="h-4 w-4" />
@@ -60,7 +60,7 @@ const FooterCTA = () => {
           <motion.div whileHover={{ scale: 1.03 }}>
             <Link
               to="/advisory"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-primary/10 border border-primary/30 text-primary font-display font-semibold text-sm rounded-lg hover:bg-primary/15 transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-primary/8 border border-primary/20 text-primary/75 font-display font-semibold text-sm rounded-lg hover:bg-primary/12 transition-colors"
             >
               <Shield className="h-4 w-4" />
               Exposure Assessment
