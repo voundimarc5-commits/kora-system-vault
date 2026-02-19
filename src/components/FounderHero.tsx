@@ -5,7 +5,7 @@ import africaGreen from "@/assets/africa-green-innovation.jpg";
 
 const FounderHero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section className="min-h-screen flex items-start justify-center relative overflow-hidden pt-8">
       {/* Animated background image — slow pan + subtle scale for wind/life effect */}
       <div className="absolute inset-0">
         <motion.img
@@ -28,10 +28,10 @@ const FounderHero = () => {
       {/* Radial vignette */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(0_0%_100%_/_0.35)_70%)]" />
 
-      <div className="max-w-7xl mx-auto px-6 py-24 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 pt-6 pb-24 text-center relative z-10">
         {/* Animated logo with heartbeat pulse */}
         <motion.div
-          className="flex justify-center mb-6 -mt-8"
+          className="flex justify-center mb-4"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
