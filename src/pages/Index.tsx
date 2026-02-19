@@ -4,7 +4,7 @@ import FounderHero from "@/components/FounderHero";
 import WhoWeAreSection from "@/components/WhoWeAreSection";
 import PhilosophySection from "@/components/PhilosophySection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
-import ImageCarousel from "@/components/ImageCarousel";
+
 import GlobalVisionSection from "@/components/GlobalVisionSection";
 import AfricaQuote from "@/components/AfricaQuote";
 import TrustSection from "@/components/TrustSection";
@@ -23,7 +23,7 @@ const Index = () => {
       <WhoWeAreSection />
       <PhilosophySection />
       <WhatWeDoSection />
-      <ImageCarousel />
+      
       <GlobalVisionSection />
       <AfricaQuote />
       <TrustSection />
