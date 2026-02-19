@@ -34,7 +34,7 @@ const GlobalVisionSection = () => {
                 <p>
                   While Kora Global Systems operates with a global outlook, our
                   solutions are deeply informed by African and emerging market
-                  realities — environments where adaptability, resilience, and trust
+                  realities, environments where adaptability, resilience, and trust
                   matter more than buzzwords.
                 </p>
                 <p>This dual perspective allows us to:</p>

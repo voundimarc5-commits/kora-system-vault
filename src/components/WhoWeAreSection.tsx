@@ -57,7 +57,7 @@ const WhoWeAreSection = () => {
                   are often underserved by rigid, one-size-fits-all solutions.
                 </p>
                 <p>
-                  Our approach is pragmatic, scalable, and human-centered — combining
+                  Our approach is pragmatic, scalable, and human-centered, combining
                   international standards with deep contextual understanding.
                 </p>
               </div>

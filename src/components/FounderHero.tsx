@@ -88,7 +88,7 @@ const FounderHero = () => {
           transition={{ duration: 0.8, delay: 1.4 }}
         >
           An international technology group focused on security, infrastructure
-          and intelligent orchestration — designed for real-world environments,
+          and intelligent orchestration, designed for real-world environments,
           emerging markets, and global scalability.
         </motion.p>
 

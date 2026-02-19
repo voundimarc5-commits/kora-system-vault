@@ -9,8 +9,12 @@ const capabilities = [
 
 const TrustSection = () => {
   return (
-    <section className="py-16">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="py-16 relative overflow-hidden">
+      {/* Decorative background shapes */}
+      <div className="absolute top-10 -right-20 w-72 h-72 rounded-full opacity-[0.06]" style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-10 -left-16 w-56 h-56 rounded-full opacity-[0.04]" style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)" }} />
+      <div className="absolute top-1/2 left-1/3 w-40 h-40 rounded-full opacity-[0.03]" style={{ background: "radial-gradient(circle, hsl(var(--glow)) 0%, transparent 70%)" }} />
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         <ScrollReveal>
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
             Trust & Positioning
