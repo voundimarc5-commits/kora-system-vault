@@ -32,10 +32,10 @@ const PreviewReport = () => {
           className="text-center mb-10"
         >
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
-            Sample Document
+            Illustrative Assessment Framework
           </p>
           <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
-            Sample Structural Assessment — Preview
+            Illustrative Assessment Framework — Preview
           </h3>
           <p className="text-muted-foreground text-sm">
             For project evaluation and strategic alignment only
@@ -135,6 +135,9 @@ const PreviewReport = () => {
             <p className="text-[10px] text-muted-foreground/40">
               For institutions, developers, and long-term partners. This
               assessment is non-binding.
+            </p>
+            <p className="text-[10px] text-muted-foreground/35 mt-1">
+              Used for preliminary structuring and partner alignment.
             </p>
           </motion.div>
         ) : (
