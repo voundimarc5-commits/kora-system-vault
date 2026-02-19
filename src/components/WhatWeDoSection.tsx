@@ -47,8 +47,14 @@ const WhatWeDoSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="solutions" className="py-16" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="solutions" className="py-16 relative overflow-hidden" ref={ref}>
+      {/* Decorative shapes */}
+      <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-[0.05]" style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-20 -left-16 w-64 h-64 rounded-full opacity-[0.04]" style={{ background: "radial-gradient(circle, hsl(var(--glow)) 0%, transparent 70%)" }} />
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,80 Q400,20 800,90 T1600,70" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" />
+      </svg>
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <ScrollReveal>
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
             What We Do
