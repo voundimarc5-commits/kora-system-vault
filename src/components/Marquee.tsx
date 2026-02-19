@@ -87,13 +87,15 @@ const Marquee = () => {
 
   return (
     <div
-      className={`w-full sticky top-0 z-50 border-b border-border overflow-hidden transition-colors duration-300 ${
-        scrolled ? "bg-background/75 backdrop-blur-md" : "bg-background/95 backdrop-blur-sm"
+      className={`w-full sticky top-0 z-50 overflow-hidden transition-all duration-500 ${
+        scrolled
+          ? "bg-[hsl(30_72%_46%_/_0.15)] backdrop-blur-md border-b border-primary/10"
+          : "bg-background/95 backdrop-blur-sm border-b border-border"
       }`}
     >
       {/* Fade edges */}
-      <div className="absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-background/75 to-transparent pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-16 z-10 bg-gradient-to-l from-background/75 to-transparent pointer-events-none" />
+      <div className={`absolute inset-y-0 left-0 w-16 z-10 pointer-events-none transition-all duration-500 ${scrolled ? "bg-gradient-to-r from-[hsl(30_72%_46%_/_0.12)] to-transparent" : "bg-gradient-to-r from-background/75 to-transparent"}`} />
+      <div className={`absolute inset-y-0 right-0 w-16 z-10 pointer-events-none transition-all duration-500 ${scrolled ? "bg-gradient-to-l from-[hsl(30_72%_46%_/_0.12)] to-transparent" : "bg-gradient-to-l from-background/75 to-transparent"}`} />
 
       <div ref={scrollRef} className="flex items-center py-1 will-change-transform">
         {renderItems()}
