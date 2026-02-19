@@ -1,18 +1,18 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import realAccessGate from "@/assets/real-access-gate.jpg";
-import realOperationsRoom from "@/assets/real-operations-room.jpg";
+import realVillaAccess from "@/assets/real-villa-access.jpg";
+import realSecurityCenter from "@/assets/real-security-center.jpg";
 import realArchitecturePlanning from "@/assets/real-architecture-planning.jpg";
 import africaCoastalPort from "@/assets/africa-coastal-port.jpg";
 import realSolarInfra from "@/assets/real-solar-infrastructure.jpg";
-import realNetworkInfra from "@/assets/real-network-infra.jpg";
+import realLogistics from "@/assets/real-logistics-warehouse.jpg";
 
 const images = [
-  { src: realAccessGate, alt: "Smart access gate system", label: "KGS Access — Secure Entry Systems" },
-  { src: realOperationsRoom, alt: "Operations control room", label: "KGS Ops — Monitoring & Control" },
+  { src: realVillaAccess, alt: "Luxury villa secure access gate", label: "KGS Access — Residential Security" },
+  { src: realSecurityCenter, alt: "Security monitoring center", label: "KGS Security — Surveillance & Control" },
   { src: realSolarInfra, alt: "Solar energy infrastructure", label: "KGS Energy — Sustainable Systems" },
   { src: africaCoastalPort, alt: "Coastal port infrastructure", label: "KGS Global — Trade & Logistics" },
-  { src: realNetworkInfra, alt: "Network infrastructure", label: "KGS Core — Connectivity" },
+  { src: realLogistics, alt: "Logistics warehouse operations", label: "KGS Logistics — Supply Chain" },
   { src: realArchitecturePlanning, alt: "Architecture planning", label: "KGS Advisory — Strategic Design" },
 ];
 
