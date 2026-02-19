@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Handshake } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Handshake, Shield } from "lucide-react";
 import KGSLogo from "./KGSLogo";
 import africaGreen from "@/assets/africa-green-innovation.jpg";
 
@@ -69,6 +70,16 @@ const FounderHero = () => {
         >
           For a Connected World
         </motion.p>
+
+        {/* Advisory CTA — prominent, no animation delay */}
+        <Link
+          to="/advisory"
+          className="group inline-flex items-center gap-3 px-8 py-3.5 mb-8 border border-primary/50 bg-primary/8 text-primary font-display font-semibold text-sm tracking-wide rounded-lg hover:bg-primary/15 hover:border-primary/70 transition-all duration-300"
+        >
+          <Shield className="h-4 w-4" />
+          Assess Your Organisation's Exposure
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Link>
 
         <motion.p
           className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
