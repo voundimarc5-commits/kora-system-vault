@@ -1,5 +1,8 @@
 import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import africaLogistics from "@/assets/africa-logistics.jpg";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const points = [
   "Design solutions resilient to climate and infrastructure variability",
@@ -8,42 +11,63 @@ const points = [
 ];
 
 const GlobalVisionSection = () => {
+  const imgRef = useRef(null);
+  const isInView = useInView(imgRef, { once: true, margin: "-80px" });
+
   return (
-    <section className="py-24 border-t border-border bg-card/50">
-      <div className="max-w-4xl mx-auto px-6">
-        <ScrollReveal>
-          <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
-            Global Vision, Africa-First Reality
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 leading-tight">
-            International standards. Local intelligence.
-          </h2>
-        </ScrollReveal>
-        <ScrollReveal delay={0.2}>
-          <div className="space-y-5 text-muted-foreground leading-relaxed">
-            <p>
-              While Kora Global Systems operates with a global outlook, our
-              solutions are deeply informed by African and emerging market
-              realities — environments where adaptability, resilience, and trust
-              matter more than buzzwords.
-            </p>
-            <p>This dual perspective allows us to:</p>
-            <ul className="space-y-3 pl-1">
-              {points.map((pt) => (
-                <li key={pt} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                  <span>{pt}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="font-display font-semibold text-foreground mt-6">
-              We believe Africa is not a "future market" — it is a current
-              innovation ground.
-            </p>
+    <section id="vision" className="py-24 border-t border-border bg-card/50 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <ScrollReveal>
+              <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
+                Global Vision, Africa-First Reality
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 leading-tight">
+                International standards. Local intelligence.
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <div className="space-y-5 text-muted-foreground leading-relaxed">
+                <p>
+                  While Kora Global Systems operates with a global outlook, our
+                  solutions are deeply informed by African and emerging market
+                  realities — environments where adaptability, resilience, and trust
+                  matter more than buzzwords.
+                </p>
+                <p>This dual perspective allows us to:</p>
+                <ul className="space-y-3 pl-1">
+                  {points.map((pt) => (
+                    <li key={pt} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="font-display font-semibold text-foreground mt-6">
+                  We believe Africa is not a "future market" — it is a current
+                  innovation ground.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
-        </ScrollReveal>
+          <motion.div
+            ref={imgRef}
+            initial={{ opacity: 0, x: 60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative rounded-xl overflow-hidden shadow-xl"
+          >
+            <img
+              src={africaLogistics}
+              alt="African port and logistics infrastructure"
+              className="w-full h-[350px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

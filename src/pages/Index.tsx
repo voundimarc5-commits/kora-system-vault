@@ -1,8 +1,10 @@
 import Navigation from "@/components/Navigation";
 import FounderHero from "@/components/FounderHero";
+import Marquee from "@/components/Marquee";
 import WhoWeAreSection from "@/components/WhoWeAreSection";
 import PhilosophySection from "@/components/PhilosophySection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
+import ImageCarousel from "@/components/ImageCarousel";
 import GlobalVisionSection from "@/components/GlobalVisionSection";
 import TrustSection from "@/components/TrustSection";
 import EthosSection from "@/components/EthosSection";
@@ -13,11 +15,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <div className="h-16" />
       <FounderHero />
+      <Marquee />
       <WhoWeAreSection />
       <PhilosophySection />
       <WhatWeDoSection />
+      <ImageCarousel />
       <GlobalVisionSection />
       <TrustSection />
       <EthosSection />
