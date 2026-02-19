@@ -30,6 +30,18 @@ const pillars = [
   },
 ];
 
+const iconSpin = {
+  animate: {
+    rotateY: [0, 360],
+  },
+  transition: {
+    duration: 2,
+    ease: "easeInOut" as const,
+    repeat: Infinity,
+    repeatDelay: 4,
+  },
+};
+
 const WhatWeDoSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -67,7 +79,17 @@ const WhatWeDoSection = () => {
               <div className="relative h-48 overflow-hidden">
                 <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                <p.icon className="absolute bottom-4 left-6 h-8 w-8 text-primary" />
+                <motion.div
+                  className="absolute bottom-4 left-6"
+                  animate={iconSpin.animate}
+                  transition={{
+                    ...iconSpin.transition,
+                    delay: i * 1.5,
+                  }}
+                  style={{ perspective: 200 }}
+                >
+                  <p.icon className="h-8 w-8 text-primary" />
+                </motion.div>
               </div>
               <div className="p-6 pt-3">
                 <h3 className="font-display text-lg font-bold text-foreground mb-3">
