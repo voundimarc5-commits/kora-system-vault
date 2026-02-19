@@ -4,10 +4,8 @@ import africaCityDusk from "@/assets/africa-city-dusk.jpg";
 const PhilosophySection = () => {
   return (
     <section className="relative min-h-[500px] flex items-center overflow-hidden">
-      {/* Top fade */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background to-transparent z-20" />
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-20" />
+
+
 
       {/* Full background image */}
       <div className="absolute inset-0">
