@@ -7,6 +7,9 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Advisory from "./pages/Advisory";
 import Terms from "./pages/Terms";
+import LegalNotice from "./pages/LegalNotice";
+import TermsOfUse from "./pages/TermsOfUse";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +25,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/advisory" element={<Advisory />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/legal-notice" element={<LegalNotice />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

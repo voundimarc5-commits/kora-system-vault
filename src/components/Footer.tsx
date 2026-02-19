@@ -75,14 +75,28 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom copyright */}
+        {/* Bottom copyright + legal links */}
         <div className="mt-12 pt-8 border-t border-border text-center space-y-3">
           <p className="text-muted-foreground text-xs tracking-wide">{t.footer.copyright}</p>
-          <Link to="/terms" className="text-muted-foreground/50 hover:text-muted-foreground text-[11px] tracking-wide transition-colors">
-            {t.footer.terms}
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link to="/legal-notice" className="text-muted-foreground/50 hover:text-muted-foreground text-[11px] tracking-wide transition-colors">
+              {t.footer.legalNoticePage}
+            </Link>
+            <span className="text-muted-foreground/30 text-[11px]">·</span>
+            <Link to="/terms-of-use" className="text-muted-foreground/50 hover:text-muted-foreground text-[11px] tracking-wide transition-colors">
+              {t.footer.termsOfUse}
+            </Link>
+            <span className="text-muted-foreground/30 text-[11px]">·</span>
+            <Link to="/privacy-policy" className="text-muted-foreground/50 hover:text-muted-foreground text-[11px] tracking-wide transition-colors">
+              {t.footer.privacyPolicy}
+            </Link>
+            <span className="text-muted-foreground/30 text-[11px]">·</span>
+            <Link to="/terms" className="text-muted-foreground/50 hover:text-muted-foreground text-[11px] tracking-wide transition-colors">
+              {t.footer.terms}
+            </Link>
+          </div>
           <p className="text-[10px] text-muted-foreground/40 max-w-xl mx-auto leading-relaxed">
-            {t.footer.legalNotice}
+            {t.footer.disclaimer}
           </p>
         </div>
       </div>

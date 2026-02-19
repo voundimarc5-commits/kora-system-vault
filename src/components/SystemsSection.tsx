@@ -1,6 +1,6 @@
 import { Cpu, ArrowLeftRight, ShieldCheck } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-import InstitutionalDisclaimer from "./InstitutionalDisclaimer";
+
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -80,10 +80,6 @@ const SystemsSection = () => {
           ))}
         </div>
 
-        <InstitutionalDisclaimer
-          text="Kora Global Systems does not execute payments or transactions. All financial operations remain the responsibility of licensed third-party providers."
-          className="mt-10 text-center"
-        />
       </div>
     </section>
   );
