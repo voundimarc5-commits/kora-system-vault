@@ -71,15 +71,23 @@ const FounderHero = () => {
           For a Connected World
         </motion.p>
 
-        {/* Advisory CTA — prominent, no animation delay */}
-        <Link
-          to="/advisory"
-          className="group inline-flex items-center gap-3 px-8 py-3.5 mb-8 border border-primary/50 bg-primary/8 text-primary font-display font-semibold text-sm tracking-wide rounded-lg hover:bg-primary/15 hover:border-primary/70 transition-all duration-300"
+        {/* Advisory CTA — prominent */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="mb-8"
         >
-          <Shield className="h-4 w-4" />
-          Assess Your Organisation's Exposure
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Link>
+          <Link
+            to="/advisory"
+            className="group relative inline-flex items-center gap-3 px-10 py-4 font-display font-bold text-sm tracking-wide rounded-xl overflow-hidden transition-all duration-300 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-[0_4px_24px_-4px_hsl(var(--primary)_/_0.45)] hover:shadow-[0_8px_32px_-4px_hsl(var(--primary)_/_0.6)] hover:scale-[1.03]"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <Shield className="h-5 w-5 relative z-10" />
+            <span className="relative z-10">Assess Your Organisation's Exposure</span>
+            <ArrowRight className="h-5 w-5 relative z-10 transition-transform group-hover:translate-x-1.5" />
+          </Link>
+        </motion.div>
 
         <motion.p
           className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
