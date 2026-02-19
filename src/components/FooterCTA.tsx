@@ -1,4 +1,5 @@
 import { Mail, ArrowRight, FileText, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -50,14 +51,16 @@ const FooterCTA = () => {
             <FileText className="h-4 w-4" />
             Group Overview
           </motion.a>
-          <motion.a
-            href="#"
-            className="inline-flex items-center gap-2 px-7 py-3 border border-border text-muted-foreground font-display text-sm rounded-lg hover:border-primary/40 transition-colors"
-            whileHover={{ scale: 1.03 }}
-          >
-            <Shield className="h-4 w-4" />
-            Legal & Compliance
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.03 }}>
+            <Link
+              to="/advisory"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-primary/10 border border-primary/30 text-primary font-display font-semibold text-sm rounded-lg hover:bg-primary/15 transition-colors"
+            >
+              <Shield className="h-4 w-4" />
+              Exposure Assessment
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

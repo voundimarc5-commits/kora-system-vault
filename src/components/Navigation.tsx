@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import KGSLogo from "./KGSLogo";
 import { Menu, X } from "lucide-react";
 
@@ -6,6 +7,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Solutions", href: "#solutions" },
   { label: "Vision", href: "#vision" },
+  { label: "Advisory", href: "/advisory", isRoute: true },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -20,15 +22,25 @@ const Navigation = () => {
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            l.isRoute ? (
+              <Link
+                key={l.href}
+                to={l.href}
+                className="text-sm text-primary hover:text-primary/80 transition-colors tracking-wide uppercase font-medium"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+              >
+                {l.label}
+              </a>
+            )
+          )}
         </div>
 
         <button
@@ -42,16 +54,27 @@ const Navigation = () => {
 
       {mobileOpen && (
         <div className="md:hidden bg-background border-b border-border px-6 pb-6 pt-2 flex flex-col gap-4">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            l.isRoute ? (
+              <Link
+                key={l.href}
+                to={l.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-sm text-primary hover:text-primary/80 transition-colors tracking-wide uppercase font-medium"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+              >
+                {l.label}
+              </a>
+            )
+          )}
         </div>
       )}
     </nav>
