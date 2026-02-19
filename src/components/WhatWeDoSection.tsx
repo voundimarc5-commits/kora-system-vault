@@ -2,6 +2,7 @@ import { Shield, RefreshCw, Brain } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import ScrollReveal from "./ScrollReveal";
+import InstitutionalDisclaimer from "./InstitutionalDisclaimer";
 import realAccessGate from "@/assets/real-access-gate.jpg";
 import realOperationsRoom from "@/assets/real-operations-room.jpg";
 import realArchitecturePlanning from "@/assets/real-architecture-planning.jpg";
@@ -108,6 +109,11 @@ const WhatWeDoSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <InstitutionalDisclaimer
+          text="Kora Global Systems does not execute payments or transactions. All financial operations remain the responsibility of licensed third-party providers."
+          className="mt-10 text-center"
+        />
       </div>
     </section>
   );

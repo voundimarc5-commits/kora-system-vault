@@ -68,6 +68,15 @@ const FooterCTA = () => {
             </Link>
           </motion.div>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.5 }}
+          className="text-[11px] text-muted-foreground/50 mt-6"
+        >
+          For institutions, developers, and long-term partners. This assessment is non-binding and intended for structural evaluation purposes only.
+        </motion.p>
       </div>
     </section>
   );

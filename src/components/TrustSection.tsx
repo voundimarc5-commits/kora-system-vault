@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import InstitutionalDisclaimer from "./InstitutionalDisclaimer";
 
 const capabilities = [
   "Modular expansion across sectors",
@@ -49,6 +50,11 @@ const TrustSection = () => {
             </p>
           </div>
         </ScrollReveal>
+
+        <InstitutionalDisclaimer
+          text="Kora Global Systems does not execute payments or transactions. All financial operations remain the responsibility of licensed third-party providers."
+          className="mt-10"
+        />
       </div>
     </section>
   );
