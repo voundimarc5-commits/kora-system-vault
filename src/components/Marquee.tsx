@@ -75,8 +75,8 @@ const Marquee = () => {
         <img
           src={item.logo}
           alt={item.label}
-          className={`${item.imgClass} w-auto object-contain animate-[logoPulse_4s_ease-in-out_infinite]`}
-          style={{ animationDelay: `${i * 1.3}s` }}
+          className={`${item.imgClass} w-auto object-contain animate-[logoPulse_12s_ease-in-out_infinite] hover:animate-[logoPulse_1.5s_ease-in-out_1]`}
+          style={{ animationDelay: `${i * 4}s` }}
         />
         <span className={`${item.color} font-medium text-sm tracking-widest uppercase whitespace-nowrap`}>
           {item.label}
@@ -94,13 +94,13 @@ const Marquee = () => {
     <div
       className={`w-full sticky top-0 z-50 overflow-hidden transition-all duration-500 ${
         scrolled
-          ? "bg-[hsl(35_40%_92%_/_0.55)] backdrop-blur-md border-b border-primary/8"
+          ? "bg-[hsl(33_50%_78%_/_0.45)] backdrop-blur-md border-b border-primary/8"
           : "bg-background/95 backdrop-blur-sm border-b border-border"
       }`}
     >
       {/* Fade edges */}
-      <div className={`absolute inset-y-0 left-0 w-16 z-10 pointer-events-none transition-all duration-500 ${scrolled ? "bg-gradient-to-r from-[hsl(35_40%_92%_/_0.5)] to-transparent" : "bg-gradient-to-r from-background/75 to-transparent"}`} />
-      <div className={`absolute inset-y-0 right-0 w-16 z-10 pointer-events-none transition-all duration-500 ${scrolled ? "bg-gradient-to-l from-[hsl(35_40%_92%_/_0.5)] to-transparent" : "bg-gradient-to-l from-background/75 to-transparent"}`} />
+      <div className={`absolute inset-y-0 left-0 w-16 z-10 pointer-events-none transition-all duration-500 ${scrolled ? "bg-gradient-to-r from-[hsl(33_50%_78%_/_0.4)] to-transparent" : "bg-gradient-to-r from-background/75 to-transparent"}`} />
+      <div className={`absolute inset-y-0 right-0 w-16 z-10 pointer-events-none transition-all duration-500 ${scrolled ? "bg-gradient-to-l from-[hsl(33_50%_78%_/_0.4)] to-transparent" : "bg-gradient-to-l from-background/75 to-transparent"}`} />
 
       <div ref={scrollRef} className="flex items-center py-1 will-change-transform">
         {renderItems()}
