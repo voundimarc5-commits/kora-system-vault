@@ -49,6 +49,21 @@
     --sidebar-border: 30 12% 86%;
     --sidebar-ring: 32 65% 48%;
   }
+
+  .advisory-dark {
+    --adv-bg: 220 16% 8%;
+    --adv-surface: 220 14% 12%;
+    --adv-surface-elevated: 220 12% 16%;
+    --adv-border: 220 10% 22%;
+    --adv-text: 220 8% 88%;
+    --adv-text-muted: 220 8% 55%;
+    --adv-accent: 38 62% 52%;
+    --adv-accent-dim: 38 40% 38%;
+    --adv-danger: 0 55% 50%;
+    --adv-warning: 32 70% 50%;
+    --adv-moderate: 45 60% 50%;
+    --adv-low: 160 40% 45%;
+  }
 }
 
 @layer base {
