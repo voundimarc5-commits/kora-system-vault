@@ -8,7 +8,7 @@ const WhoWeAreSection = () => {
   const isInView = useInView(imgRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="py-24 border-t border-border relative overflow-hidden">
+    <section id="about" className="py-24 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-5 gap-12 items-center">
           {/* Image — takes 3 cols for visual impact */}

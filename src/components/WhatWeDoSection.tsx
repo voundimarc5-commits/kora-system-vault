@@ -35,7 +35,7 @@ const WhatWeDoSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="solutions" className="py-24 border-t border-border" ref={ref}>
+    <section id="solutions" className="py-24" ref={ref}>
       <div className="max-w-6xl mx-auto px-6">
         <ScrollReveal>
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
