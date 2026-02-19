@@ -1,6 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
-import DataFibersBackground from "./DataFibersBackground";
-import africaBoardroom from "@/assets/africa-boardroom.jpg";
+import glassBridge from "@/assets/glass-bridge-corporate.jpg";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -10,10 +9,31 @@ const WhoWeAreSection = () => {
 
   return (
     <section id="about" className="py-24 border-t border-border relative overflow-hidden">
-      <DataFibersBackground />
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="grid md:grid-cols-5 gap-12 items-center">
+          {/* Image — takes 3 cols for visual impact */}
+          <motion.div
+            ref={imgRef}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="md:col-span-3 relative rounded-2xl overflow-hidden shadow-2xl group"
+          >
+            <img
+              src={glassBridge}
+              alt="Modern glass bridge inside corporate headquarters"
+              className="w-full h-[400px] md:h-[450px] object-cover transition-transform duration-[2s] group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/40 to-transparent" />
+            <div className="absolute bottom-6 left-6">
+              <span className="bg-primary/90 text-primary-foreground text-xs font-display tracking-widest uppercase px-4 py-1.5 rounded-full">
+                Innovation & Architecture
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Text — 2 cols */}
+          <div className="md:col-span-2">
             <ScrollReveal>
               <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
                 Who We Are
@@ -43,20 +63,6 @@ const WhoWeAreSection = () => {
               </div>
             </ScrollReveal>
           </div>
-          <motion.div
-            ref={imgRef}
-            initial={{ opacity: 0, x: 60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative rounded-xl overflow-hidden shadow-xl"
-          >
-            <img
-              src={africaBoardroom}
-              alt="Corporate boardroom meeting"
-              className="w-full h-[350px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
-          </motion.div>
         </div>
       </div>
     </section>

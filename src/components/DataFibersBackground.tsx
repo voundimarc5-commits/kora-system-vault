@@ -94,7 +94,7 @@ const DataFibersBackground = () => {
         const last = animPts[animPts.length - 1];
         ctx.lineTo(last.x, last.y);
 
-        ctx.strokeStyle = `hsla(187, 60%, 55%, ${fiber.alpha})`;
+        ctx.strokeStyle = `hsla(32, 55%, 48%, ${fiber.alpha})`;
         ctx.lineWidth = fiber.width;
         ctx.stroke();
       }
@@ -110,7 +110,7 @@ const DataFibersBackground = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(187, 65%, 60%, ${p.alpha})`;
+        ctx.fillStyle = `hsla(32, 55%, 50%, ${p.alpha})`;
         ctx.fill();
       }
 
@@ -124,7 +124,7 @@ const DataFibersBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(187, 50%, 55%, ${0.04 * (1 - dist / 200)})`;
+            ctx.strokeStyle = `hsla(32, 45%, 50%, ${0.04 * (1 - dist / 200)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

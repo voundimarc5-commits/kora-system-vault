@@ -13,9 +13,9 @@ const KGSLogo = ({ className = "", size = "md", animate = false }: { className?:
         animate={{
           scale: [1, 1.04, 1],
           filter: [
-            "drop-shadow(0 0 0px hsla(187, 70%, 50%, 0))",
-            "drop-shadow(0 0 18px hsla(187, 70%, 50%, 0.35))",
-            "drop-shadow(0 0 0px hsla(187, 70%, 50%, 0))",
+            "drop-shadow(0 0 0px hsla(32, 65%, 48%, 0))",
+            "drop-shadow(0 0 18px hsla(32, 65%, 48%, 0.35))",
+            "drop-shadow(0 0 0px hsla(32, 65%, 48%, 0))",
           ],
         }}
         transition={{
