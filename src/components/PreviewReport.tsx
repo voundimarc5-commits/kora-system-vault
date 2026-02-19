@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Lock, Mail } from "lucide-react";
-import KGSLogo from "./KGSLogo";
+import kgsLogo from "@/assets/kgs-logo.png";
 import { useRef } from "react";
 
 const reportLines = [
@@ -58,14 +58,21 @@ const PreviewReport = () => {
           </div>
 
           {/* Header */}
-          <div className="p-6 pb-4 border-b border-border/60">
+          <div className="p-8 pb-6 border-b border-border/60">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <KGSLogo size="sm" />
+              <div className="flex items-center">
+                <img
+                  src={kgsLogo}
+                  alt="KORA Global Systems"
+                  className="h-20 w-auto object-contain"
+                  style={{
+                    filter: "grayscale(100%) brightness(0.15) contrast(1.2) drop-shadow(1px 1px 0px rgba(255,255,255,0.15)) drop-shadow(-1px -1px 0px rgba(255,255,255,0.08))",
+                  }}
+                />
               </div>
               <Lock className="w-4 h-4 text-muted-foreground/30" />
             </div>
-            <p className="text-[10px] text-muted-foreground/50 mt-2">
+            <p className="text-[10px] text-muted-foreground/50 mt-3">
               Structural Assessment — Confidential
             </p>
           </div>
