@@ -9,6 +9,11 @@ const WhoWeAreSection = () => {
 
   return (
     <section id="about" className="py-16 relative overflow-hidden">
+      {/* Decorative flowing lines */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100,200 C200,100 400,300 800,150 S1200,250 1600,180" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" />
+        <path d="M-50,350 C250,250 450,450 850,300 S1250,400 1650,330" stroke="hsl(var(--accent))" strokeWidth="1" fill="none" />
+      </svg>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-5 gap-12 items-center">
           {/* Image — takes 3 cols for visual impact */}

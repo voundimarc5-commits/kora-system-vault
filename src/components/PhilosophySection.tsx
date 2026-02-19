@@ -27,7 +27,7 @@ const PhilosophySection = () => {
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-background mb-8 leading-tight">
-            Technology should adapt to environments — not the other way around.
+            Technology should adapt to environments, not the other way around.
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
@@ -41,11 +41,11 @@ const PhilosophySection = () => {
             <p>
               Kora Global Systems was founded on a simple principle: design
               systems that remain reliable, secure, and intelligible in real
-              conditions — not just ideal ones.
+              conditions, not just ideal ones.
             </p>
             <p>
               Our name, <em className="text-primary">Kora</em>, echoes transmission, continuity, and
-              connection — values deeply rooted in cultures where technology must
+              connection, values deeply rooted in cultures where technology must
               serve people before it serves abstractions.
             </p>
           </div>
