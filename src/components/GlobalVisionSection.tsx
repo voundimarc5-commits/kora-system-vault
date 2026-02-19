@@ -39,9 +39,21 @@ const GlobalVisionSection = () => {
                 </p>
                 <p>This dual perspective allows us to:</p>
                 <ul className="space-y-3 pl-1">
-                  {points.map((pt) => (
+                  {points.map((pt, i) => (
                     <li key={pt} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                      <motion.div
+                        animate={{ rotateY: [0, 360] }}
+                        transition={{
+                          duration: 1.5,
+                          ease: "easeInOut" as const,
+                          repeat: Infinity,
+                          repeatDelay: 3,
+                          delay: i * 1,
+                        }}
+                        style={{ perspective: 150 }}
+                      >
+                        <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                      </motion.div>
                       <span>{pt}</span>
                     </li>
                   ))}
