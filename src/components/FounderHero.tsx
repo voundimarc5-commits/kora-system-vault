@@ -25,6 +25,9 @@ const FounderHero = () => {
         <div className="absolute inset-0 bg-background/70" />
       </div>
 
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background z-[5]" />
+
       {/* Radial vignette */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(0_0%_100%_/_0.35)_70%)]" />
 
