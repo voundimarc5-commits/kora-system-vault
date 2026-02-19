@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import KGSLogo from "@/components/KGSLogo";
 import AdvisoryEntry from "@/components/advisory/AdvisoryEntry";
 import DiagnosticFlow from "@/components/advisory/DiagnosticFlow";
 import ExposureResults from "@/components/advisory/ExposureResults";
@@ -71,8 +72,8 @@ const Advisory = () => {
           borderBottom: "1px solid hsl(var(--adv-border) / 0.5)",
         }}
       >
-        <Link to="/" className="font-display text-sm tracking-[0.15em] uppercase" style={{ color: "hsl(var(--adv-accent))" }}>
-          Kora Global Systems
+        <Link to="/" className="flex items-center gap-3">
+          <KGSLogo size="sm" className="h-10 brightness-75" />
         </Link>
         <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "hsl(var(--adv-text-muted) / 0.5)" }}>
           Advisory Diagnostics
