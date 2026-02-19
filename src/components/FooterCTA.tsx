@@ -77,6 +77,14 @@ const FooterCTA = () => {
         >
           For institutions, developers, and long-term partners. This assessment is non-binding and intended for structural evaluation purposes only.
         </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.6 }}
+          className="text-[10px] text-muted-foreground/35 mt-1"
+        >
+          Used for preliminary structuring and partner alignment.
+        </motion.p>
       </div>
     </section>
   );

@@ -106,7 +106,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom copyright */}
-        <div className="mt-12 pt-8 border-t border-border text-center space-y-2">
+        <div className="mt-12 pt-8 border-t border-border text-center space-y-3">
           <p className="text-muted-foreground text-xs tracking-wide">
             © 2024 KORA Global Systems. All rights reserved.
           </p>
@@ -116,6 +116,9 @@ const Footer = () => {
           >
             Terms & Conditions
           </Link>
+          <p className="text-[10px] text-muted-foreground/40 max-w-xl mx-auto leading-relaxed">
+            Kora Global Systems does not custody funds, assets, or sensitive client data.
+          </p>
         </div>
       </div>
     </footer>
