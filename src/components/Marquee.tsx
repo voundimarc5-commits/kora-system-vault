@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import kgsAccessLogo from "@/assets/kgs-access-logo.png";
 import kgsAutomationsLogo from "@/assets/kgs-automations-logo.png";
@@ -14,12 +14,20 @@ const Marquee = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>(0);
   const posRef = useRef(0);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
 
-    // Wait for ALL images to load before measuring width
     const images = el.querySelectorAll("img");
     let loaded = 0;
     const total = images.length;
@@ -54,7 +62,6 @@ const Marquee = () => {
       }
     });
 
-    // Fallback if no images
     if (total === 0) onAllLoaded();
 
     return () => {
@@ -80,7 +87,9 @@ const Marquee = () => {
 
   return (
     <div
-      className="w-full bg-background/95 backdrop-blur-sm border-b border-border overflow-hidden"
+      className={`w-full sticky top-0 z-50 border-b border-border overflow-hidden transition-colors duration-300 ${
+        scrolled ? "bg-background/75 backdrop-blur-md" : "bg-background/95 backdrop-blur-sm"
+      }`}
     >
       {/* Fade edges */}
       <div className="absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-background/75 to-transparent pointer-events-none" />

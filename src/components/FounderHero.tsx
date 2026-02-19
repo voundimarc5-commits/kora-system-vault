@@ -16,7 +16,7 @@ const FounderHero = () => {
           initial={{ scale: 1.18, x: 0 }}
           animate={{ scale: 1.05, x: -20 }}
           transition={{
-            duration: 20,
+            duration: 12,
             ease: "linear",
             repeat: Infinity,
             repeatType: "reverse",
