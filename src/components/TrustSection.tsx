@@ -1,17 +1,14 @@
 import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import InstitutionalDisclaimer from "./InstitutionalDisclaimer";
-
-const capabilities = [
-  "Modular expansion across sectors",
-  "Clear separation between advisory, products, and orchestration layers",
-  "Long-term scalability without operational fragility",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TrustSection = () => {
+  const { t } = useLanguage();
+  const capabilities = [t.trust.cap1, t.trust.cap2, t.trust.cap3];
+
   return (
     <section className="py-16 relative overflow-hidden">
-      {/* Decorative background shapes */}
       <div className="absolute -top-32 -right-40 w-[600px] h-[600px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.18) 0%, transparent 65%)" }} />
       <div className="absolute -bottom-24 -left-32 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.14) 0%, transparent 65%)" }} />
       <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -20,21 +17,14 @@ const TrustSection = () => {
       </svg>
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <ScrollReveal>
-          <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
-            Trust & Positioning
-          </p>
+          <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">{t.trust.label}</p>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 leading-tight">
-            Built for long-term partnerships. Designed to scale.
-          </h2>
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 leading-tight">{t.trust.title}</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
           <div className="space-y-5 text-muted-foreground leading-relaxed">
-            <p>
-              Kora Global Systems is structured as a multi-vertical technology
-              group, enabling:
-            </p>
+            <p>{t.trust.intro}</p>
             <ul className="space-y-3 pl-1">
               {capabilities.map((c) => (
                 <li key={c} className="flex items-start gap-3">
@@ -43,18 +33,11 @@ const TrustSection = () => {
                 </li>
               ))}
             </ul>
-            <p>
-              We work with partners, developers, institutions, and private
-              stakeholders seeking reliable systems, not short-term
-              experimentation.
-            </p>
+            <p>{t.trust.outro}</p>
           </div>
         </ScrollReveal>
 
-        <InstitutionalDisclaimer
-          text="Kora Global Systems does not execute payments or transactions. All financial operations remain the responsibility of licensed third-party providers."
-          className="mt-10"
-        />
+        <InstitutionalDisclaimer text={t.trust.disclaimer} className="mt-10" />
       </div>
     </section>
   );
