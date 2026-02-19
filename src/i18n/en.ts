@@ -50,7 +50,13 @@ export const en = {
     pillar2Desc: "Simplifying complex operational and cross-system journeys through structured, compliant, and intermediary-safe systems.",
     pillar3Title: "Systems & Risk Architecture",
     pillar3Desc: "Advisory and design frameworks that help organizations structure secure, scalable infrastructures across regions.",
-    disclaimer: "Kora Global Systems does not execute payments or transactions. All financial operations remain the responsibility of licensed third-party providers.",
+  },
+  scopeGovernance: {
+    label: "Scope & Governance",
+    title: "Scope & Governance",
+    p1: "Kora Global Systems operates as a multi-vertical technology group delivering advisory, systems design, deployment, and operational coordination across security, infrastructure, and intelligent systems.",
+    p2: "Certain activities within the Kora Global Systems ecosystem are delivered through specialized solution lines or independent third-party partners, each operating under their own regulatory and operational frameworks.",
+    p3: "Where applicable, financial, transactional, or regulated services are performed exclusively by licensed third-party providers. Kora Global Systems does not position itself as a financial institution or payment service provider.",
   },
   globalVision: {
     label: "Global Vision, Africa-First Reality",
@@ -75,7 +81,6 @@ export const en = {
     cap2: "Clear separation between advisory, products, and orchestration layers",
     cap3: "Long-term scalability without operational fragility",
     outro: "We work with partners, developers, institutions, and private stakeholders seeking reliable systems, not short-term experimentation.",
-    disclaimer: "Kora Global Systems does not execute payments or transactions. All financial operations remain the responsibility of licensed third-party providers.",
   },
   ethos: {
     label: "Ethos & Commitment",
@@ -118,8 +123,7 @@ export const en = {
     location: "United States — Wyoming (WY)",
     copyright: "© 2024 KORA Global Systems. All rights reserved.",
     terms: "Terms & Conditions",
-    disclaimer1: "Kora Global Systems does not custody funds, assets, or sensitive client data.",
-    disclaimer2: "Kora Global Systems operates independently from licensed financial, payment, or custodial institutions.",
+    legalNotice: "Kora Global Systems is a technology group providing advisory, systems architecture, and operational coordination services. Certain activities may involve independent licensed third-party providers operating under their own regulatory frameworks.",
   },
   whyKGS: {
     label: "Why KGS",

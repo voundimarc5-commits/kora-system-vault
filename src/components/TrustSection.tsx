@@ -1,6 +1,5 @@
 import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-import InstitutionalDisclaimer from "./InstitutionalDisclaimer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const TrustSection = () => {
@@ -37,7 +36,7 @@ const TrustSection = () => {
           </div>
         </ScrollReveal>
 
-        <InstitutionalDisclaimer text={t.trust.disclaimer} className="mt-10" />
+        
       </div>
     </section>
   );
