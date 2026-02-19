@@ -58,10 +58,6 @@ const GlobalVisionSection = () => {
                     </li>
                   ))}
                 </ul>
-                <p className="font-display font-semibold text-foreground mt-6">
-                  We believe Africa is not a "future market" — it is a current
-                  innovation ground.
-                </p>
               </div>
             </ScrollReveal>
           </div>

@@ -6,6 +6,7 @@ import PhilosophySection from "@/components/PhilosophySection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
 import ImageCarousel from "@/components/ImageCarousel";
 import GlobalVisionSection from "@/components/GlobalVisionSection";
+import AfricaQuote from "@/components/AfricaQuote";
 import TrustSection from "@/components/TrustSection";
 import EthosSection from "@/components/EthosSection";
 import FooterCTA from "@/components/FooterCTA";
@@ -23,6 +24,7 @@ const Index = () => {
       <WhatWeDoSection />
       <ImageCarousel />
       <GlobalVisionSection />
+      <AfricaQuote />
       <TrustSection />
       <EthosSection />
       <FooterCTA />
