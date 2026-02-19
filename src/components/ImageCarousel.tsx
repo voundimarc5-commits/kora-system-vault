@@ -1,19 +1,19 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import financialDashboard from "@/assets/financial-dashboard.jpg";
-import serverInfra from "@/assets/server-infrastructure.jpg";
-import smartAccess from "@/assets/smart-access.jpg";
-import globalNetwork from "@/assets/global-network.jpg";
-import cyberOps from "@/assets/cyber-operations.jpg";
-import citySkyline from "@/assets/city-skyline.jpg";
+import africaSmartAccess from "@/assets/africa-smart-access.jpg";
+import africaDataCenter from "@/assets/africa-data-center.jpg";
+import africaBoardroom from "@/assets/africa-boardroom.jpg";
+import africaBusinessDistrict from "@/assets/africa-business-district.jpg";
+import africaLogistics from "@/assets/africa-logistics.jpg";
+import africaSkyline from "@/assets/africa-skyline-hero.jpg";
 
 const images = [
-  { src: financialDashboard, alt: "Financial trading dashboard", label: "KGS Flow — Financial Infrastructure" },
-  { src: serverInfra, alt: "Server infrastructure", label: "KGS Core — Data Centers" },
-  { src: smartAccess, alt: "Smart access control", label: "KGS Access — Security Systems" },
-  { src: globalNetwork, alt: "Global network", label: "KGS Network — Global Reach" },
-  { src: cyberOps, alt: "Operations center", label: "KGS Ops — Command Center" },
-  { src: citySkyline, alt: "Futuristic campus", label: "KGS Campus — Smart Infrastructure" },
+  { src: africaSmartAccess, alt: "Smart access control villa", label: "KGS Access — Secure Environments" },
+  { src: africaDataCenter, alt: "Data center infrastructure", label: "KGS Core — Infrastructure" },
+  { src: africaBoardroom, alt: "Corporate boardroom", label: "KGS Advisory — Strategic Partnerships" },
+  { src: africaBusinessDistrict, alt: "African business district", label: "KGS Global — Emerging Markets" },
+  { src: africaLogistics, alt: "Port and logistics hub", label: "KGS Flow — Operational Systems" },
+  { src: africaSkyline, alt: "Modern African skyline", label: "KGS Campus — Smart Infrastructure" },
 ];
 
 const ImageCarousel = () => {

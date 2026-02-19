@@ -1,62 +1,93 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Handshake } from "lucide-react";
-import globalNetwork from "@/assets/global-network.jpg";
+import KGSLogo from "./KGSLogo";
+import DashboardBackground from "./DashboardBackground";
+import africaSkyline from "@/assets/africa-skyline-hero.jpg";
 
 const FounderHero = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      {/* Background */}
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      {/* Animated background image */}
       <div className="absolute inset-0">
-        <img
-          src={globalNetwork}
-          alt=""
-          className="w-full h-full object-cover opacity-[0.06]"
+        <motion.img
+          src={africaSkyline}
+          alt="Modern African city skyline"
+          className="w-full h-full object-cover"
+          loading="eager"
+          initial={{ scale: 1.15 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2.5, ease: "easeOut" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+        <div className="absolute inset-0 bg-background/75" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-primary font-display text-xs tracking-[0.35em] uppercase mb-6"
-        >
-          Kora Global Systems
-        </motion.p>
+      {/* Canvas dashboard animation */}
+      <DashboardBackground />
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
+      {/* Radial vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_hsl(0_0%_100%_/_0.4)_70%)]" />
+
+      <div className="max-w-7xl mx-auto px-6 py-24 text-center relative z-10">
+        {/* Animated logo with heartbeat pulse */}
+        <motion.div
+          className="flex justify-center mb-6 -mt-8"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          Building secure, intelligent systems
-          <br className="hidden sm:block" />
-          <span className="text-primary"> for a connected world</span>
+          <KGSLogo size="lg" animate />
+        </motion.div>
+
+        {/* Headline */}
+        <motion.h1
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-none max-w-5xl mx-auto mb-6 uppercase tracking-wider"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          BUILDING SECURE
+          <br />
+          <motion.span
+            className="text-primary"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+          >
+            INTELLIGENT SYSTEMS
+          </motion.span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          className="font-display text-lg md:text-xl text-muted-foreground tracking-[0.3em] uppercase mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+        >
+          For a Connected World
+        </motion.p>
+
+        <motion.p
+          className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
+          transition={{ duration: 0.8, delay: 1.4 }}
         >
           An international technology group focused on security, infrastructure
           and intelligent orchestration — designed for real-world environments,
           emerging markets, and global scalability.
         </motion.p>
 
+        {/* Dual CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.55 }}
+          transition={{ duration: 0.6, delay: 1.7 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <motion.a
             href="#solutions"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-display font-semibold tracking-wide text-sm rounded-lg"
-            whileHover={{ scale: 1.04 }}
+            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-display font-semibold tracking-wide text-sm rounded-lg shadow-lg"
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
             Explore Our Solutions
