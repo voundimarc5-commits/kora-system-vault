@@ -10,10 +10,10 @@ interface ScrollRevealProps {
 }
 
 const directionOffsets = {
-  up: { y: 60, x: 0 },
-  down: { y: -60, x: 0 },
-  left: { y: 0, x: -60 },
-  right: { y: 0, x: 60 },
+  up: { y: 28, x: 0 },
+  down: { y: -28, x: 0 },
+  left: { y: 0, x: -28 },
+  right: { y: 0, x: 28 },
 };
 
 const ScrollReveal = ({
@@ -21,7 +21,7 @@ const ScrollReveal = ({
   className = "",
   direction = "up",
   delay = 0,
-  duration = 0.7,
+  duration = 0.6,
 }: ScrollRevealProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });

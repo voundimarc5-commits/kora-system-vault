@@ -6,7 +6,7 @@ const AfricaQuote = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="relative py-20 md:py-28 overflow-hidden">
+    <section ref={ref} className="relative py-14 md:py-20 overflow-hidden">
       {/* Subtle golden gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-[hsl(32_60%_90%_/_0.4)] to-background" />
       

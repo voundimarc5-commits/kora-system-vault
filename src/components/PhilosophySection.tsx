@@ -19,7 +19,7 @@ const PhilosophySection = () => {
         <div className="absolute inset-0 bg-foreground/65" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 py-24">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 py-16">
         <ScrollReveal>
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
             Our Philosophy
