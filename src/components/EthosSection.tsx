@@ -4,8 +4,12 @@ const EthosSection = () => {
   return (
     <section className="py-16 bg-card/50 relative overflow-hidden">
       {/* Decorative shapes */}
-      <div className="absolute -top-10 right-10 w-64 h-64 rounded-full opacity-[0.05]" style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)" }} />
-      <div className="absolute bottom-0 left-1/4 w-48 h-48 rounded-full opacity-[0.04]" style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }} />
+      <div className="absolute -top-20 right-0 w-[450px] h-[450px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.07) 0%, transparent 70%)" }} />
+      <div className="absolute -bottom-10 -left-20 w-[350px] h-[350px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.06) 0%, transparent 70%)" }} />
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80%" cy="30%" r="100" stroke="hsl(var(--primary) / 0.05)" strokeWidth="1" fill="none" />
+        <path d="M-20,100 C250,50 500,150 800,80 S1200,120 1500,90" stroke="hsl(var(--accent) / 0.05)" strokeWidth="1" fill="none" />
+      </svg>
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <ScrollReveal>
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">

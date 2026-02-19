@@ -5,9 +5,9 @@ import kgsAutomationsLogo from "@/assets/kgs-automations-logo.png";
 import kgsFlowLogo from "@/assets/kgs-flow-logo.png";
 
 const items = [
-  { label: "KGS Access", sub: "Secure Identity & Access Control", color: "text-[hsl(210,60%,65%)]", logo: kgsAccessLogo, imgClass: "h-20 md:h-24 scale-125" },
-  { label: "KGS Automations", sub: "Workflow & Business Process Automation", color: "text-[hsl(170,50%,55%)]", logo: kgsAutomationsLogo, imgClass: "h-20 md:h-24 scale-125" },
-  { label: "KGS Flow", sub: "Financial & Payment Flows", color: "text-[hsl(43,55%,60%)]", logo: kgsFlowLogo, imgClass: "h-14 md:h-16 scale-110" },
+  { label: "KGS Access", sub: "Secure Access & Physical Systems", color: "text-[hsl(210,60%,65%)]", logo: kgsAccessLogo, imgClass: "h-20 md:h-24 scale-125" },
+  { label: "KGS Automations", sub: "Systems & Risk Architecture", color: "text-[hsl(170,50%,55%)]", logo: kgsAutomationsLogo, imgClass: "h-20 md:h-24 scale-125" },
+  { label: "KGS Flow", sub: "Operational Flow Orchestration", color: "text-[hsl(43,55%,60%)]", logo: kgsFlowLogo, imgClass: "h-14 md:h-16 scale-110" },
 ];
 
 const Marquee = () => {
@@ -83,7 +83,7 @@ const Marquee = () => {
         </span>
         {item.sub && (
           <span className="text-muted-foreground text-xs tracking-wide font-normal whitespace-nowrap">
-            — {item.sub}
+            {item.sub}
           </span>
         )}
         <span className="mx-2 text-border select-none" aria-hidden>│</span>
