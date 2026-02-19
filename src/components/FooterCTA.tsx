@@ -7,7 +7,7 @@ const FooterCTA = () => {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="contact" className="py-24 border-t border-border" ref={ref}>
+    <section id="contact" className="py-16" ref={ref}>
       <div className="max-w-3xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

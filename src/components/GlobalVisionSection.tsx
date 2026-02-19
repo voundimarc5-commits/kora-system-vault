@@ -15,7 +15,7 @@ const GlobalVisionSection = () => {
   const isInView = useInView(imgRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="vision" className="py-24 bg-card/50 relative overflow-hidden">
+    <section id="vision" className="py-16 bg-card/50 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>

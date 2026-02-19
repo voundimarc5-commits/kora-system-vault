@@ -2,7 +2,7 @@ import ScrollReveal from "./ScrollReveal";
 
 const EthosSection = () => {
   return (
-    <section className="py-24 border-t border-border bg-card/50">
+    <section className="py-16 bg-card/50">
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
