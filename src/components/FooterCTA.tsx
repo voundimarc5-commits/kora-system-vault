@@ -48,14 +48,15 @@ const FooterCTA = () => {
             {t.footerCTA.partnerships}
             <ArrowRight className="h-4 w-4" />
           </motion.a>
-          <motion.a
-            href="#about"
-            className="inline-flex items-center gap-2 px-7 py-3 border border-border/60 text-muted-foreground/75 font-display text-sm rounded-lg hover:border-primary/40 transition-colors"
-            whileHover={{ scale: 1.03 }}
-          >
-            <FileText className="h-4 w-4" />
-            {t.footerCTA.groupOverview}
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.03 }}>
+            <Link
+              to="/terms"
+              className="inline-flex items-center gap-2 px-7 py-3 border border-border/60 text-muted-foreground/75 font-display text-sm rounded-lg hover:border-primary/40 transition-colors"
+            >
+              <FileText className="h-4 w-4" />
+              {t.footerCTA.groupOverview}
+            </Link>
+          </motion.div>
           <motion.div whileHover={{ scale: 1.03 }}>
             <Link
               to="/advisory"
