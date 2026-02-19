@@ -118,6 +118,8 @@ const Footer = () => {
           </Link>
           <p className="text-[10px] text-muted-foreground/40 max-w-xl mx-auto leading-relaxed">
             Kora Global Systems does not custody funds, assets, or sensitive client data.
+            <br />
+            Kora Global Systems operates independently from licensed financial, payment, or custodial institutions.
           </p>
         </div>
       </div>

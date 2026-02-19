@@ -17,7 +17,7 @@ const pillars = [
   },
   {
     icon: RefreshCw,
-    title: "Operational Flow Orchestration",
+    title: "Operational & Process Flow Orchestration",
     description:
       "Simplifying complex operational and cross-system journeys through structured, compliant, and intermediary-safe systems.",
     image: realOperationsRoom,
