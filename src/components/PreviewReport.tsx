@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Lock, Mail, FileText } from "lucide-react";
+import { Lock, Mail } from "lucide-react";
+import KGSLogo from "./KGSLogo";
 import { useRef } from "react";
 
 const reportLines = [
@@ -60,18 +61,13 @@ const PreviewReport = () => {
           <div className="p-6 pb-4 border-b border-border/60">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <FileText className="w-5 h-5 text-primary/60" />
-                <div>
-                  <p className="text-xs tracking-[0.15em] uppercase text-primary font-display">
-                    Kora Global Systems
-                  </p>
-                  <p className="text-[10px] text-muted-foreground/50 mt-0.5">
-                    Structural Assessment — Confidential
-                  </p>
-                </div>
+                <KGSLogo size="sm" />
               </div>
               <Lock className="w-4 h-4 text-muted-foreground/30" />
             </div>
+            <p className="text-[10px] text-muted-foreground/50 mt-2">
+              Structural Assessment — Confidential
+            </p>
           </div>
 
           {/* Lines — progressively blurred */}
