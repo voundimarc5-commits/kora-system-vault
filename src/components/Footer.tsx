@@ -82,9 +82,7 @@ const Footer = () => {
             {t.footer.terms}
           </Link>
           <p className="text-[10px] text-muted-foreground/40 max-w-xl mx-auto leading-relaxed">
-            {t.footer.disclaimer1}
-            <br />
-            {t.footer.disclaimer2}
+            {t.footer.legalNotice}
           </p>
         </div>
       </div>

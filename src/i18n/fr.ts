@@ -50,7 +50,13 @@ export const fr = {
     pillar2Desc: "Simplifier les parcours opérationnels complexes et inter-systèmes grâce à des systèmes structurés, conformes et sécurisés.",
     pillar3Title: "Architecture Systèmes & Risques",
     pillar3Desc: "Cadres de conseil et de conception aidant les organisations à structurer des infrastructures sécurisées et évolutives à travers les régions.",
-    disclaimer: "Kora Global Systems n'exécute pas de paiements ni de transactions. Toutes les opérations financières relèvent de la responsabilité de prestataires tiers agréés.",
+  },
+  scopeGovernance: {
+    label: "Périmètre & Gouvernance",
+    title: "Périmètre & Gouvernance",
+    p1: "Kora Global Systems opère en tant que groupe technologique multi-vertical offrant des services de conseil, de conception de systèmes, de déploiement et de coordination opérationnelle dans les domaines de la sécurité, de l'infrastructure et des systèmes intelligents.",
+    p2: "Certaines activités au sein de l'écosystème Kora Global Systems sont assurées par des lignes de solutions spécialisées ou des partenaires tiers indépendants, chacun opérant sous ses propres cadres réglementaires et opérationnels.",
+    p3: "Le cas échéant, les services financiers, transactionnels ou réglementés sont effectués exclusivement par des prestataires tiers agréés. Kora Global Systems ne se positionne pas comme une institution financière ou un prestataire de services de paiement.",
   },
   globalVision: {
     label: "Vision Mondiale, Réalité Africaine",
@@ -75,7 +81,6 @@ export const fr = {
     cap2: "Une séparation claire entre conseil, produits et couches d'orchestration",
     cap3: "Une scalabilité à long terme sans fragilité opérationnelle",
     outro: "Nous travaillons avec des partenaires, développeurs, institutions et parties prenantes privées recherchant des systèmes fiables, pas de l'expérimentation à court terme.",
-    disclaimer: "Kora Global Systems n'exécute pas de paiements ni de transactions. Toutes les opérations financières relèvent de la responsabilité de prestataires tiers agréés.",
   },
   ethos: {
     label: "Éthique & Engagement",
@@ -118,8 +123,7 @@ export const fr = {
     location: "États-Unis — Wyoming (WY)",
     copyright: "© 2024 KORA Global Systems. Tous droits réservés.",
     terms: "Conditions Générales",
-    disclaimer1: "Kora Global Systems ne détient pas de fonds, d'actifs ou de données sensibles de clients.",
-    disclaimer2: "Kora Global Systems opère indépendamment des institutions financières, de paiement ou de garde agréées.",
+    legalNotice: "Kora Global Systems est un groupe technologique fournissant des services de conseil, d'architecture de systèmes et de coordination opérationnelle. Certaines activités peuvent impliquer des prestataires tiers agréés indépendants opérant sous leurs propres cadres réglementaires.",
   },
   whyKGS: {
     label: "Pourquoi KGS",

@@ -2,7 +2,6 @@ import { Shield, RefreshCw, Brain } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import ScrollReveal from "./ScrollReveal";
-import InstitutionalDisclaimer from "./InstitutionalDisclaimer";
 import realAccessGate from "@/assets/real-access-gate.jpg";
 import realOperationsRoom from "@/assets/real-operations-room.jpg";
 import realArchitecturePlanning from "@/assets/real-architecture-planning.jpg";
@@ -67,7 +66,7 @@ const WhatWeDoSection = () => {
           ))}
         </div>
 
-        <InstitutionalDisclaimer text={t.whatWeDo.disclaimer} className="mt-10 text-center" />
+        
       </div>
     </section>
   );
