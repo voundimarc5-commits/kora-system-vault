@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import kgsAccessLogo from "@/assets/kgs-access-logo.png";
 import kgsAutomationsLogo from "@/assets/kgs-automations-logo.png";
-import kgsFlowLogo from "@/assets/kgs-flow-logo.png";
+import kgsMarketEntryLogo from "@/assets/kgs-market-entry-logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Marquee = () => {
@@ -14,7 +14,7 @@ const Marquee = () => {
   const items = [
     { label: t.marquee.kgsAccess, sub: t.marquee.kgsAccessSub, color: "text-[hsl(210,60%,65%)]", logo: kgsAccessLogo, imgClass: "h-20 md:h-24 scale-125" },
     { label: t.marquee.kgsAutomations, sub: t.marquee.kgsAutomationsSub, color: "text-[hsl(170,50%,55%)]", logo: kgsAutomationsLogo, imgClass: "h-20 md:h-24 scale-125" },
-    { label: t.marquee.kgsFlow, sub: t.marquee.kgsFlowSub, color: "text-[hsl(43,55%,60%)]", logo: kgsFlowLogo, imgClass: "h-14 md:h-16 scale-110" },
+    { label: t.marquee.kgsMarketEntry, sub: t.marquee.kgsMarketEntrySub, color: "text-[hsl(43,55%,60%)]", logo: kgsMarketEntryLogo, imgClass: "h-14 md:h-16 scale-110" },
   ];
 
   useEffect(() => {

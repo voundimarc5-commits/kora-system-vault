@@ -1,31 +1,31 @@
 import { motion } from "framer-motion";
-import { Shield, Target, FileText } from "lucide-react";
-
-const pathways = [
-  {
-    icon: Shield,
-    title: "Strategic Exposure Review",
-    scope: "Board / Executive-Level Advisory",
-    description:
-      "A comprehensive review of organisational exposure across governance, operations, and digital infrastructure — designed for board-level visibility and strategic decision-making.",
-  },
-  {
-    icon: Target,
-    title: "Targeted Risk Reduction",
-    scope: "Operational, Access & Flow-Related Exposure",
-    description:
-      "Focused advisory engagement addressing specific operational vulnerabilities — access control, system dependencies, or cross-border compliance gaps.",
-  },
-  {
-    icon: FileText,
-    title: "Executive Briefing Pack",
-    scope: "PDF Report & Optional Advisory Call",
-    description:
-      "A structured advisory document summarising exposure findings, governance recommendations, and suggested pathways — with an optional advisory session.",
-  },
-];
+import { Phone, Users, Settings } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AdvisoryPathways = () => {
+  const { t } = useLanguage();
+
+  const pathways = [
+    {
+      icon: Phone,
+      title: t.advisory.pathway1Title,
+      scope: t.advisory.pathway1Scope,
+      description: t.advisory.pathway1Desc,
+    },
+    {
+      icon: Users,
+      title: t.advisory.pathway2Title,
+      scope: t.advisory.pathway2Scope,
+      description: t.advisory.pathway2Desc,
+    },
+    {
+      icon: Settings,
+      title: t.advisory.pathway3Title,
+      scope: t.advisory.pathway3Scope,
+      description: t.advisory.pathway3Desc,
+    },
+  ];
+
   return (
     <div className="py-20 px-6">
       <motion.div
@@ -34,27 +34,24 @@ const AdvisoryPathways = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Header */}
         <div className="text-center mb-14">
           <p
             className="text-xs tracking-[0.3em] uppercase mb-4"
             style={{ color: "hsl(var(--adv-text-muted))" }}
           >
-            Next Steps
+            {t.advisory.pathwaysLabel}
           </p>
           <h2
             className="font-display text-2xl md:text-3xl font-semibold mb-3"
             style={{ color: "hsl(var(--adv-text))" }}
           >
-            Advisory Pathways
+            {t.advisory.pathwaysTitle}
           </h2>
           <p
             className="text-sm max-w-lg mx-auto"
             style={{ color: "hsl(var(--adv-text-muted))" }}
           >
-            Each pathway is designed to address different levels of
-            organisational need. There is no preferred option — the right
-            engagement depends on your specific context.
+            {t.advisory.pathwaysSubtitle}
           </p>
           <div
             className="w-12 h-px mx-auto mt-6"
@@ -62,7 +59,6 @@ const AdvisoryPathways = () => {
           />
         </div>
 
-        {/* Pathways grid */}
         <div className="grid md:grid-cols-3 gap-px" style={{ background: "hsl(var(--adv-border))" }}>
           {pathways.map((path, i) => {
             const Icon = path.icon;
@@ -102,8 +98,9 @@ const AdvisoryPathways = () => {
                   {path.description}
                 </p>
 
-                <button
-                  className="mt-8 w-full py-3 text-xs font-medium tracking-wide uppercase transition-all duration-300"
+                <a
+                  href="mailto:contact@koraglobalsystems.com"
+                  className="mt-8 w-full py-3 text-xs font-medium tracking-wide uppercase transition-all duration-300 text-center block"
                   style={{
                     border: "1px solid hsl(var(--adv-border))",
                     color: "hsl(var(--adv-text-muted))",
@@ -117,14 +114,13 @@ const AdvisoryPathways = () => {
                     e.currentTarget.style.color = "hsl(var(--adv-text-muted))";
                   }}
                 >
-                  Request Advisory
-                </button>
+                  {t.advisory.pathwayBtn}
+                </a>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Disclaimer */}
         <motion.p
           className="text-center mt-10 text-[11px] max-w-xl mx-auto leading-relaxed"
           style={{ color: "hsl(var(--adv-text-muted) / 0.4)" }}
@@ -132,9 +128,7 @@ const AdvisoryPathways = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
         >
-          Kora Global Systems provides advisory facilitation and orchestration
-          services. Specialised engagements may involve third-party partners
-          operating under separate terms.
+          {t.advisory.pathwaysDisclaimer}
         </motion.p>
       </motion.div>
     </div>

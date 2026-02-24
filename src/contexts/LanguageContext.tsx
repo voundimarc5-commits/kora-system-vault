@@ -13,10 +13,10 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const translations = { en, fr };
+const translations: Record<Language, Translations> = { en, fr: fr as unknown as Translations };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("fr");
   const t = translations[language];
 
   return (

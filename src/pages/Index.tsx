@@ -1,12 +1,15 @@
 import Navigation from "@/components/Navigation";
 import Marquee from "@/components/Marquee";
 import FounderHero from "@/components/FounderHero";
+import ProblemSection from "@/components/ProblemSection";
 import WhoWeAreSection from "@/components/WhoWeAreSection";
-import PhilosophySection from "@/components/PhilosophySection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
-import ScopeGovernanceSection from "@/components/ScopeGovernanceSection";
-import GlobalVisionSection from "@/components/GlobalVisionSection";
+import PhilosophySection from "@/components/PhilosophySection";
+import WhyKGSSection from "@/components/WhyKGSSection";
 import AfricaQuote from "@/components/AfricaQuote";
+import GlobalVisionSection from "@/components/GlobalVisionSection";
+import StudioLabSection from "@/components/StudioLabSection";
+import ScopeGovernanceSection from "@/components/ScopeGovernanceSection";
 import TrustSection from "@/components/TrustSection";
 import EthosSection from "@/components/EthosSection";
 import FooterCTA from "@/components/FooterCTA";
@@ -20,12 +23,15 @@ const Index = () => {
       <div className="h-16" />
       <Marquee />
       <FounderHero />
+      <ProblemSection />
       <WhoWeAreSection />
-      <PhilosophySection />
       <WhatWeDoSection />
-      <ScopeGovernanceSection />
-      <GlobalVisionSection />
+      <PhilosophySection />
+      <WhyKGSSection />
       <AfricaQuote />
+      <GlobalVisionSection />
+      <StudioLabSection />
+      <ScopeGovernanceSection />
       <TrustSection />
       <EthosSection />
       <FooterCTA />
