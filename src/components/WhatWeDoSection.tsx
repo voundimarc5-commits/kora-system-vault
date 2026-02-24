@@ -1,10 +1,10 @@
-import { Shield, RefreshCw, Brain } from "lucide-react";
+import { Target, Zap, KeyRound } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import ScrollReveal from "./ScrollReveal";
-import realAccessGate from "@/assets/real-access-gate.jpg";
-import realOperationsRoom from "@/assets/real-operations-room.jpg";
 import realArchitecturePlanning from "@/assets/real-architecture-planning.jpg";
+import realOperationsRoom from "@/assets/real-operations-room.jpg";
+import realAccessGate from "@/assets/real-access-gate.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const iconSpin = {
@@ -18,9 +18,9 @@ const WhatWeDoSection = () => {
   const { t } = useLanguage();
 
   const pillars = [
-    { icon: Shield, title: t.whatWeDo.pillar1Title, description: t.whatWeDo.pillar1Desc, image: realAccessGate },
-    { icon: RefreshCw, title: t.whatWeDo.pillar2Title, description: t.whatWeDo.pillar2Desc, image: realOperationsRoom },
-    { icon: Brain, title: t.whatWeDo.pillar3Title, description: t.whatWeDo.pillar3Desc, image: realArchitecturePlanning },
+    { icon: Target, title: t.whatWeDo.pillar1Title, description: t.whatWeDo.pillar1Desc, image: realArchitecturePlanning },
+    { icon: Zap, title: t.whatWeDo.pillar2Title, description: t.whatWeDo.pillar2Desc, image: realOperationsRoom },
+    { icon: KeyRound, title: t.whatWeDo.pillar3Title, description: t.whatWeDo.pillar3Desc, image: realAccessGate },
   ];
 
   return (
@@ -65,8 +65,6 @@ const WhatWeDoSection = () => {
             </motion.div>
           ))}
         </div>
-
-        
       </div>
     </section>
   );

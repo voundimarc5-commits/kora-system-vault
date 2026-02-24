@@ -1,82 +1,44 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface DiagnosticFlowProps {
   onComplete: (answers: Record<number, string>) => void;
   onBack: () => void;
 }
 
-const questions = [
-  {
-    dimension: "Digital Dependencies",
-    question:
-      "How would you characterise your organisation's reliance on third-party digital infrastructure?",
-    options: [
-      "Minimal — Most systems are internally managed",
-      "Moderate — Key functions rely on external providers",
-      "Significant — Core operations depend on third-party platforms",
-      "Unclear — We have limited visibility into dependencies",
-    ],
-  },
-  {
-    dimension: "Governance Maturity",
-    question:
-      "Does your organisation have a formalised governance framework for digital risk and operational continuity?",
-    options: [
-      "Yes — Fully documented and regularly reviewed",
-      "Partially — Exists but inconsistently applied",
-      "Informally — Handled on a case-by-case basis",
-      "No — No formal framework in place",
-    ],
-  },
-  {
-    dimension: "Operational Fragility",
-    question:
-      "If a critical system went offline for 48 hours, how prepared is your organisation to maintain operations?",
-    options: [
-      "Fully prepared — Redundancy and continuity plans are tested",
-      "Reasonably prepared — Plans exist but are untested",
-      "Partially prepared — Some workarounds would be improvised",
-      "Unprepared — Operations would be severely disrupted",
-    ],
-  },
-  {
-    dimension: "Cross-Border Exposure",
-    question:
-      "Does your organisation operate across multiple jurisdictions with differing regulatory requirements?",
-    options: [
-      "No — Single jurisdiction operations",
-      "Yes — With harmonised compliance across regions",
-      "Yes — With inconsistent compliance across regions",
-      "Yes — With limited understanding of cross-border obligations",
-    ],
-  },
-  {
-    dimension: "Access & Identity Control",
-    question:
-      "How does your organisation manage access to critical systems and sensitive information?",
-    options: [
-      "Centralised identity management with role-based access",
-      "Partially centralised with some manual oversight",
-      "Decentralised — Individual departments manage access",
-      "Ad hoc — No standardised approach",
-    ],
-  },
-  {
-    dimension: "Financial Systems Exposure",
-    question:
-      "How integrated are your financial systems with external payment, banking, or treasury platforms?",
-    options: [
-      "Minimal integration — Mostly internal processes",
-      "Moderate — Standard banking integrations",
-      "Significant — Multiple external financial dependencies",
-      "Extensive — Real-time connections across multiple platforms",
-    ],
-  },
-];
-
 const DiagnosticFlow = ({ onComplete, onBack }: DiagnosticFlowProps) => {
+  const { t } = useLanguage();
+
+  const questions = [
+    {
+      dimension: t.advisory.q1dimension,
+      question: t.advisory.q1,
+      options: [t.advisory.q1o1, t.advisory.q1o2, t.advisory.q1o3, t.advisory.q1o4],
+    },
+    {
+      dimension: t.advisory.q2dimension,
+      question: t.advisory.q2,
+      options: [t.advisory.q2o1, t.advisory.q2o2, t.advisory.q2o3, t.advisory.q2o4],
+    },
+    {
+      dimension: t.advisory.q3dimension,
+      question: t.advisory.q3,
+      options: [t.advisory.q3o1, t.advisory.q3o2, t.advisory.q3o3, t.advisory.q3o4],
+    },
+    {
+      dimension: t.advisory.q4dimension,
+      question: t.advisory.q4,
+      options: [t.advisory.q4o1, t.advisory.q4o2, t.advisory.q4o3, t.advisory.q4o4],
+    },
+    {
+      dimension: t.advisory.q5dimension,
+      question: t.advisory.q5,
+      options: [t.advisory.q5o1, t.advisory.q5o2, t.advisory.q5o3, t.advisory.q5o4],
+    },
+  ];
+
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -109,7 +71,6 @@ const DiagnosticFlow = ({ onComplete, onBack }: DiagnosticFlowProps) => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6">
       <div className="max-w-2xl w-full">
-        {/* Progress indicator — subtle line */}
         <div className="mb-16">
           <div className="flex items-center justify-between mb-3">
             <span
@@ -122,7 +83,7 @@ const DiagnosticFlow = ({ onComplete, onBack }: DiagnosticFlowProps) => {
               className="text-xs"
               style={{ color: "hsl(var(--adv-text-muted) / 0.5)" }}
             >
-              {currentStep + 1} of {questions.length}
+              {currentStep + 1} {t.advisory.stepOf} {questions.length}
             </span>
           </div>
           <div
@@ -149,7 +110,6 @@ const DiagnosticFlow = ({ onComplete, onBack }: DiagnosticFlowProps) => {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
           >
-            {/* Question */}
             <h2
               className="font-display text-xl md:text-2xl font-medium leading-relaxed mb-10"
               style={{ color: "hsl(var(--adv-text))" }}
@@ -157,7 +117,6 @@ const DiagnosticFlow = ({ onComplete, onBack }: DiagnosticFlowProps) => {
               {current.question}
             </h2>
 
-            {/* Options */}
             <div className="space-y-3">
               {current.options.map((option, i) => (
                 <button
@@ -187,7 +146,6 @@ const DiagnosticFlow = ({ onComplete, onBack }: DiagnosticFlowProps) => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation */}
         <div className="flex items-center justify-between mt-12">
           <button
             onClick={handlePrev}
@@ -195,7 +153,7 @@ const DiagnosticFlow = ({ onComplete, onBack }: DiagnosticFlowProps) => {
             style={{ color: "hsl(var(--adv-text-muted))" }}
           >
             <ArrowLeft className="w-4 h-4" />
-            Back
+            {t.advisory.backBtn}
           </button>
 
           <button
@@ -207,7 +165,7 @@ const DiagnosticFlow = ({ onComplete, onBack }: DiagnosticFlowProps) => {
               color: "hsl(var(--adv-accent))",
             }}
           >
-            {isLast ? "View Exposure Profile" : "Continue"}
+            {isLast ? t.advisory.viewResultsBtn : t.advisory.continueBtn}
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

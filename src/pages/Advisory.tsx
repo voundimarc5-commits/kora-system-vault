@@ -7,12 +7,14 @@ import DiagnosticFlow from "@/components/advisory/DiagnosticFlow";
 import ExposureResults from "@/components/advisory/ExposureResults";
 import LockedReport from "@/components/advisory/LockedReport";
 import AdvisoryPathways from "@/components/advisory/AdvisoryPathways";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type FunnelStep = "entry" | "diagnostic" | "results" | "report" | "pathways";
 
 const Advisory = () => {
   const [step, setStep] = useState<FunnelStep>("entry");
   const [answers, setAnswers] = useState<Record<number, string>>({});
+  const { t } = useLanguage();
 
   const handleDiagnosticComplete = (a: Record<number, string>) => {
     setAnswers(a);
@@ -30,7 +32,7 @@ const Advisory = () => {
       className="advisory-dark min-h-screen relative overflow-hidden"
       style={{ background: "hsl(var(--adv-bg))" }}
     >
-      {/* Ambient background — subtle radial gradients that drift slowly */}
+      {/* Ambient background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <motion.div
           className="absolute w-[800px] h-[800px] rounded-full opacity-[0.04]"
@@ -52,7 +54,6 @@ const Advisory = () => {
           animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
         />
-        {/* Faint grid texture */}
         <div
           className="absolute inset-0 opacity-[0.015]"
           style={{
@@ -76,7 +77,7 @@ const Advisory = () => {
           <KGSLogo size="sm" className="h-10 brightness-75" />
         </Link>
         <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "hsl(var(--adv-text-muted) / 0.5)" }}>
-          Advisory Diagnostics
+          {t.advisory.toolName}
         </span>
       </nav>
 
@@ -123,10 +124,10 @@ const Advisory = () => {
                     animate={{ opacity: 1, scale: 1 }}
                   >
                     <p className="font-display text-lg font-medium mb-2" style={{ color: "hsl(var(--adv-accent))" }}>
-                      Advisory Brief Dispatched
+                      {t.advisory.dispatched}
                     </p>
                     <p className="text-sm" style={{ color: "hsl(var(--adv-text-muted))" }}>
-                      Your full advisory document will follow shortly.
+                      {t.advisory.dispatchedFollow}
                     </p>
                   </motion.div>
                 </div>
