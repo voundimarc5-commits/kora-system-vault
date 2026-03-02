@@ -133,7 +133,7 @@ export const fr = {
   footer: {
     liveLocation: "Localisation",
     location: "États-Unis — Wyoming (WY)",
-    copyright: "© 2024 KORA Global Systems. Tous droits réservés.",
+    copyright: "© 2025 KORA Global Systems. Tous droits réservés.",
     terms: "Conditions Générales",
     legalNoticePage: "Mentions Légales",
     termsOfUse: "Conditions d'Utilisation",
