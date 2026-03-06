@@ -58,19 +58,30 @@ const Marquee = () => {
   }, []);
 
   const renderItems = () =>
-    items.map((item, i) => (
-      <div key={i} className="flex items-center gap-1 px-3 shrink-0">
-        <img
-          src={item.logo}
-          alt={item.label}
-          className={`${item.imgClass} w-auto object-contain animate-[logoPulse_12s_ease-in-out_infinite] hover:animate-[logoPulse_1.5s_ease-in-out_1]`}
-          style={{ animationDelay: `${i * 4}s` }}
-        />
-        <span className={`${item.color} font-medium text-sm tracking-widest uppercase whitespace-nowrap`}>{item.label}</span>
-        {item.sub && <span className="text-muted-foreground text-xs tracking-wide font-normal whitespace-nowrap">{item.sub}</span>}
-        <span className="mx-2 text-border select-none" aria-hidden>│</span>
-      </div>
-    ));
+    items.map((item, i) => {
+      const content = (
+        <>
+          <img
+            src={item.logo}
+            alt={item.label}
+            className={`${item.imgClass} w-auto object-contain animate-[logoPulse_12s_ease-in-out_infinite] hover:animate-[logoPulse_1.5s_ease-in-out_1]`}
+            style={{ animationDelay: `${i * 4}s` }}
+          />
+          <span className={`${item.color} font-medium text-sm tracking-widest uppercase whitespace-nowrap`}>{item.label}</span>
+          {item.sub && <span className="text-muted-foreground text-xs tracking-wide font-normal whitespace-nowrap">{item.sub}</span>}
+        </>
+      );
+      return (
+        <div key={i} className="flex items-center gap-1 px-3 shrink-0">
+          {item.href ? (
+            <a href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:opacity-80 transition-opacity">{content}</a>
+          ) : (
+            <div className="flex items-center gap-1">{content}</div>
+          )}
+          <span className="mx-2 text-border select-none" aria-hidden>│</span>
+        </div>
+      );
+    });
 
   return (
     <div className={`w-full sticky top-0 z-50 overflow-hidden transition-all duration-500 ${scrolled ? "bg-[hsl(33_50%_78%_/_0.45)] backdrop-blur-md border-b border-primary/8" : "bg-background/95 backdrop-blur-sm border-b border-border"}`}>

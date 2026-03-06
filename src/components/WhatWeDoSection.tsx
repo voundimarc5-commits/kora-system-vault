@@ -42,28 +42,34 @@ const WhatWeDoSection = () => {
         </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {pillars.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + i * 0.15, type: "spring", stiffness: 100 }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-[0_0_40px_-12px_hsl(var(--primary)_/_0.15)] transition-shadow overflow-hidden group"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                <motion.div className="absolute bottom-4 left-6" animate={iconSpin.animate} transition={{ ...iconSpin.transition, delay: i * 1.5 }} style={{ perspective: 200 }}>
-                  <p.icon className="h-8 w-8 text-primary" />
-                </motion.div>
-              </div>
-              <div className="p-6 pt-3">
-                <h3 className="font-display text-lg font-bold text-foreground mb-3">{p.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{p.description}</p>
-              </div>
-            </motion.div>
-          ))}
+          {pillars.map((p, i) => {
+            const Wrapper = p.href ? "a" : "div";
+            const wrapperProps = p.href ? { href: p.href, target: "_blank", rel: "noopener noreferrer" } : {};
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + i * 0.15, type: "spring", stiffness: 100 }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-[0_0_40px_-12px_hsl(var(--primary)_/_0.15)] transition-shadow overflow-hidden group"
+              >
+                <Wrapper {...wrapperProps} className={p.href ? "block cursor-pointer" : ""}>
+                  <div className="relative h-48 overflow-hidden">
+                    <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                    <motion.div className="absolute bottom-4 left-6" animate={iconSpin.animate} transition={{ ...iconSpin.transition, delay: i * 1.5 }} style={{ perspective: 200 }}>
+                      <p.icon className="h-8 w-8 text-primary" />
+                    </motion.div>
+                  </div>
+                  <div className="p-6 pt-3">
+                    <h3 className="font-display text-lg font-bold text-foreground mb-3">{p.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{p.description}</p>
+                  </div>
+                </Wrapper>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
