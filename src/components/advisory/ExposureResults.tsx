@@ -93,14 +93,14 @@ const ExposureResults = ({ answers, onContinue }: ExposureResultsProps) => {
           >
             {t.advisory.recommendedBranch}
           </p>
-          <div className="flex items-start gap-4 mb-4">
+          <a href={branch.href} target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 mb-4 group hover:opacity-80 transition-opacity">
             <Icon
               className="w-8 h-8 shrink-0"
               style={{ color: "hsl(var(--adv-accent))" }}
             />
             <div>
               <h2
-                className="font-display text-xl md:text-2xl font-semibold mb-2"
+                className="font-display text-xl md:text-2xl font-semibold mb-2 group-hover:underline"
                 style={{ color: "hsl(var(--adv-text))" }}
               >
                 {branch.name}
@@ -112,7 +112,7 @@ const ExposureResults = ({ answers, onContinue }: ExposureResultsProps) => {
                 {branch.desc}
               </p>
             </div>
-          </div>
+          </a>
         </motion.div>
 
         {/* Other branches */}
