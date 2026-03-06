@@ -18,9 +18,9 @@ const WhatWeDoSection = () => {
   const { t } = useLanguage();
 
   const pillars = [
-    { icon: Target, title: t.whatWeDo.pillar1Title, description: t.whatWeDo.pillar1Desc, image: realArchitecturePlanning },
-    { icon: Zap, title: t.whatWeDo.pillar2Title, description: t.whatWeDo.pillar2Desc, image: realOperationsRoom },
-    { icon: KeyRound, title: t.whatWeDo.pillar3Title, description: t.whatWeDo.pillar3Desc, image: realAccessGate },
+    { icon: Target, title: t.whatWeDo.pillar1Title, description: t.whatWeDo.pillar1Desc, image: realArchitecturePlanning, href: "https://marketentry.koraglobalsystems.com" },
+    { icon: Zap, title: t.whatWeDo.pillar2Title, description: t.whatWeDo.pillar2Desc, image: realOperationsRoom, href: undefined },
+    { icon: KeyRound, title: t.whatWeDo.pillar3Title, description: t.whatWeDo.pillar3Desc, image: realAccessGate, href: "https://access.koraglobalsystems.com" },
   ];
 
   return (
