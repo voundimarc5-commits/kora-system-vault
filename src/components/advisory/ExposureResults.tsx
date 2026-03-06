@@ -128,11 +128,11 @@ const ExposureResults = ({ answers, onContinue }: ExposureResultsProps) => {
             .map(([key, b]) => {
               const BIcon = b.icon;
               return (
-                <div key={key} className="p-6" style={{ background: "hsl(var(--adv-surface))" }}>
+                <a key={key} href={b.href} target="_blank" rel="noopener noreferrer" className="p-6 hover:opacity-80 transition-opacity group" style={{ background: "hsl(var(--adv-surface))" }}>
                   <BIcon className="w-5 h-5 mb-3" style={{ color: "hsl(var(--adv-text-muted) / 0.5)" }} />
-                  <h3 className="font-display text-sm font-medium mb-1" style={{ color: "hsl(var(--adv-text))" }}>{b.name}</h3>
+                  <h3 className="font-display text-sm font-medium mb-1 group-hover:underline" style={{ color: "hsl(var(--adv-text))" }}>{b.name}</h3>
                   <p className="text-xs leading-relaxed" style={{ color: "hsl(var(--adv-text-muted))" }}>{b.desc}</p>
-                </div>
+                </a>
               );
             })}
         </motion.div>
