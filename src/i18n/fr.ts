@@ -58,7 +58,7 @@ export const fr = {
     subtitle: "Chaque branche de KGS résout un problème précis. Pas de jargon, pas de promesses vagues : des systèmes qui fonctionnent.",
     pillar1Title: "KGS Market Entry",
     pillar1Desc: "Structurer avant d'investir. Nous cadrons vos projets, réduisons les risques et vous connectons à des prestataires validés. Une interface stratégique et une couche de confiance.",
-    pillar2Title: "KGS Automation",
+    pillar2Title: "KGS Automations",
     pillar2Desc: "Automatiser pour faire tourner sans présence. Processus clés automatisés, chaos opérationnel réduit, continuité assurée. Approche WhatsApp-first, pensée pour les PME africaines.",
     pillar3Title: "KGS Access",
     pillar3Desc: "Contrôler le réel à distance. Gestion des accès physiques, suppression des clés, traçabilité et autorité. Solutions concrètes, installation maîtrisée, image premium.",
