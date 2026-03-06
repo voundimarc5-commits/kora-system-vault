@@ -18,7 +18,7 @@ export const en = {
   marquee: {
     kgsAccess: "KGS Access",
     kgsAccessSub: "Access Control & Physical Systems",
-    kgsAutomations: "KGS Automation",
+    kgsAutomations: "KGS Automations",
     kgsAutomationsSub: "Automation & Operational Continuity",
     kgsMarketEntry: "KGS Market Entry",
     kgsMarketEntrySub: "Structuring & Market Entry",
