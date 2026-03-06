@@ -6,7 +6,7 @@ import cyberOps from "@/assets/cyber-operations.jpg";
 const systems = [
   {
     icon: Cpu,
-    name: "KGS Automation",
+    name: "KGS Automations",
     tagline: "Orchestrate. Optimize. Scale.",
     points: [
       "Business process automation",
