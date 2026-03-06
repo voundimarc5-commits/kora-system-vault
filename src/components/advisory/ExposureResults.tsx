@@ -40,10 +40,10 @@ const ExposureResults = ({ answers, onContinue }: ExposureResultsProps) => {
   const { t } = useLanguage();
   const recommended = getBranchRecommendation(answers, t);
 
-  const branches: Record<BranchKey, { name: string; desc: string; icon: typeof Target }> = {
-    marketEntry: { name: t.advisory.marketEntryName, desc: t.advisory.marketEntryDesc, icon: Target },
-    automation: { name: t.advisory.automationName, desc: t.advisory.automationDesc, icon: Zap },
-    access: { name: t.advisory.accessName, desc: t.advisory.accessDesc, icon: KeyRound },
+  const branches: Record<BranchKey, { name: string; desc: string; icon: typeof Target; href: string }> = {
+    marketEntry: { name: t.advisory.marketEntryName, desc: t.advisory.marketEntryDesc, icon: Target, href: "https://marketentry.koraglobalsystems.com" },
+    automation: { name: t.advisory.automationName, desc: t.advisory.automationDesc, icon: Zap, href: "https://automations.koraglobalsystems.com" },
+    access: { name: t.advisory.accessName, desc: t.advisory.accessDesc, icon: KeyRound, href: "https://access.koraglobalsystems.com" },
   };
 
   const branch = branches[recommended];
