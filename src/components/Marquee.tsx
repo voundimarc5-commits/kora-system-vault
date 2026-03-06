@@ -12,9 +12,9 @@ const Marquee = () => {
   const { t } = useLanguage();
 
   const items = [
-    { label: t.marquee.kgsAccess, sub: t.marquee.kgsAccessSub, color: "text-[hsl(210,60%,65%)]", logo: kgsAccessLogo, imgClass: "h-20 md:h-24 scale-125" },
-    { label: t.marquee.kgsAutomations, sub: t.marquee.kgsAutomationsSub, color: "text-[hsl(170,50%,55%)]", logo: kgsAutomationsLogo, imgClass: "h-20 md:h-24 scale-125" },
-    { label: t.marquee.kgsMarketEntry, sub: t.marquee.kgsMarketEntrySub, color: "text-[hsl(43,55%,60%)]", logo: kgsMarketEntryLogo, imgClass: "h-14 md:h-16 scale-110" },
+    { label: t.marquee.kgsAccess, sub: t.marquee.kgsAccessSub, color: "text-[hsl(210,60%,65%)]", logo: kgsAccessLogo, imgClass: "h-20 md:h-24 scale-125", href: "https://access.koraglobalsystems.com" },
+    { label: t.marquee.kgsAutomations, sub: t.marquee.kgsAutomationsSub, color: "text-[hsl(170,50%,55%)]", logo: kgsAutomationsLogo, imgClass: "h-20 md:h-24 scale-125", href: undefined },
+    { label: t.marquee.kgsMarketEntry, sub: t.marquee.kgsMarketEntrySub, color: "text-[hsl(43,55%,60%)]", logo: kgsMarketEntryLogo, imgClass: "h-14 md:h-16 scale-110", href: "https://marketentry.koraglobalsystems.com" },
   ];
 
   useEffect(() => {
