@@ -214,7 +214,7 @@ export const en = {
     recommendedBranch: "Recommended branch",
     marketEntryName: "KGS Market Entry",
     marketEntryDesc: "Structure your project before investing. Reduce risks, validate your providers, build a solid foundation.",
-    automationName: "KGS Automation",
+    automationName: "KGS Automations",
     automationDesc: "Automate your key processes. Ensure operational continuity even without on-site presence.",
     accessName: "KGS Access",
     accessDesc: "Control your physical access remotely. Traceability, security and authority over your sites.",
