@@ -40,10 +40,10 @@ const ExposureResults = ({ answers, onContinue }: ExposureResultsProps) => {
   const { t } = useLanguage();
   const recommended = getBranchRecommendation(answers, t);
 
-  const branches: Record<BranchKey, { name: string; desc: string; icon: typeof Target }> = {
-    marketEntry: { name: t.advisory.marketEntryName, desc: t.advisory.marketEntryDesc, icon: Target },
-    automation: { name: t.advisory.automationName, desc: t.advisory.automationDesc, icon: Zap },
-    access: { name: t.advisory.accessName, desc: t.advisory.accessDesc, icon: KeyRound },
+  const branches: Record<BranchKey, { name: string; desc: string; icon: typeof Target; href: string }> = {
+    marketEntry: { name: t.advisory.marketEntryName, desc: t.advisory.marketEntryDesc, icon: Target, href: "https://marketentry.koraglobalsystems.com" },
+    automation: { name: t.advisory.automationName, desc: t.advisory.automationDesc, icon: Zap, href: "https://automations.koraglobalsystems.com" },
+    access: { name: t.advisory.accessName, desc: t.advisory.accessDesc, icon: KeyRound, href: "https://access.koraglobalsystems.com" },
   };
 
   const branch = branches[recommended];
@@ -93,14 +93,14 @@ const ExposureResults = ({ answers, onContinue }: ExposureResultsProps) => {
           >
             {t.advisory.recommendedBranch}
           </p>
-          <div className="flex items-start gap-4 mb-4">
+          <a href={branch.href} target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 mb-4 group hover:opacity-80 transition-opacity">
             <Icon
               className="w-8 h-8 shrink-0"
               style={{ color: "hsl(var(--adv-accent))" }}
             />
             <div>
               <h2
-                className="font-display text-xl md:text-2xl font-semibold mb-2"
+                className="font-display text-xl md:text-2xl font-semibold mb-2 group-hover:underline"
                 style={{ color: "hsl(var(--adv-text))" }}
               >
                 {branch.name}
@@ -112,7 +112,7 @@ const ExposureResults = ({ answers, onContinue }: ExposureResultsProps) => {
                 {branch.desc}
               </p>
             </div>
-          </div>
+          </a>
         </motion.div>
 
         {/* Other branches */}
@@ -128,11 +128,11 @@ const ExposureResults = ({ answers, onContinue }: ExposureResultsProps) => {
             .map(([key, b]) => {
               const BIcon = b.icon;
               return (
-                <div key={key} className="p-6" style={{ background: "hsl(var(--adv-surface))" }}>
+                <a key={key} href={b.href} target="_blank" rel="noopener noreferrer" className="p-6 hover:opacity-80 transition-opacity group" style={{ background: "hsl(var(--adv-surface))" }}>
                   <BIcon className="w-5 h-5 mb-3" style={{ color: "hsl(var(--adv-text-muted) / 0.5)" }} />
-                  <h3 className="font-display text-sm font-medium mb-1" style={{ color: "hsl(var(--adv-text))" }}>{b.name}</h3>
+                  <h3 className="font-display text-sm font-medium mb-1 group-hover:underline" style={{ color: "hsl(var(--adv-text))" }}>{b.name}</h3>
                   <p className="text-xs leading-relaxed" style={{ color: "hsl(var(--adv-text-muted))" }}>{b.desc}</p>
-                </div>
+                </a>
               );
             })}
         </motion.div>

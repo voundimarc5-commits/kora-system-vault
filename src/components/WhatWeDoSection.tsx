@@ -19,7 +19,7 @@ const WhatWeDoSection = () => {
 
   const pillars = [
     { icon: Target, title: t.whatWeDo.pillar1Title, description: t.whatWeDo.pillar1Desc, image: realArchitecturePlanning, href: "https://marketentry.koraglobalsystems.com" },
-    { icon: Zap, title: t.whatWeDo.pillar2Title, description: t.whatWeDo.pillar2Desc, image: realOperationsRoom, href: undefined },
+    { icon: Zap, title: t.whatWeDo.pillar2Title, description: t.whatWeDo.pillar2Desc, image: realOperationsRoom, href: "https://automations.koraglobalsystems.com" },
     { icon: KeyRound, title: t.whatWeDo.pillar3Title, description: t.whatWeDo.pillar3Desc, image: realAccessGate, href: "https://access.koraglobalsystems.com" },
   ];
 
