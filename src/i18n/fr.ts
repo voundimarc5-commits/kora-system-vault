@@ -181,7 +181,7 @@ export const fr = {
     stepOf: "sur",
     q1dimension: "Défi Principal",
     q1: "Quel est votre principal défi aujourd'hui ?",
-    q1o1: "Mon projet n'est pas encore structuré, je ne sais pas par où commencer",
+    q1o1: "Je cherche des opportunités d'investissement mais je manque de visibilité sur les marchés africains",
     q1o2: "J'ai un projet en cours mais les opérations sont chaotiques",
     q1o3: "Je veux contrôler mes accès physiques et sécuriser mes sites à distance",
     q1o4: "Plusieurs de ces défis me concernent",
