@@ -181,7 +181,7 @@ export const en = {
     stepOf: "of",
     q1dimension: "Main Challenge",
     q1: "What is your main challenge today?",
-    q1o1: "My project is not yet structured, I don't know where to start",
+    q1o1: "I'm looking for investment opportunities but lack visibility on African markets",
     q1o2: "I have an ongoing project but operations are chaotic",
     q1o3: "I want to control physical access and secure my sites remotely",
     q1o4: "Several of these challenges concern me",
