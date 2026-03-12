@@ -14,7 +14,7 @@ const getBranchRecommendation = (answers: Record<number, string>, t: any): Branc
 
   // Q1: main challenge
   const q1 = answers[0] || "";
-  if (q1.includes("structur") || q1.includes("commencer") || q1.includes("start")) scores.marketEntry += 3;
+  if (q1.includes("opportunit") || q1.includes("visibilit") || q1.includes("marchés") || q1.includes("markets")) scores.marketEntry += 3;
   if (q1.includes("chaoti") || q1.includes("opération")) scores.automation += 3;
   if (q1.includes("accès") || q1.includes("access") || q1.includes("sécuriser") || q1.includes("secure")) scores.access += 3;
   if (q1.includes("Plusieurs") || q1.includes("Several")) { scores.marketEntry += 1; scores.automation += 1; scores.access += 1; }
@@ -22,15 +22,15 @@ const getBranchRecommendation = (answers: Record<number, string>, t: any): Branc
   // Q4: main frustration
   const q4 = answers[3] || "";
   if (q4.includes("visibilit") || q4.includes("contrôle") || q4.includes("control")) scores.access += 2;
-  if (q4.includes("dépendance") || q4.includes("intermédiaire") || q4.includes("Dependency") || q4.includes("intermediar")) scores.marketEntry += 2;
+  if (q4.includes("opportunit") || q4.includes("partenaires") || q4.includes("partners") || q4.includes("identify")) scores.marketEntry += 2;
   if (q4.includes("automatisé") || q4.includes("automated")) scores.automation += 2;
-  if (q4.includes("confiance") || q4.includes("trust")) scores.marketEntry += 2;
+  if (q4.includes("émergent") || q4.includes("emerging") || q4.includes("écosystème") || q4.includes("ecosystem")) scores.marketEntry += 2;
 
   // Q5: work mode
   const q5 = answers[4] || "";
   if (q5.includes("distance") || q5.includes("remote")) { scores.access += 1; scores.automation += 1; }
   if (q5.includes("débordé") || q5.includes("overwhelmed")) scores.automation += 2;
-  if (q5.includes("démarré") || q5.includes("started")) scores.marketEntry += 2;
+  if (q5.includes("explore") || q5.includes("engagé") || q5.includes("committed")) scores.marketEntry += 2;
 
   const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
   return sorted[0][0] as BranchKey;
