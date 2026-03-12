@@ -213,7 +213,7 @@ export const fr = {
     resultsTitle: "Votre orientation personnalisée",
     recommendedBranch: "Branche recommandée",
     marketEntryName: "KGS Market Entry",
-    marketEntryDesc: "Structurez votre projet avant d'investir. Réduisez les risques, validez vos prestataires, construisez une base solide.",
+    marketEntryDesc: "Découvrez les opportunités d'investissement, suivez les industries émergentes et explorez les écosystèmes business africains.",
     automationName: "KGS Automations",
     automationDesc: "Automatisez vos processus clés. Assurez la continuité opérationnelle même sans présence sur le terrain.",
     accessName: "KGS Access",

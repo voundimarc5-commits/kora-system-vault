@@ -16,12 +16,12 @@ const systems = [
   },
   {
     icon: ArrowLeftRight,
-    name: "KGS Flow",
-    tagline: "Move value. Securely. Globally.",
+    name: "KGS Market Entry",
+    tagline: "Discover. Explore. Connect.",
     points: [
-      "Payment facilitation & cross-border flows",
-      "Financial process automation",
-      "Secure transaction infrastructure",
+      "African market intelligence & opportunity tracking",
+      "Investment ecosystem discovery",
+      "Connecting investors with high-potential projects",
     ],
   },
   {
