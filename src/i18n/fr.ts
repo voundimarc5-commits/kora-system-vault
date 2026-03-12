@@ -21,7 +21,7 @@ export const fr = {
     kgsAutomations: "KGS Automations",
     kgsAutomationsSub: "Automatisation & Continuité Opérationnelle",
     kgsMarketEntry: "KGS Market Entry",
-    kgsMarketEntrySub: "Structuration & Entrée sur le Marché",
+    kgsMarketEntrySub: "Intelligence de Marché Africaine",
   },
   problem: {
     label: "Le Constat",
