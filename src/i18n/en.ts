@@ -208,7 +208,7 @@ export const en = {
     q5o1: "I manage everything remotely, with no local presence",
     q5o2: "I have a team on site but without adapted tools",
     q5o3: "I'm on the ground but overwhelmed by operations",
-    q5o4: "I haven't started yet",
+    q5o4: "I'm exploring African markets but haven't committed yet",
     resultsLabel: "Diagnostic Results",
     resultsTitle: "Your personalized orientation",
     recommendedBranch: "Recommended branch",

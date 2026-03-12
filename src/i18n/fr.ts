@@ -208,7 +208,7 @@ export const fr = {
     q5o1: "Je gère tout à distance, sans présence locale",
     q5o2: "J'ai une équipe sur place mais sans outils adaptés",
     q5o3: "Je suis sur le terrain mais débordé par l'opérationnel",
-    q5o4: "Je n'ai pas encore démarré",
+    q5o4: "J'explore les marchés africains mais je ne me suis pas encore engagé",
     resultsLabel: "Résultats du Diagnostic",
     resultsTitle: "Votre orientation personnalisée",
     recommendedBranch: "Branche recommandée",
