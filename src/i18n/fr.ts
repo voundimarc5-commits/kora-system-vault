@@ -57,7 +57,7 @@ export const fr = {
     title: "Trois réponses concrètes à vos défis opérationnels.",
     subtitle: "Chaque branche de KGS résout un problème précis. Pas de jargon, pas de promesses vagues : des systèmes qui fonctionnent.",
     pillar1Title: "KGS Market Entry",
-    pillar1Desc: "Structurer avant d'investir. Nous cadrons vos projets, réduisons les risques et vous connectons à des prestataires validés. Une interface stratégique et une couche de confiance.",
+    pillar1Desc: "Explorez les opportunités d'investissement et les écosystèmes business à travers l'Afrique. Découvrez les industries émergentes, les événements majeurs et connectez investisseurs et projets à fort potentiel.",
     pillar2Title: "KGS Automations",
     pillar2Desc: "Automatiser pour faire tourner sans présence. Processus clés automatisés, chaos opérationnel réduit, continuité assurée. Approche WhatsApp-first, pensée pour les PME africaines.",
     pillar3Title: "KGS Access",
