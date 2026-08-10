@@ -26,8 +26,8 @@ const Index = () => {
       <FounderHero />
       <ProblemSection />
       <WhoWeAreSection />
-      <WhatWeDoSection />
       <PhilosophySection />
+      <WhatWeDoSection />
       <WorkshopCasesSection />
       <WhyKGSSection />
       <AfricaQuote />
