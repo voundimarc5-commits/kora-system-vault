@@ -5,6 +5,7 @@ import ProblemSection from "@/components/ProblemSection";
 import WhoWeAreSection from "@/components/WhoWeAreSection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
 import PhilosophySection from "@/components/PhilosophySection";
+import WorkshopCasesSection from "@/components/WorkshopCasesSection";
 import WhyKGSSection from "@/components/WhyKGSSection";
 import AfricaQuote from "@/components/AfricaQuote";
 import GlobalVisionSection from "@/components/GlobalVisionSection";
@@ -18,15 +19,16 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(30 20% 95%) 15%, hsl(32 18% 93%) 40%, hsl(30 15% 94%) 65%, hsl(30 20% 95%) 85%, hsl(var(--background)) 100%)" }}>
+    <div className="min-h-screen bg-background">
       <Navigation />
       <div className="h-16" />
       <Marquee />
       <FounderHero />
       <ProblemSection />
       <WhoWeAreSection />
-      <WhatWeDoSection />
       <PhilosophySection />
+      <WhatWeDoSection />
+      <WorkshopCasesSection />
       <WhyKGSSection />
       <AfricaQuote />
       <GlobalVisionSection />

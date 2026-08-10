@@ -1,20 +1,14 @@
-import { useEffect, useRef, useState } from "react";
-import kgsAccessLogo from "@/assets/kgs-access-logo.png";
-import kgsAutomationsLogo from "@/assets/kgs-automations-logo.png";
-import kgsMarketEntryLogo from "@/assets/kgs-market-entry-logo.png";
+import { useEffect, useState } from "react";
+import { Scale, BookOpen } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Marquee = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>(0);
-  const posRef = useRef(0);
   const [scrolled, setScrolled] = useState(false);
   const { t } = useLanguage();
 
   const items = [
-    { label: t.marquee.kgsAccess, sub: t.marquee.kgsAccessSub, color: "text-[hsl(210,60%,65%)]", logo: kgsAccessLogo, imgClass: "h-20 md:h-24 scale-125", href: "https://access.koraglobalsystems.com" },
-    { label: t.marquee.kgsAutomations, sub: t.marquee.kgsAutomationsSub, color: "text-[hsl(170,50%,55%)]", logo: kgsAutomationsLogo, imgClass: "h-20 md:h-24 scale-125", href: "https://automations.koraglobalsystems.com" },
-    { label: t.marquee.kgsMarketEntry, sub: t.marquee.kgsMarketEntrySub, color: "text-[hsl(43,55%,60%)]", logo: kgsMarketEntryLogo, imgClass: "h-20 md:h-24 scale-125", href: "https://marketentry.koraglobalsystems.com" },
+    { icon: Scale, label: t.marquee.grc, sub: t.marquee.grcSub, href: "#solutions" },
+    { icon: BookOpen, label: t.marquee.workshop, sub: t.marquee.workshopSub, href: "https://access.koraglobalsystems.com" },
   ];
 
   useEffect(() => {
@@ -23,73 +17,28 @@ const Marquee = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    const images = el.querySelectorAll("img");
-    let loaded = 0;
-    const total = images.length;
-
-    const onAllLoaded = () => {
-      const halfWidth = el.scrollWidth / 2;
-      const speed = 0.75;
-      const tick = () => {
-        posRef.current -= speed;
-        if (posRef.current <= -halfWidth) posRef.current += halfWidth;
-        el.style.transform = `translateX(${posRef.current}px)`;
-        animationRef.current = requestAnimationFrame(tick);
-      };
-      animationRef.current = requestAnimationFrame(tick);
-    };
-
-    const checkLoaded = () => { loaded++; if (loaded >= total) onAllLoaded(); };
-
-    images.forEach((img) => {
-      if (img.complete) checkLoaded();
-      else {
-        img.addEventListener("load", checkLoaded, { once: true });
-        img.addEventListener("error", checkLoaded, { once: true });
-      }
-    });
-    if (total === 0) onAllLoaded();
-
-    return () => cancelAnimationFrame(animationRef.current);
-  }, []);
-
-  const renderItems = () =>
-    items.map((item, i) => {
-      const content = (
-        <>
-          <img
-            src={item.logo}
-            alt={item.label}
-            className={`${item.imgClass} w-auto object-contain animate-[logoPulse_12s_ease-in-out_infinite] hover:animate-[logoPulse_1.5s_ease-in-out_1]`}
-            style={{ animationDelay: `${i * 4}s` }}
-          />
-          <span className={`${item.color} font-medium text-sm tracking-widest uppercase whitespace-nowrap`}>{item.label}</span>
-          {item.sub && <span className="text-muted-foreground text-xs tracking-wide font-normal whitespace-nowrap">{item.sub}</span>}
-        </>
-      );
-      return (
-        <div key={i} className="flex items-center gap-1 px-3 shrink-0">
-          {item.href ? (
-            <a href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:opacity-80 transition-opacity">{content}</a>
-          ) : (
-            <div className="flex items-center gap-1">{content}</div>
-          )}
-          <span className="mx-2 text-border select-none" aria-hidden>│</span>
-        </div>
-      );
-    });
-
   return (
-    <div className={`w-full sticky top-0 z-50 overflow-hidden transition-all duration-500 ${scrolled ? "bg-[hsl(33_50%_78%_/_0.45)] backdrop-blur-md border-b border-primary/8" : "bg-background/95 backdrop-blur-sm border-b border-border"}`}>
-      <div className={`absolute inset-y-0 left-0 w-16 z-10 pointer-events-none transition-all duration-500 ${scrolled ? "bg-gradient-to-r from-[hsl(33_50%_78%_/_0.4)] to-transparent" : "bg-gradient-to-r from-background/75 to-transparent"}`} />
-      <div className={`absolute inset-y-0 right-0 w-16 z-10 pointer-events-none transition-all duration-500 ${scrolled ? "bg-gradient-to-l from-[hsl(33_50%_78%_/_0.4)] to-transparent" : "bg-gradient-to-l from-background/75 to-transparent"}`} />
-      <div ref={scrollRef} className="flex items-center py-1 will-change-transform">
-        {renderItems()}
-        {renderItems()}
+    <div className={`w-full sticky top-0 z-40 border-b transition-colors duration-300 ${scrolled ? "bg-background/95 backdrop-blur-md border-border" : "bg-background border-border/60"}`}>
+      <div className="max-w-6xl mx-auto px-6 py-2.5 flex flex-wrap items-center justify-center gap-x-10 gap-y-2">
+        {items.map((item) => {
+          const external = item.href.startsWith("http");
+          return (
+            <a
+              key={item.label}
+              href={item.href}
+              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="flex items-center gap-2.5 group"
+            >
+              <item.icon className="h-4 w-4 text-primary/70" />
+              <span className="text-foreground/80 font-display text-[11px] tracking-[0.18em] uppercase group-hover:text-primary transition-colors">
+                {item.label}
+              </span>
+              <span className="hidden sm:inline text-muted-foreground/70 text-[11px] tracking-wide">
+                {item.sub}
+              </span>
+            </a>
+          );
+        })}
       </div>
     </div>
   );

@@ -11,11 +11,6 @@ const WhoWeAreSection = () => {
 
   return (
     <section id="about" className="py-16 relative overflow-hidden">
-      <div className="absolute -top-24 -left-28 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.15) 0%, transparent 65%)" }} />
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M-80,180 C250,80 500,280 850,140 S1250,220 1650,160" stroke="hsl(var(--primary) / 0.1)" strokeWidth="2" fill="none" />
-        <circle cx="90%" cy="25%" r="130" stroke="hsl(var(--accent) / 0.08)" strokeWidth="1.5" fill="none" />
-      </svg>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-5 gap-12 items-center">
           {/* Image with overlaid key message */}
@@ -24,7 +19,7 @@ const WhoWeAreSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="md:col-span-3 relative rounded-2xl overflow-hidden shadow-2xl group"
+            className="md:col-span-3 relative rounded-2xl overflow-hidden border border-border group"
           >
             <img
               src={glassBridge}
@@ -46,7 +41,7 @@ const WhoWeAreSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="bg-background/85 backdrop-blur-md rounded-xl border border-primary/15 p-4 md:p-5 shadow-[0_-8px_30px_-8px_hsl(var(--primary)_/_0.2)]"
+                className="bg-background/85 backdrop-blur-md rounded-xl border border-primary/15 p-4 md:p-5"
               >
                 <p className="text-foreground text-xs md:text-sm leading-relaxed">
                   {t.whoWeAre.p3}
@@ -58,12 +53,12 @@ const WhoWeAreSection = () => {
           {/* Text — 2 cols */}
           <div className="md:col-span-2">
             <ScrollReveal>
-              <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
+              <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">
                 {t.whoWeAre.label}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 leading-tight">
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8 leading-tight">
                 {t.whoWeAre.title}
               </h2>
             </ScrollReveal>

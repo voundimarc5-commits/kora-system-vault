@@ -1,75 +1,106 @@
-import { Target, Zap, KeyRound } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { Scale, BookOpen, ArrowRight, Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import realArchitecturePlanning from "@/assets/real-architecture-planning.jpg";
-import realOperationsRoom from "@/assets/real-operations-room.jpg";
-import realAccessGate from "@/assets/real-access-gate.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const iconSpin = {
-  animate: { rotateY: [0, 360] },
-  transition: { duration: 2, ease: "easeInOut" as const, repeat: Infinity, repeatDelay: 4 },
-};
+const CSF_FUNCTIONS = ["GOVERN", "IDENTIFY", "PROTECT", "DETECT", "RESPOND", "RECOVER"];
 
 const WhatWeDoSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
   const { t } = useLanguage();
 
-  const pillars = [
-    { icon: Target, title: t.whatWeDo.pillar1Title, description: t.whatWeDo.pillar1Desc, image: realArchitecturePlanning, href: "https://marketentry.koraglobalsystems.com" },
-    { icon: Zap, title: t.whatWeDo.pillar2Title, description: t.whatWeDo.pillar2Desc, image: realOperationsRoom, href: "https://automations.koraglobalsystems.com" },
-    { icon: KeyRound, title: t.whatWeDo.pillar3Title, description: t.whatWeDo.pillar3Desc, image: realAccessGate, href: "https://access.koraglobalsystems.com" },
-  ];
+  const card1Points = [t.domains.card1Point1, t.domains.card1Point2, t.domains.card1Point3];
+  const card2Points = [t.domains.card2Point1, t.domains.card2Point2, t.domains.card2Point3];
 
   return (
-    <section id="solutions" className="py-16 relative overflow-hidden" ref={ref}>
-      <div className="absolute -top-20 -right-24 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.15) 0%, transparent 65%)" }} />
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M-30,100 C350,40 600,180 950,80 S1350,150 1700,100" stroke="hsl(var(--primary) / 0.1)" strokeWidth="2" fill="none" />
-        <circle cx="10%" cy="75%" r="110" stroke="hsl(var(--accent) / 0.08)" strokeWidth="1.5" fill="none" />
-      </svg>
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+    <section id="solutions" className="py-20 border-b border-border">
+      <div className="max-w-6xl mx-auto px-6">
         <ScrollReveal>
-          <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">{t.whatWeDo.label}</p>
+          <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.domains.label}</p>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 leading-tight">{t.whatWeDo.title}</h2>
+          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4 leading-tight tracking-tight">
+            {t.domains.title}
+          </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.15}>
-          <p className="text-muted-foreground mb-12 max-w-2xl leading-relaxed">{t.whatWeDo.subtitle}</p>
+          <p className="text-muted-foreground mb-12 max-w-2xl leading-relaxed">{t.domains.subtitle}</p>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {pillars.map((p, i) => {
-            const Wrapper = p.href ? "a" : "div";
-            const wrapperProps = p.href ? { href: p.href, target: "_blank", rel: "noopener noreferrer" } : {};
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 + i * 0.15, type: "spring", stiffness: 100 }}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-[0_0_40px_-12px_hsl(var(--primary)_/_0.15)] transition-shadow overflow-hidden group"
-              >
-                <Wrapper {...wrapperProps} className={p.href ? "block cursor-pointer" : ""}>
-                  <div className="relative h-48 overflow-hidden">
-                    <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                    <motion.div className="absolute bottom-4 left-6" animate={iconSpin.animate} transition={{ ...iconSpin.transition, delay: i * 1.5 }} style={{ perspective: 200 }}>
-                      <p.icon className="h-8 w-8 text-primary" />
-                    </motion.div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Card 1 — GRC advisory */}
+          <ScrollReveal delay={0.2}>
+            <article className="h-full border border-border rounded-lg overflow-hidden bg-background flex flex-col">
+              <div className="h-44 overflow-hidden border-b border-border">
+                <img
+                  src={realArchitecturePlanning}
+                  alt={t.domains.card1Title}
+                  className="w-full h-full object-cover opacity-90"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-7 flex flex-col flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <Scale className="h-5 w-5 text-primary/70" />
+                  <h3 className="font-display text-lg font-semibold text-foreground">{t.domains.card1Title}</h3>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{t.domains.card1Desc}</p>
+                <ul className="space-y-2.5 mt-auto">
+                  {card1Points.map((p) => (
+                    <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/80">
+                      <Check className="h-4 w-4 text-primary/70 mt-0.5 shrink-0" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </ScrollReveal>
+
+          {/* Card 2 — NIST CSF 2.0 workshop */}
+          <ScrollReveal delay={0.3}>
+            <article className="h-full border border-border rounded-lg overflow-hidden bg-card/50 flex flex-col">
+              <div className="h-44 border-b border-border flex items-center px-7">
+                <div>
+                  <p className="font-display text-xs tracking-[0.28em] uppercase text-primary/80 mb-4">NIST CSF 2.0</p>
+                  <div className="flex flex-wrap gap-x-3 gap-y-2">
+                    {CSF_FUNCTIONS.map((f) => (
+                      <span
+                        key={f}
+                        className="font-display text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-muted-foreground border border-border rounded px-2 py-1"
+                      >
+                        {f}
+                      </span>
+                    ))}
                   </div>
-                  <div className="p-6 pt-3">
-                    <h3 className="font-display text-lg font-bold text-foreground mb-3">{p.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{p.description}</p>
-                  </div>
-                </Wrapper>
-              </motion.div>
-            );
-          })}
+                </div>
+              </div>
+              <div className="p-7 flex flex-col flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <BookOpen className="h-5 w-5 text-primary/70" />
+                  <h3 className="font-display text-lg font-semibold text-foreground">{t.domains.card2Title}</h3>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{t.domains.card2Desc}</p>
+                <ul className="space-y-2.5 mb-7">
+                  {card2Points.map((p) => (
+                    <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/80">
+                      <Check className="h-4 w-4 text-primary/70 mt-0.5 shrink-0" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="https://access.koraglobalsystems.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-auto inline-flex items-center gap-2 text-sm font-display font-semibold text-primary hover:text-accent transition-colors"
+                >
+                  {t.domains.card2Cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <span className="text-muted-foreground/60 font-normal tracking-wide">access.koraglobalsystems.com</span>
+                </a>
+              </div>
+            </article>
+          </ScrollReveal>
         </div>
       </div>
     </section>
