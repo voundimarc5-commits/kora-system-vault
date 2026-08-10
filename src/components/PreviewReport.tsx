@@ -28,7 +28,7 @@ const PreviewReport = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">{t.previewReport.label}</p>
+          <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.previewReport.label}</p>
           <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">{t.previewReport.title}</h3>
           <p className="text-muted-foreground text-sm">{t.previewReport.subtitle}</p>
         </motion.div>

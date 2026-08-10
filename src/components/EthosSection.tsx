@@ -8,10 +8,10 @@ const EthosSection = () => {
     <section className="py-16 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <ScrollReveal>
-          <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">{t.ethos.label}</p>
+          <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.ethos.label}</p>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8 leading-tight">{t.ethos.title}</h2>
+          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8 leading-tight">{t.ethos.title}</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
           <div className="space-y-5 text-muted-foreground leading-relaxed">

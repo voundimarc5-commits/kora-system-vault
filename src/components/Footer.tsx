@@ -51,7 +51,7 @@ const Footer = () => {
 
           {/* Right: Google Maps */}
           <div>
-            <div className="relative rounded-xl overflow-hidden border border-primary/20 h-[300px] md:h-full min-h-[300px] shadow-[0_0_30px_-5px_hsl(var(--primary)/0.15)]">
+            <div className="relative rounded-xl overflow-hidden border border-primary/20 h-[300px] md:h-full min-h-[300px]">
               <div className="absolute inset-0 pointer-events-none z-10 rounded-xl border border-primary/10 bg-gradient-to-t from-background/40 via-transparent to-primary/5" />
               <div className="absolute top-3 left-3 z-20 flex items-center gap-2 bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-md border border-border">
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />

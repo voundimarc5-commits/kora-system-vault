@@ -30,7 +30,7 @@ const FounderHero = () => {
         </motion.div>
 
         <motion.p
-          className="text-primary font-display text-[11px] md:text-xs tracking-[0.3em] uppercase mb-6"
+          className="text-primary font-display text-[11px] md:text-[11px] tracking-[0.3em] uppercase mb-6"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}

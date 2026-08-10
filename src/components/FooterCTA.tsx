@@ -17,7 +17,7 @@ const FooterCTA = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-10">{t.footerCTA.title}</h2>
+          <h2 className="font-display text-2xl md:text-3xl font-semibold tracking-tight text-foreground mb-10">{t.footerCTA.title}</h2>
         </motion.div>
 
         <motion.div
