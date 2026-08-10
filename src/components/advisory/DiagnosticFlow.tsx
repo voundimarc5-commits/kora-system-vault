@@ -32,11 +32,6 @@ const DiagnosticFlow = ({ onComplete, onBack }: DiagnosticFlowProps) => {
       question: t.advisory.q4,
       options: [t.advisory.q4o1, t.advisory.q4o2, t.advisory.q4o3, t.advisory.q4o4],
     },
-    {
-      dimension: t.advisory.q5dimension,
-      question: t.advisory.q5,
-      options: [t.advisory.q5o1, t.advisory.q5o2, t.advisory.q5o3, t.advisory.q5o4],
-    },
   ];
 
   const [currentStep, setCurrentStep] = useState(0);
