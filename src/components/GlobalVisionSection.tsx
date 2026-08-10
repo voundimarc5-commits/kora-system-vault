@@ -14,11 +14,6 @@ const GlobalVisionSection = () => {
 
   return (
     <section id="vision" className="py-16 relative overflow-hidden">
-      <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.15) 0%, transparent 65%)" }} />
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M-50,120 C300,60 500,200 900,100 S1300,180 1700,120" stroke="hsl(var(--primary) / 0.1)" strokeWidth="2" fill="none" />
-        <circle cx="85%" cy="70%" r="140" stroke="hsl(var(--accent) / 0.08)" strokeWidth="1.5" fill="none" />
-      </svg>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text column */}

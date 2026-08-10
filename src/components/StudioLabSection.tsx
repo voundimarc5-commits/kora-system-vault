@@ -11,11 +11,6 @@ const StudioLabSection = () => {
 
   return (
     <section className="py-16 relative overflow-hidden" ref={ref}>
-      <div className="absolute -top-28 -right-20 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 65%)" }} />
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <circle cx="15%" cy="60%" r="120" stroke="hsl(var(--accent) / 0.08)" strokeWidth="1.5" fill="none" />
-        <path d="M-30,120 C300,70 600,170 900,90 S1300,140 1700,100" stroke="hsl(var(--primary) / 0.08)" strokeWidth="1.5" fill="none" />
-      </svg>
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <ScrollReveal>

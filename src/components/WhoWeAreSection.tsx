@@ -11,11 +11,6 @@ const WhoWeAreSection = () => {
 
   return (
     <section id="about" className="py-16 relative overflow-hidden">
-      <div className="absolute -top-24 -left-28 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.15) 0%, transparent 65%)" }} />
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M-80,180 C250,80 500,280 850,140 S1250,220 1650,160" stroke="hsl(var(--primary) / 0.1)" strokeWidth="2" fill="none" />
-        <circle cx="90%" cy="25%" r="130" stroke="hsl(var(--accent) / 0.08)" strokeWidth="1.5" fill="none" />
-      </svg>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-5 gap-12 items-center">
           {/* Image with overlaid key message */}

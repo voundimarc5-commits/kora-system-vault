@@ -6,12 +6,6 @@ const EthosSection = () => {
 
   return (
     <section className="py-16 relative overflow-hidden">
-      <div className="absolute -top-28 -right-10 w-[550px] h-[550px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--accent) / 0.16) 0%, transparent 65%)" }} />
-      <div className="absolute -bottom-20 -left-28 w-[450px] h-[450px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.14) 0%, transparent 65%)" }} />
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <circle cx="80%" cy="30%" r="120" stroke="hsl(var(--primary) / 0.1)" strokeWidth="1.5" fill="none" />
-        <path d="M-20,100 C250,50 500,150 800,80 S1200,120 1500,90" stroke="hsl(var(--accent) / 0.1)" strokeWidth="1.5" fill="none" />
-      </svg>
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <ScrollReveal>
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">{t.ethos.label}</p>

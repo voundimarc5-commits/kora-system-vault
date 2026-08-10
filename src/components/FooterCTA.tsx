@@ -11,11 +11,6 @@ const FooterCTA = () => {
 
   return (
     <section id="contact" className="py-16 relative overflow-hidden" ref={ref}>
-      <div className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.16) 0%, transparent 65%)" }} />
-      <div className="absolute -bottom-16 -left-16 w-[400px] h-[400px] rounded-full" style={{ background: "radial-gradient(circle, hsl(var(--glow) / 0.12) 0%, transparent 65%)" }} />
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0,40 C400,10 700,80 1100,30 S1500,60 1800,40" stroke="hsl(var(--primary) / 0.1)" strokeWidth="1.5" fill="none" />
-      </svg>
       <div className="max-w-3xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
