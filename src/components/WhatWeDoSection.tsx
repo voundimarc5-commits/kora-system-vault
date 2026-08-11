@@ -1,6 +1,6 @@
 import { Scale, BookOpen, ArrowRight, Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-import realArchitecturePlanning from "@/assets/real-architecture-planning.jpg";
+import GradientBlob from "./GradientBlob";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const CSF_FUNCTIONS = ["GOVERN", "IDENTIFY", "PROTECT", "DETECT", "RESPOND", "RECOVER"];
@@ -29,32 +29,28 @@ const WhatWeDoSection = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Card 1 — risk & compliance advisory */}
           <ScrollReveal direction="left" delay={0.2}>
-            <article className="h-full border border-border rounded-lg overflow-hidden bg-background flex flex-col">
-              <div className="h-44 overflow-hidden border-b border-border">
-                <img
-                  src={realArchitecturePlanning}
-                  alt={t.domains.card1Title}
-                  className="w-full h-full object-cover opacity-90"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-7 flex flex-col flex-1">
+            <article
+              className="relative h-full rounded-lg overflow-hidden flex flex-col"
+              style={{ background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(42 92% 60%) 100%)" }}
+            >
+              <GradientBlob className="absolute -top-24 -left-24 w-[380px] h-[380px] opacity-40 mix-blend-overlay" />
+              <div className="relative p-7 flex flex-col flex-1">
                 <div className="flex items-center gap-3 mb-4">
-                  <Scale className="h-5 w-5 text-primary/70" />
-                  <h3 className="font-display text-lg font-semibold text-foreground">{t.domains.card1Title}</h3>
+                  <Scale className="h-5 w-5 text-white/80" />
+                  <h3 className="font-display text-2xl font-bold text-white">{t.domains.card1Title}</h3>
                 </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{t.domains.card1Desc}</p>
+                <p className="text-white/85 text-sm leading-relaxed mb-6">{t.domains.card1Desc}</p>
                 <ul className="space-y-2.5 mb-6">
                   {card1Points.map((p) => (
-                    <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/80">
-                      <Check className="h-4 w-4 text-primary/70 mt-0.5 shrink-0" />
+                    <li key={p} className="flex items-start gap-2.5 text-sm text-white/90">
+                      <Check className="h-4 w-4 text-white/70 mt-0.5 shrink-0" />
                       {p}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto border-t border-border pt-5 space-y-3">
-                  <p className="text-muted-foreground text-xs leading-relaxed">{t.domains.card1Note1}</p>
-                  <p className="text-muted-foreground text-xs leading-relaxed">{t.domains.card1Note2}</p>
+                <div className="mt-auto border-t border-white/25 pt-5 space-y-3">
+                  <p className="text-white/70 text-xs leading-relaxed">{t.domains.card1Note1}</p>
+                  <p className="text-white/70 text-xs leading-relaxed">{t.domains.card1Note2}</p>
                 </div>
               </div>
             </article>

@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation";
-import Marquee from "@/components/Marquee";
 import FounderHero from "@/components/FounderHero";
 import ProblemSection from "@/components/ProblemSection";
 import WhoWeAreSection from "@/components/WhoWeAreSection";
@@ -21,8 +20,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <div className="h-16" />
-      <Marquee />
+      <div className="h-[100px]" />
       <FounderHero />
       <ProblemSection />
       <WhoWeAreSection />

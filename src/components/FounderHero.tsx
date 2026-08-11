@@ -9,18 +9,18 @@ const FounderHero = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden bg-contrast text-contrast-foreground border-b border-border">
+    <section className="relative overflow-hidden bg-background text-foreground border-b border-border">
       <div className="absolute inset-0">
         <img
           src={africaGreen}
           alt="Modern office campus"
-          className="w-full h-full object-cover opacity-[0.12]"
+          className="w-full h-full object-cover opacity-[0.14]"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-contrast/85" />
+        <div className="absolute inset-0 bg-background/80" />
       </div>
 
-      <GradientBlob className="absolute -top-40 -right-40 w-[560px] h-[560px] opacity-25 mix-blend-screen" />
+      <GradientBlob className="absolute -top-32 -right-32 w-[620px] h-[620px] opacity-70" />
 
       <div className="max-w-4xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 relative z-10">
         <motion.div
@@ -29,11 +29,11 @@ const FounderHero = () => {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <KGSLogo size="md" />
+          <KGSLogo size="md" copper />
         </motion.div>
 
         <motion.p
-          className="text-contrast-accent font-display text-[11px] md:text-[11px] tracking-[0.3em] uppercase mb-6"
+          className="text-primary font-display text-[11px] md:text-[11px] tracking-[0.3em] uppercase mb-6"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
@@ -42,7 +42,7 @@ const FounderHero = () => {
         </motion.p>
 
         <motion.h1
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-contrast-foreground leading-[1.02] tracking-tight max-w-3xl mb-8"
+          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.02] tracking-tight max-w-3xl mb-8"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
@@ -51,7 +51,7 @@ const FounderHero = () => {
         </motion.h1>
 
         <motion.div
-          className="w-16 h-px bg-contrast-accent/50 mb-8"
+          className="w-16 h-px bg-primary/50 mb-8"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           style={{ originX: 0 }}
@@ -59,7 +59,7 @@ const FounderHero = () => {
         />
 
         <motion.p
-          className="text-base md:text-lg text-contrast-muted max-w-2xl leading-relaxed mb-10"
+          className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -77,14 +77,14 @@ const FounderHero = () => {
             href="https://access.koraglobalsystems.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-7 py-3.5 bg-primary text-primary-foreground font-display font-semibold text-sm tracking-wide rounded-md transition-colors hover:bg-contrast-accent hover:text-contrast"
+            className="group inline-flex items-center gap-3 px-7 py-3.5 bg-primary text-primary-foreground font-display font-semibold text-sm tracking-wide rounded-md transition-colors hover:opacity-90"
           >
             {t.hero.ctaWorkshop}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-contrast-border text-contrast-foreground font-display font-semibold text-sm rounded-md hover:border-contrast-accent/60 transition-colors"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-foreground font-display font-semibold text-sm rounded-md hover:border-primary/60 transition-colors"
           >
             <Mail className="h-4 w-4" />
             {t.hero.ctaContact}

@@ -5,6 +5,7 @@ export const en = {
     vision: "Vision",
     advisory: "Diagnostic",
     contact: "Contact",
+    cta: "Get in touch",
   },
   hero: {
     eyebrow: "TRUST, RESILIENCE, DECISION",

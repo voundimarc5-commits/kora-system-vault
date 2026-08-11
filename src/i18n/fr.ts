@@ -5,6 +5,7 @@ export const fr = {
     vision: "Vision",
     advisory: "Diagnostic",
     contact: "Contact",
+    cta: "Échanger",
   },
   hero: {
     eyebrow: "CONFIANCE, RÉSILIENCE, DÉCISION",
