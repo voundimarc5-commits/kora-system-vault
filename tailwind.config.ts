@@ -51,6 +51,13 @@ export default {
           DEFAULT: "hsl(var(--glow))",
           dim: "hsl(var(--glow-dim))",
         },
+        contrast: {
+          DEFAULT: "hsl(var(--contrast))",
+          foreground: "hsl(var(--contrast-foreground))",
+          muted: "hsl(var(--contrast-muted))",
+          border: "hsl(var(--contrast-border))",
+          accent: "hsl(var(--contrast-accent))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

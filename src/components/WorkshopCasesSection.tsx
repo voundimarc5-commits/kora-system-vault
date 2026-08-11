@@ -14,23 +14,23 @@ const WorkshopCasesSection = () => {
   ];
 
   return (
-    <section id="workshop" className="py-20 border-b border-border bg-card/40">
+    <section id="workshop" className="py-24 border-b border-border bg-card/40">
       <div className="max-w-6xl mx-auto px-6">
-        <ScrollReveal>
+        <ScrollReveal direction="down">
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.workshopCases.label}</p>
         </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4 leading-tight tracking-tight">
+        <ScrollReveal direction="down" delay={0.1}>
+          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-5 leading-[1.1] tracking-tight max-w-3xl">
             {t.workshopCases.title}
           </h2>
         </ScrollReveal>
-        <ScrollReveal delay={0.15}>
-          <p className="text-muted-foreground mb-12 max-w-2xl leading-relaxed">{t.workshopCases.subtitle}</p>
+        <ScrollReveal direction="down" delay={0.15}>
+          <p className="text-muted-foreground mb-14 max-w-2xl leading-relaxed">{t.workshopCases.subtitle}</p>
         </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-6">
           {cases.map((c, i) => (
-            <ScrollReveal key={c.title} delay={0.2 + i * 0.08}>
+            <ScrollReveal key={c.title} direction="down" delay={0.2 + i * 0.08}>
               <a
                 href={WORKSHOP_URL}
                 target="_blank"
