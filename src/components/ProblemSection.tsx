@@ -1,4 +1,3 @@
-import { FileText, ListOrdered, Scale } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -6,9 +5,9 @@ const ProblemSection = () => {
   const { t } = useLanguage();
 
   const problems = [
-    { icon: FileText, title: t.problem.problem1Title, description: t.problem.problem1Desc },
-    { icon: ListOrdered, title: t.problem.problem2Title, description: t.problem.problem2Desc },
-    { icon: Scale, title: t.problem.problem3Title, description: t.problem.problem3Desc },
+    { title: t.problem.problem1Title, description: t.problem.problem1Desc },
+    { title: t.problem.problem2Title, description: t.problem.problem2Desc },
+    { title: t.problem.problem3Title, description: t.problem.problem3Desc },
   ];
 
   return (
@@ -23,15 +22,14 @@ const ProblemSection = () => {
           </h2>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-10 md:gap-12">
+        <div className="border-t border-border">
           {problems.map((p, i) => (
             <ScrollReveal key={i} direction="down" delay={0.15 + i * 0.1}>
-              <div className="border-t border-border pt-6">
-                <p.icon className="h-5 w-5 text-primary/70 mb-6" />
-                <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-4 leading-snug tracking-tight">
+              <div className="grid md:grid-cols-[1fr_1.5fr] gap-2 md:gap-10 py-7 border-b border-border">
+                <h3 className="font-display text-lg md:text-xl font-semibold text-primary leading-snug tracking-tight">
                   {p.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{p.description}</p>
+                <p className="text-foreground/80 text-sm md:text-base leading-relaxed">{p.description}</p>
               </div>
             </ScrollReveal>
           ))}

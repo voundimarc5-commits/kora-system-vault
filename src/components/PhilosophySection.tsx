@@ -1,4 +1,3 @@
-import { Compass, ListOrdered, FileText } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -6,9 +5,9 @@ const PhilosophySection = () => {
   const { t } = useLanguage();
 
   const steps = [
-    { icon: Compass, number: "01", title: t.method.step1Title, desc: t.method.step1Desc },
-    { icon: ListOrdered, number: "02", title: t.method.step2Title, desc: t.method.step2Desc },
-    { icon: FileText, number: "03", title: t.method.step3Title, desc: t.method.step3Desc },
+    { number: "01", title: t.method.step1Title, desc: t.method.step1Desc },
+    { number: "02", title: t.method.step2Title, desc: t.method.step2Desc },
+    { number: "03", title: t.method.step3Title, desc: t.method.step3Desc },
   ];
 
   return (
@@ -23,16 +22,15 @@ const PhilosophySection = () => {
           </h2>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="border-t border-border">
           {steps.map((s, i) => (
             <ScrollReveal key={s.number} direction="right" delay={0.15 + i * 0.1}>
-              <div className="border-t border-border pt-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <s.icon className="h-5 w-5 text-primary/70" />
-                  <span className="font-display text-xs tracking-[0.2em] text-muted-foreground/70">{s.number}</span>
+              <div className="grid md:grid-cols-[1fr_1.5fr] gap-2 md:gap-10 py-7 border-b border-border items-baseline">
+                <div className="flex items-baseline gap-3">
+                  <span className="font-display text-xs tracking-[0.2em] text-primary/50">{s.number}</span>
+                  <h3 className="font-display text-lg md:text-xl font-semibold text-primary tracking-tight">{s.title}</h3>
                 </div>
-                <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-3 tracking-tight">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-foreground/80 text-sm md:text-base leading-relaxed">{s.desc}</p>
               </div>
             </ScrollReveal>
           ))}

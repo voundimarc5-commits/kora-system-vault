@@ -27,7 +27,7 @@ const WhatWeDoSection = () => {
         </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Card 1 — GRC advisory */}
+          {/* Card 1 — risk & compliance advisory */}
           <ScrollReveal direction="left" delay={0.2}>
             <article className="h-full border border-border rounded-lg overflow-hidden bg-background flex flex-col">
               <div className="h-44 overflow-hidden border-b border-border">

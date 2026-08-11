@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import KGSLogo from "./KGSLogo";
+import GradientBlob from "./GradientBlob";
 import africaGreen from "@/assets/africa-green-innovation.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -18,6 +19,8 @@ const FounderHero = () => {
         />
         <div className="absolute inset-0 bg-contrast/85" />
       </div>
+
+      <GradientBlob className="absolute -top-40 -right-40 w-[560px] h-[560px] opacity-25 mix-blend-screen" />
 
       <div className="max-w-4xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 relative z-10">
         <motion.div
@@ -39,7 +42,7 @@ const FounderHero = () => {
         </motion.p>
 
         <motion.h1
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-contrast-foreground leading-[1.08] tracking-tight max-w-3xl mb-8"
+          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-contrast-foreground leading-[1.02] tracking-tight max-w-3xl mb-8"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}

@@ -13,6 +13,13 @@ const WorkshopCasesSection = () => {
     { title: t.workshopCases.case3Title, tags: t.workshopCases.case3Tags, desc: t.workshopCases.case3Desc },
   ];
 
+  const stats = [
+    { value: t.workshopCases.stat1Value, label: t.workshopCases.stat1Label },
+    { value: t.workshopCases.stat2Value, label: t.workshopCases.stat2Label },
+    { value: t.workshopCases.stat3Value, label: t.workshopCases.stat3Label },
+    { value: t.workshopCases.stat4Value, label: t.workshopCases.stat4Label },
+  ];
+
   return (
     <section id="workshop" className="py-24 border-b border-border bg-card/40">
       <div className="max-w-6xl mx-auto px-6">
@@ -25,8 +32,19 @@ const WorkshopCasesSection = () => {
           </h2>
         </ScrollReveal>
         <ScrollReveal direction="down" delay={0.15}>
-          <p className="text-muted-foreground mb-14 max-w-2xl leading-relaxed">{t.workshopCases.subtitle}</p>
+          <p className="text-muted-foreground mb-10 max-w-2xl leading-relaxed">{t.workshopCases.subtitle}</p>
         </ScrollReveal>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+          {stats.map((s, i) => (
+            <ScrollReveal key={s.label} direction="down" delay={0.18 + i * 0.05}>
+              <div className="rounded-2xl bg-primary text-primary-foreground p-6 h-full min-h-[140px] flex flex-col justify-between">
+                <span className="font-display text-4xl md:text-5xl font-bold leading-none">{s.value}</span>
+                <span className="text-xs leading-snug opacity-90 mt-4">{s.label}</span>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {cases.map((c, i) => (

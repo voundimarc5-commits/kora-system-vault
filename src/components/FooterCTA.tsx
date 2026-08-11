@@ -2,6 +2,7 @@ import { Mail, ArrowRight, FileText, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import GradientBlob from "./GradientBlob";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const FooterCTA = () => {
@@ -9,77 +10,66 @@ const FooterCTA = () => {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
   const { t } = useLanguage();
 
+  const links: { href?: string; to?: string; icon: typeof Mail; label: string }[] = [
+    { href: "mailto:contact@koraglobalsystems.com", icon: Mail, label: t.footerCTA.contact },
+    { href: "mailto:contact@koraglobalsystems.com", icon: ArrowRight, label: t.footerCTA.partnerships },
+    { to: "/terms", icon: FileText, label: t.footerCTA.groupOverview },
+    { to: "/advisory", icon: Shield, label: t.footerCTA.exposureAssessment },
+  ];
+
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-contrast text-contrast-foreground" ref={ref}>
-      <div className="max-w-3xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+    <section id="contact" className="relative overflow-hidden" ref={ref}>
+      <div className="grid md:grid-cols-2">
+        <div
+          className="relative overflow-hidden px-8 py-20 md:py-28 flex flex-col justify-center"
+          style={{ background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(42 92% 60%) 100%)" }}
         >
-          <h2 className="font-display text-3xl md:text-5xl font-semibold tracking-tight text-contrast-foreground mb-12 leading-[1.1]">{t.footerCTA.title}</h2>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.25 }}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          <motion.a
-            href="mailto:contact@koraglobalsystems.com"
-            className="inline-flex items-center gap-2 px-7 py-3 bg-primary text-primary-foreground font-display font-semibold tracking-wide text-sm rounded-md"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
+          <GradientBlob className="absolute -top-24 -left-24 w-[420px] h-[420px] opacity-40 mix-blend-overlay" />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="relative"
           >
-            <Mail className="h-4 w-4" />
-            {t.footerCTA.contact}
-          </motion.a>
-          <motion.a
-            href="mailto:contact@koraglobalsystems.com"
-            className="inline-flex items-center gap-2 px-7 py-3 border border-contrast-border text-contrast-foreground font-display font-semibold text-sm rounded-md hover:border-contrast-accent/60 transition-colors"
-            whileHover={{ scale: 1.03 }}
-          >
-            {t.footerCTA.partnerships}
-            <ArrowRight className="h-4 w-4" />
-          </motion.a>
-          <motion.div whileHover={{ scale: 1.03 }}>
-            <Link
-              to="/terms"
-              className="inline-flex items-center gap-2 px-7 py-3 border border-contrast-border text-contrast-muted font-display text-sm rounded-md hover:border-contrast-accent/60 transition-colors"
-            >
-              <FileText className="h-4 w-4" />
-              {t.footerCTA.groupOverview}
-            </Link>
+            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-white leading-[1.02] max-w-md">
+              {t.footerCTA.title}
+            </h2>
+            <p className="text-[11px] text-white/80 mt-8 max-w-sm">{t.footerCTA.disclaimer1}</p>
+            <p className="text-[10px] text-white/60 mt-1 max-w-sm">{t.footerCTA.disclaimer2}</p>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.03 }}>
-            <Link
-              to="/advisory"
-              className="inline-flex items-center gap-2 px-7 py-3 border border-contrast-accent/40 text-contrast-accent font-display font-semibold text-sm rounded-md hover:bg-contrast-accent/10 transition-colors"
-            >
-              <Shield className="h-4 w-4" />
-              {t.footerCTA.exposureAssessment}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </motion.div>
-        </motion.div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.5 }}
-          className="text-[11px] text-contrast-muted/70 mt-8"
-        >
-          {t.footerCTA.disclaimer1}
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.6 }}
-          className="text-[10px] text-contrast-muted/50 mt-1"
-        >
-          {t.footerCTA.disclaimer2}
-        </motion.p>
+        <div className="bg-primary px-8 py-20 md:py-28 flex flex-col justify-center gap-3">
+          {links.map((l, i) => {
+            const content = (
+              <>
+                <l.icon className="h-4 w-4" />
+                <span>{l.label}</span>
+              </>
+            );
+            const className =
+              "inline-flex items-center gap-3 px-6 py-4 border border-white/30 text-white font-display font-semibold text-sm rounded-md hover:bg-white/10 hover:border-white/60 transition-colors";
+            return (
+              <motion.div
+                key={l.label + i}
+                initial={{ opacity: 0, y: 15 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.25 + i * 0.08 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                {l.to ? (
+                  <Link to={l.to} className={className}>
+                    {content}
+                  </Link>
+                ) : (
+                  <a href={l.href} className={className}>
+                    {content}
+                  </a>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

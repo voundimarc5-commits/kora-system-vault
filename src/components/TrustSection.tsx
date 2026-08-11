@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import GradientBlob from "./GradientBlob";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const TrustSection = () => {
@@ -8,6 +9,8 @@ const TrustSection = () => {
 
   return (
     <section className="py-16 relative overflow-hidden">
+      <GradientBlob className="absolute top-1/2 -translate-y-1/2 -right-32 w-[380px] h-[380px] opacity-30" />
+
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <ScrollReveal>
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.trust.label}</p>
@@ -29,8 +32,6 @@ const TrustSection = () => {
             <p>{t.trust.outro}</p>
           </div>
         </ScrollReveal>
-
-        
       </div>
     </section>
   );
