@@ -174,7 +174,7 @@ export const en = {
     legalNoticePage: "Legal Notice",
     termsOfUse: "Terms of Use",
     privacyPolicy: "Privacy Policy",
-    disclaimer: "KORA GLOBAL SYSTEMS advises and trains on governance, risk and compliance matters. The practice does not issue certifications, regulatory compliance attestations, or audits in the legal sense of the term. It does not execute transactions, process payments, or custody funds.",
+    disclaimer: "KORA GLOBAL SYSTEMS (KGS) advises and trains on governance, risk and compliance matters. The practice does not issue certifications, regulatory compliance attestations, or audits in the legal sense of the term. Any reference to regional regulatory frameworks (Africa, Europe) is descriptive: KGS relies on those frameworks without declaring a compliance status on behalf of third parties. It does not execute transactions, process payments, or custody funds.",
   },
   advisory: {
     topLabel: "Kora Global Systems — Orientation",

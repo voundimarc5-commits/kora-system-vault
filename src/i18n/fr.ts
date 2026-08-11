@@ -174,7 +174,7 @@ export const fr = {
     legalNoticePage: "Mentions légales",
     termsOfUse: "Conditions d'utilisation",
     privacyPolicy: "Politique de confidentialité",
-    disclaimer: "KORA GLOBAL SYSTEMS accompagne et forme sur les sujets de gouvernance, risque et conformité. Le cabinet ne délivre ni certification, ni attestation de conformité réglementaire, ni audit au sens légal du terme. Il n'exécute pas de transactions, ne traite pas de paiements et ne détient pas de fonds.",
+    disclaimer: "KORA GLOBAL SYSTEMS (KGS) accompagne et forme sur les sujets de gouvernance, risque et conformité. Le cabinet ne délivre ni certification, ni attestation de conformité réglementaire, ni audit au sens légal du terme. Toute référence à des cadres réglementaires régionaux (Afrique, Europe) est descriptive : KGS s'appuie sur ces cadres, sans déclarer de statut de conformité pour le compte de tiers. Il n'exécute pas de transactions, ne traite pas de paiements et ne détient pas de fonds.",
   },
   advisory: {
     topLabel: "Kora Global Systems — Orientation",

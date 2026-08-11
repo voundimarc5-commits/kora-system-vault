@@ -10,14 +10,14 @@ const FooterCTA = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-16 relative overflow-hidden" ref={ref}>
+    <section id="contact" className="py-24 relative overflow-hidden bg-contrast text-contrast-foreground" ref={ref}>
       <div className="max-w-3xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-display text-2xl md:text-3xl font-semibold tracking-tight text-foreground mb-10">{t.footerCTA.title}</h2>
+          <h2 className="font-display text-3xl md:text-5xl font-semibold tracking-tight text-contrast-foreground mb-12 leading-[1.1]">{t.footerCTA.title}</h2>
         </motion.div>
 
         <motion.div
@@ -28,7 +28,7 @@ const FooterCTA = () => {
         >
           <motion.a
             href="mailto:contact@koraglobalsystems.com"
-            className="inline-flex items-center gap-2 px-7 py-3 bg-primary/75 text-primary-foreground font-display font-semibold tracking-wide text-sm rounded-lg"
+            className="inline-flex items-center gap-2 px-7 py-3 bg-primary text-primary-foreground font-display font-semibold tracking-wide text-sm rounded-md"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -37,7 +37,7 @@ const FooterCTA = () => {
           </motion.a>
           <motion.a
             href="mailto:contact@koraglobalsystems.com"
-            className="inline-flex items-center gap-2 px-7 py-3 border border-border/60 text-foreground/75 font-display font-semibold text-sm rounded-lg hover:border-primary/40 transition-colors"
+            className="inline-flex items-center gap-2 px-7 py-3 border border-contrast-border text-contrast-foreground font-display font-semibold text-sm rounded-md hover:border-contrast-accent/60 transition-colors"
             whileHover={{ scale: 1.03 }}
           >
             {t.footerCTA.partnerships}
@@ -46,7 +46,7 @@ const FooterCTA = () => {
           <motion.div whileHover={{ scale: 1.03 }}>
             <Link
               to="/terms"
-              className="inline-flex items-center gap-2 px-7 py-3 border border-border/60 text-muted-foreground/75 font-display text-sm rounded-lg hover:border-primary/40 transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 border border-contrast-border text-contrast-muted font-display text-sm rounded-md hover:border-contrast-accent/60 transition-colors"
             >
               <FileText className="h-4 w-4" />
               {t.footerCTA.groupOverview}
@@ -55,7 +55,7 @@ const FooterCTA = () => {
           <motion.div whileHover={{ scale: 1.03 }}>
             <Link
               to="/advisory"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-primary/8 border border-primary/20 text-primary/75 font-display font-semibold text-sm rounded-lg hover:bg-primary/12 transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 border border-contrast-accent/40 text-contrast-accent font-display font-semibold text-sm rounded-md hover:bg-contrast-accent/10 transition-colors"
             >
               <Shield className="h-4 w-4" />
               {t.footerCTA.exposureAssessment}
@@ -68,7 +68,7 @@ const FooterCTA = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.5 }}
-          className="text-[11px] text-muted-foreground/50 mt-6"
+          className="text-[11px] text-contrast-muted/70 mt-8"
         >
           {t.footerCTA.disclaimer1}
         </motion.p>
@@ -76,7 +76,7 @@ const FooterCTA = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6 }}
-          className="text-[10px] text-muted-foreground/35 mt-1"
+          className="text-[10px] text-contrast-muted/50 mt-1"
         >
           {t.footerCTA.disclaimer2}
         </motion.p>
