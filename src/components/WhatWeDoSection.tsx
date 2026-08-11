@@ -12,23 +12,23 @@ const WhatWeDoSection = () => {
   const card2Points = [t.domains.card2Point1, t.domains.card2Point2, t.domains.card2Point3];
 
   return (
-    <section id="solutions" className="py-20 border-b border-border">
+    <section id="solutions" className="py-24 border-b border-border">
       <div className="max-w-6xl mx-auto px-6">
-        <ScrollReveal>
+        <ScrollReveal direction="left">
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.domains.label}</p>
         </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4 leading-tight tracking-tight">
+        <ScrollReveal direction="left" delay={0.1}>
+          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-5 leading-[1.1] tracking-tight max-w-3xl">
             {t.domains.title}
           </h2>
         </ScrollReveal>
-        <ScrollReveal delay={0.15}>
-          <p className="text-muted-foreground mb-12 max-w-2xl leading-relaxed">{t.domains.subtitle}</p>
+        <ScrollReveal direction="left" delay={0.15}>
+          <p className="text-muted-foreground mb-14 max-w-2xl leading-relaxed">{t.domains.subtitle}</p>
         </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Card 1 — GRC advisory */}
-          <ScrollReveal delay={0.2}>
+          <ScrollReveal direction="left" delay={0.2}>
             <article className="h-full border border-border rounded-lg overflow-hidden bg-background flex flex-col">
               <div className="h-44 overflow-hidden border-b border-border">
                 <img
@@ -44,7 +44,7 @@ const WhatWeDoSection = () => {
                   <h3 className="font-display text-lg font-semibold text-foreground">{t.domains.card1Title}</h3>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">{t.domains.card1Desc}</p>
-                <ul className="space-y-2.5 mt-auto">
+                <ul className="space-y-2.5 mb-6">
                   {card1Points.map((p) => (
                     <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/80">
                       <Check className="h-4 w-4 text-primary/70 mt-0.5 shrink-0" />
@@ -52,12 +52,16 @@ const WhatWeDoSection = () => {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-auto border-t border-border pt-5 space-y-3">
+                  <p className="text-muted-foreground text-xs leading-relaxed">{t.domains.card1Note1}</p>
+                  <p className="text-muted-foreground text-xs leading-relaxed">{t.domains.card1Note2}</p>
+                </div>
               </div>
             </article>
           </ScrollReveal>
 
           {/* Card 2 — NIST CSF 2.0 workshop */}
-          <ScrollReveal delay={0.3}>
+          <ScrollReveal direction="right" delay={0.3}>
             <article className="h-full border border-border rounded-lg overflow-hidden bg-card/50 flex flex-col">
               <div className="h-44 border-b border-border flex items-center px-7">
                 <div>
