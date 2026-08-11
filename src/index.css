@@ -6,35 +6,42 @@
 
 @layer base {
   :root {
-    --background: 30 15% 98%;
-    --foreground: 25 20% 12%;
+    --background: 36 34% 96%;
+    --foreground: 25 22% 13%;
 
-    --card: 30 12% 95%;
-    --card-foreground: 25 20% 12%;
+    --card: 36 28% 92%;
+    --card-foreground: 25 22% 13%;
 
-    --popover: 30 15% 98%;
-    --popover-foreground: 25 20% 12%;
+    --popover: 36 34% 97%;
+    --popover-foreground: 25 22% 13%;
 
-    --primary: 30 48% 38%;
+    --primary: 34 62% 42%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 28 14% 89%;
+    --secondary: 34 22% 88%;
     --secondary-foreground: 25 22% 16%;
 
-    --muted: 28 12% 91%;
-    --muted-foreground: 25 12% 40%;
+    --muted: 34 20% 90%;
+    --muted-foreground: 28 12% 38%;
 
-    --accent: 28 40% 32%;
+    --accent: 34 52% 34%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 12% 86%;
-    --input: 30 12% 86%;
-    --ring: 30 48% 38%;
+    --border: 34 18% 84%;
+    --input: 34 18% 84%;
+    --ring: 34 62% 42%;
 
     --radius: 0.5rem;
+
+    /* Dark contrast blocks (hero, CTA) */
+    --contrast: 26 14% 11%;
+    --contrast-foreground: 36 30% 94%;
+    --contrast-muted: 34 10% 68%;
+    --contrast-border: 30 10% 24%;
+    --contrast-accent: 34 70% 58%;
 
     --glow: 30 40% 45%;
     --glow-dim: 30 45% 62%;
