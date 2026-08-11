@@ -1,12 +1,8 @@
 import { FileText, ListOrdered, Scale } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProblemSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
   const { t } = useLanguage();
 
   const problems = [
@@ -16,30 +12,28 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section className="py-20 border-b border-border" ref={ref}>
+    <section className="py-24 border-b border-border">
       <div className="max-w-6xl mx-auto px-6">
-        <ScrollReveal>
+        <ScrollReveal direction="down">
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.problem.label}</p>
         </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-14 leading-tight max-w-2xl tracking-tight">
+        <ScrollReveal direction="down" delay={0.1}>
+          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-16 leading-[1.1] max-w-3xl tracking-tight">
             {t.problem.title}
           </h2>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-px bg-border">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-12">
           {problems.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              className="bg-background p-7"
-            >
-              <p.icon className="h-6 w-6 text-primary/70 mb-5" />
-              <h3 className="font-display text-base font-semibold text-foreground mb-3 leading-snug">{p.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{p.description}</p>
-            </motion.div>
+            <ScrollReveal key={i} direction="down" delay={0.15 + i * 0.1}>
+              <div className="border-t border-border pt-6">
+                <p.icon className="h-5 w-5 text-primary/70 mb-6" />
+                <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-4 leading-snug tracking-tight">
+                  {p.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{p.description}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

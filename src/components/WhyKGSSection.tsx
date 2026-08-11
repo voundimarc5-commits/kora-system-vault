@@ -1,4 +1,4 @@
-import { Check, Briefcase, Handshake } from "lucide-react";
+import { Briefcase, Handshake } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -6,38 +6,46 @@ const WhyKGSSection = () => {
   const { t } = useLanguage();
 
   const columns = [
-    { icon: Briefcase, title: t.whyKGS.forCEO, points: t.whyKGS.forCEOPoints },
-    { icon: Handshake, title: t.whyKGS.forInvestor, points: t.whyKGS.forInvestorPoints },
+    {
+      icon: Briefcase,
+      title: t.whyKGS.forCEO,
+      statement: t.whyKGS.forCEOStatement,
+      mechanism: t.whyKGS.forCEOMechanism,
+      direction: "left" as const,
+    },
+    {
+      icon: Handshake,
+      title: t.whyKGS.forInvestor,
+      statement: t.whyKGS.forInvestorStatement,
+      mechanism: t.whyKGS.forInvestorMechanism,
+      direction: "right" as const,
+    },
   ];
 
   return (
-    <section id="why" className="py-20 border-b border-border">
+    <section id="why" className="py-24 border-b border-border">
       <div className="max-w-5xl mx-auto px-6">
-        <ScrollReveal>
+        <ScrollReveal direction="left">
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.whyKGS.label}</p>
         </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-14 leading-tight tracking-tight">
+        <ScrollReveal direction="left" delay={0.1}>
+          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-16 leading-[1.1] tracking-tight max-w-3xl">
             {t.whyKGS.title}
           </h2>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-px bg-border">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {columns.map((col, i) => (
-            <ScrollReveal key={col.title} delay={0.15 + i * 0.1}>
-              <div className="bg-background p-8 h-full">
-                <div className="flex items-center gap-3 mb-6">
+            <ScrollReveal key={col.title} direction={col.direction} delay={0.15 + i * 0.1}>
+              <div className="h-full border-t border-border pt-7">
+                <div className="flex items-center gap-3 mb-7">
                   <col.icon className="h-5 w-5 text-primary/70" />
-                  <h3 className="font-display text-base font-semibold text-foreground">{col.title}</h3>
+                  <h3 className="font-display text-[11px] tracking-[0.24em] uppercase text-muted-foreground">{col.title}</h3>
                 </div>
-                <ul className="space-y-3">
-                  {col.points.map((point, j) => (
-                    <li key={j} className="flex items-start gap-3">
-                      <Check className="h-4 w-4 text-primary/70 mt-0.5 shrink-0" />
-                      <span className="text-muted-foreground text-sm leading-relaxed">{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="font-display text-xl md:text-2xl font-semibold text-foreground leading-snug tracking-tight mb-4">
+                  {col.statement}
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{col.mechanism}</p>
               </div>
             </ScrollReveal>
           ))}
