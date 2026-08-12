@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
-import KGSLogo from "./KGSLogo";
 import GradientBlob from "./GradientBlob";
 import africaGreen from "@/assets/africa-green-innovation.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -23,15 +22,6 @@ const FounderHero = () => {
       <GradientBlob className="absolute -top-32 -right-32 w-[620px] h-[620px] opacity-70" />
 
       <div className="max-w-4xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 relative z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="mb-10"
-        >
-          <KGSLogo size="md" copper />
-        </motion.div>
-
         <motion.p
           className="text-primary font-display text-[11px] md:text-[11px] tracking-[0.3em] uppercase mb-6"
           initial={{ opacity: 0, y: 8 }}
