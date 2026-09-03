@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Advisory from "./pages/Advisory";
+import FinancialSector from "./pages/FinancialSector";
 import Terms from "./pages/Terms";
 import LegalNotice from "./pages/LegalNotice";
 import TermsOfUse from "./pages/TermsOfUse";
@@ -24,6 +25,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/advisory" element={<Advisory />} />
+          <Route path="/secteur-financier" element={<FinancialSector />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/legal-notice" element={<LegalNotice />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />

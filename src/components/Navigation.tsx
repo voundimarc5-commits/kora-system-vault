@@ -12,6 +12,7 @@ const Navigation = () => {
     { label: t.nav.about, href: "#about" },
     { label: t.nav.solutions, href: "#solutions" },
     { label: t.nav.vision, href: "#vision" },
+    { label: t.nav.financialSector, href: "/secteur-financier", isRoute: true },
     { label: t.nav.advisory, href: "/advisory", isRoute: true },
     { label: t.nav.contact, href: "#contact" },
   ];
