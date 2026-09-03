@@ -13,7 +13,7 @@ const FooterCTA = () => {
   const links: { href?: string; to?: string; icon: typeof Mail; label: string }[] = [
     { href: "mailto:contact@koraglobalsystems.com", icon: Mail, label: t.footerCTA.contact },
     { href: "mailto:contact@koraglobalsystems.com", icon: ArrowRight, label: t.footerCTA.partnerships },
-    { to: "/terms", icon: FileText, label: t.footerCTA.groupOverview },
+    { to: "/terms-of-use", icon: FileText, label: t.footerCTA.groupOverview },
     { to: "/advisory", icon: Shield, label: t.footerCTA.exposureAssessment },
   ];
 

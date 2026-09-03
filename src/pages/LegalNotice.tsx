@@ -21,7 +21,7 @@ const LegalNotice = () => {
           className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back
+          Retour
         </Link>
       </nav>
 
@@ -32,10 +32,10 @@ const LegalNotice = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
-            Legal
+            Légal
           </p>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3 leading-tight">
-            Legal Notice
+            Mentions légales
           </h1>
           <div className="w-12 h-px bg-primary/30 mt-6 mb-12" />
         </motion.div>
@@ -46,36 +46,34 @@ const LegalNotice = () => {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="space-y-6 text-muted-foreground text-sm leading-relaxed"
         >
-          <p>
-            Kora Global Systems is an international technology group focused on systems architecture, security design, and operational orchestration.
-          </p>
-
           <div className="space-y-2">
-            <p><strong className="text-foreground">Legal Entity:</strong><br />Kora Global Systems LLC</p>
+            <p><strong className="text-foreground">Éditeur :</strong><br />Kora Global Systems LLC, société à responsabilité limitée de droit américain, Wyoming.</p>
           </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Jurisdiction:</strong><br />United States of America – Wyoming (WY)</p>
+            <p><strong className="text-foreground">Siège social / agent enregistré :</strong><br />30 N Gould Street, #57810, Sheridan, WY 82801, États-Unis.</p>
           </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Nature of Activities:</strong><br />Advisory, systems architecture, infrastructure design, and operational coordination services.</p>
+            <p><strong className="text-foreground">Directeur de la publication :</strong><br />Marc Voundi Zeh, Membre unique et gérant.</p>
           </div>
 
-          <p>
-            Kora Global Systems does not operate as a financial institution, payment service provider, or regulated execution platform.
-          </p>
+          <div className="space-y-2">
+            <p><strong className="text-foreground">Nature des activités :</strong><br />Conseil en gouvernance, risque et conformité appliqué à la cybersécurité pour organisations en croissance, et formation publique sur le référentiel NIST CSF 2.0.</p>
+          </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Contact:</strong><br />
+            <p><strong className="text-foreground">Hébergement du site :</strong><br />Hostinger International Limited, société de droit chypriote, 61 Lordou Vironos str., 6023 Larnaca, Chypre (hébergement des données effectué en Allemagne).</p>
+          </div>
+
+          <div className="space-y-2">
+            <p><strong className="text-foreground">Contact :</strong><br />
               <a href="mailto:contact@koraglobalsystems.com" className="text-primary hover:underline">contact@koraglobalsystems.com</a>
             </p>
           </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Website:</strong><br />
-              <a href="https://www.koraglobalsystems.com" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">www.koraglobalsystems.com</a>
-            </p>
+            <p><strong className="text-foreground">Propriété intellectuelle :</strong><br />L'ensemble des éléments du site (textes, graphismes, logo, éléments visuels) est la propriété de Kora Global Systems LLC, sauf mention contraire. Toute reproduction est interdite sans autorisation écrite préalable.</p>
           </div>
         </motion.div>
 
@@ -85,7 +83,7 @@ const LegalNotice = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          © 2024 KORA Global Systems. All rights reserved.
+          © 2026 Kora Global Systems. Tous droits réservés.
         </motion.p>
       </div>
     </div>

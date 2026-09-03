@@ -6,53 +6,80 @@ import KGSLogo from "@/components/KGSLogo";
 const sections = [
   {
     number: "01",
-    title: "Purpose of the Website",
+    title: "Objet",
     paragraphs: [
-      "This website is provided for informational and institutional purposes only. It presents the positioning, scope, and general activities of Kora Global Systems and its solution lines.",
-      "No information on this website constitutes a binding offer, contractual commitment, or execution instruction.",
+      "Les présentes conditions générales d'utilisation (CGU) régissent l'accès et l'utilisation de ce site. Elles ne constituent pas un contrat de prestation de services : toute mission de conseil fait l'objet d'un contrat distinct, négocié et signé séparément.",
     ],
   },
   {
     number: "02",
-    title: "Nature of Services",
+    title: "Description des services",
     paragraphs: [
-      "Kora Global Systems provides advisory, systems architecture, and operational coordination services.",
-      "Kora Global Systems does not execute transactions, process payments, transfer funds, custody assets, or provide regulated financial services. Any financial, transactional, or execution activities are performed exclusively by licensed third-party providers operating under their own regulatory frameworks.",
+      "Kora Global Systems (KGS) propose un accompagnement en gouvernance, gestion des risques et conformité appliqué à la cybersécurité, ainsi qu'un atelier public de formation au référentiel NIST CSF 2.0. Les informations présentées sur ce site ont une vocation informative et ne constituent en aucun cas une offre contractuelle ferme.",
     ],
   },
   {
     number: "03",
-    title: "No Reliance",
+    title: "Absence de garantie de résultat réglementaire",
     paragraphs: [
-      "The information provided on this website does not constitute legal, financial, regulatory, or investment advice. Users should not rely on this information as a substitute for professional consultation.",
+      "KGS ne garantit aucun résultat de conformité, aucune certification, ni aucune décision d'un tiers (autorité de supervision, auditeur, partenaire, assureur). La responsabilité du respect effectif des obligations réglementaires applicables incombe entièrement à l'organisation cliente.",
+      "L'atelier NIST CSF 2.0 est un outil pédagogique public : il ne confère aucune certification officielle délivrée par le NIST, sauf mention contraire explicite au moment de l'inscription.",
     ],
   },
   {
     number: "04",
-    title: "Limitation of Liability",
+    title: "Absence de conseil professionnel engageant",
     paragraphs: [
-      "Kora Global Systems shall not be liable for any direct or indirect loss arising from the use of this website or reliance on its content.",
+      "Les contenus publiés sur ce site sont des informations générales à caractère pédagogique. Ils ne constituent ni un avis juridique, ni un avis financier, ni un audit opposable à un tiers, et ne sauraient se substituer à une consultation professionnelle adaptée à la situation particulière de chaque organisation.",
     ],
   },
   {
     number: "05",
-    title: "External Providers",
+    title: "Inscription à l'atelier",
     paragraphs: [
-      "Certain services referenced may involve third-party providers. Kora Global Systems does not control, operate, or assume responsibility for third-party platforms, services, or compliance obligations.",
+      "L'accès complet à l'atelier NIST CSF 2.0 nécessite la création d'un compte. Les conditions d'inscription sont propres à chaque session et précisées au moment de l'inscription.",
     ],
   },
   {
     number: "06",
-    title: "Modifications",
+    title: "Propriété intellectuelle",
     paragraphs: [
-      "Kora Global Systems reserves the right to modify these Terms of Use at any time without prior notice.",
+      "Voir les mentions légales pour les dispositions relatives à la propriété intellectuelle des éléments du site.",
     ],
   },
   {
     number: "07",
-    title: "Governing Law",
+    title: "Utilisation du site",
     paragraphs: [
-      "These Terms of Use are governed by the laws of the State of Wyoming, United States of America.",
+      "L'utilisateur s'interdit toute extraction ou réutilisation commerciale du contenu du site, toute action visant à perturber son fonctionnement, ainsi que tout détournement des formulaires mis à disposition (contact, inscription) à des fins autres que celles prévues.",
+    ],
+  },
+  {
+    number: "08",
+    title: "Liens externes",
+    paragraphs: [
+      "Ce site peut contenir des liens vers des sites tiers. KGS n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou leur disponibilité.",
+    ],
+  },
+  {
+    number: "09",
+    title: "Limitation de responsabilité",
+    paragraphs: [
+      "Dans la limite permise par la loi applicable, la responsabilité de KGS ne saurait être engagée au titre de l'utilisation de ce site ou des informations qu'il contient, sans que cela n'exclue une responsabilité impérative prévue par le droit local applicable à l'utilisateur.",
+    ],
+  },
+  {
+    number: "10",
+    title: "Modification des CGU",
+    paragraphs: [
+      "KGS se réserve le droit de modifier les présentes CGU à tout moment. La version en vigueur est celle publiée sur le site à la date de consultation.",
+    ],
+  },
+  {
+    number: "11",
+    title: "Droit applicable",
+    paragraphs: [
+      "Les présentes CGU sont régies par le droit de l'État du Wyoming (États-Unis), sans préjudice des dispositions impératives de protection des consommateurs applicables dans le pays de résidence de l'utilisateur.",
     ],
   },
 ];
@@ -75,7 +102,7 @@ const TermsOfUse = () => {
           className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back
+          Retour
         </Link>
       </nav>
 
@@ -86,11 +113,14 @@ const TermsOfUse = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
-            Legal
+            Légal
           </p>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3 leading-tight">
-            Terms of Use
+            Conditions générales d'utilisation
           </h1>
+          <p className="text-muted-foreground text-sm mb-2">
+            Dernière mise à jour : 3 septembre 2026
+          </p>
           <div className="w-12 h-px bg-primary/30 mt-6 mb-12" />
         </motion.div>
 
@@ -128,14 +158,25 @@ const TermsOfUse = () => {
           ))}
         </div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 + sections.length * 0.08 }}
+          className="mt-12 pt-8 border-t border-border/40"
+        >
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Pour toute question relative aux présentes CGU :{" "}
+            <a href="mailto:contact@koraglobalsystems.com" className="text-primary hover:underline">contact@koraglobalsystems.com</a>
+          </p>
+        </motion.div>
+
         <motion.p
           className="mt-16 text-muted-foreground/50 text-[11px] text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          © 2024 KORA Global Systems. All rights reserved. These terms are
-          subject to update without prior notice.
+          © 2026 Kora Global Systems. Tous droits réservés.
         </motion.p>
       </div>
     </div>

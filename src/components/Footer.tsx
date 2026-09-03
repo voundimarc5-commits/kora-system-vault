@@ -90,10 +90,6 @@ const Footer = () => {
             <Link to="/privacy-policy" className="text-muted-foreground/50 hover:text-muted-foreground text-[11px] tracking-wide transition-colors">
               {t.footer.privacyPolicy}
             </Link>
-            <span className="text-muted-foreground/30 text-[11px]">·</span>
-            <Link to="/terms" className="text-muted-foreground/50 hover:text-muted-foreground text-[11px] tracking-wide transition-colors">
-              {t.footer.terms}
-            </Link>
           </div>
           <p className="text-[10px] text-muted-foreground/40 max-w-xl mx-auto leading-relaxed">
             {t.footer.disclaimer}

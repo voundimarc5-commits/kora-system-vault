@@ -150,7 +150,10 @@ const WhatWeDoSection = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {tiers.map((tier, i) => (
               <ScrollReveal key={tier.name} direction={i % 2 === 0 ? "up" : "down"} delay={0.15 + i * 0.08}>
-                <article className="h-full border border-border rounded-lg bg-card/40 p-7 flex flex-col">
+                <article
+                  className="h-full border border-border rounded-lg p-7 flex flex-col"
+                  style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.07) 0%, hsl(var(--accent) / 0.06) 100%)" }}
+                >
                   <div className="flex items-center justify-between mb-5">
                     <span className="font-display text-[11px] tracking-[0.24em] text-primary/60">{tier.step}</span>
                     <tier.icon className="h-4 w-4 text-primary/60" />
@@ -196,7 +199,10 @@ const WhatWeDoSection = () => {
           </ScrollReveal>
           <div className="grid md:grid-cols-2 gap-6">
             <ScrollReveal direction="right" delay={0.1}>
-              <div className="h-full border border-border rounded-lg p-7 bg-card/40">
+              <div
+                className="h-full border border-border rounded-lg p-7"
+                style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.15) 0%, hsl(var(--accent) / 0.11) 100%)" }}
+              >
                 <div className="flex items-center gap-3 mb-4">
                   <ShieldCheck className="h-5 w-5 text-primary/70" />
                   <h4 className="font-display text-base font-semibold text-foreground">{t.domains.splitKgsTitle}</h4>
@@ -205,7 +211,10 @@ const WhatWeDoSection = () => {
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" delay={0.18}>
-              <div className="h-full border border-dashed border-border rounded-lg p-7">
+              <div
+                className="h-full border border-dashed border-border rounded-lg p-7"
+                style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.04) 0%, hsl(var(--accent) / 0.03) 100%)" }}
+              >
                 <div className="flex items-center gap-3 mb-4">
                   <Wrench className="h-5 w-5 text-muted-foreground/70" />
                   <h4 className="font-display text-base font-semibold text-foreground">{t.domains.splitPartnerTitle}</h4>

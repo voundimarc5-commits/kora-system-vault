@@ -66,11 +66,16 @@ const WhoWeAreSection = () => {
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>{t.whoWeAre.p1}</p>
                 <p>{t.whoWeAre.p2}</p>
-                <p>{t.whoWeAre.p4}</p>
               </div>
             </ScrollReveal>
           </div>
         </div>
+
+        <ScrollReveal direction="up" delay={0.1}>
+          <div className="max-w-4xl mx-auto mt-14 border-t border-border pt-8">
+            <p className="text-muted-foreground leading-relaxed">{t.whoWeAre.p4}</p>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -6,44 +6,72 @@ import KGSLogo from "@/components/KGSLogo";
 const sections = [
   {
     number: "01",
-    title: "Data Collection",
+    title: "Responsable du traitement",
     paragraphs: [
-      "Kora Global Systems may collect limited personal information such as name, email address, and contact details when users submit forms or initiate contact.",
+      "Le responsable du traitement des données à caractère personnel collectées sur ce site est Kora Global Systems LLC, représentée par Marc Voundi Zeh. Contact : contact@koraglobalsystems.com.",
     ],
   },
   {
     number: "02",
-    title: "Purpose of Data Processing",
+    title: "Données collectées",
     paragraphs: [
-      "Collected data is used solely for communication, project evaluation, advisory discussions, and relationship management.",
+      "Via les formulaires de contact et d'inscription, KGS collecte : nom, adresse e-mail, organisation, fonction, et le contenu du message transmis.",
     ],
   },
   {
     number: "03",
-    title: "Data Sharing",
+    title: "Finalités et base légale",
     paragraphs: [
-      "Kora Global Systems does not sell or commercialize personal data. Data may be shared with trusted service providers strictly for operational purposes.",
+      "Ces données sont utilisées pour répondre à la demande, évaluer un besoin d'accompagnement, gérer l'inscription à l'atelier, et assurer le suivi de la relation. Le traitement repose sur le consentement de la personne concernée et/ou sur l'intérêt légitime de KGS à répondre aux sollicitations reçues.",
     ],
   },
   {
     number: "04",
-    title: "Data Storage",
+    title: "Durée de conservation",
     paragraphs: [
-      "Data is stored using third-party tools and platforms compliant with standard security practices.",
+      "Les données sont conservées pour la durée nécessaire aux finalités décrites ci-dessus, et au maximum trois ans après le dernier contact, sauf obligation légale de conservation plus longue ou contrat en cours.",
     ],
   },
   {
     number: "05",
-    title: "User Rights",
+    title: "Destinataires des données",
     paragraphs: [
-      "Users may request access, correction, or deletion of their personal data by contacting contact@koraglobalsystems.com.",
+      "Les données sont accessibles à Marc Voundi Zeh et à Hostinger International Limited (Chypre), en tant qu'hébergeur du site — les données étant hébergées en Allemagne. Aucun autre sous-traitant n'est mobilisé à ce jour ; cette section sera mise à jour si cela évolue.",
     ],
   },
   {
     number: "06",
-    title: "Changes",
+    title: "Transferts de données",
     paragraphs: [
-      "This Privacy Policy may be updated periodically to reflect operational or legal requirements.",
+      "L'hébergement principal des données est assuré en Allemagne, au sein de l'Union européenne.",
+    ],
+  },
+  {
+    number: "07",
+    title: "Cadres légaux applicables",
+    paragraphs: [
+      "Ce traitement est conduit dans le respect du Règlement général sur la protection des données (RGPD, UE/Royaume-Uni), de la loi camerounaise n°2024/017 du 23 décembre 2024 relative à la protection des données à caractère personnel, de la loi sénégalaise n°2008-12 du 25 janvier 2008 sur la protection des données à caractère personnel (CDP), et de la loi ivoirienne n°2013-450 du 19 juin 2013 relative à la protection des données à caractère personnel (ARTCI).",
+    ],
+  },
+  {
+    number: "08",
+    title: "Vos droits",
+    paragraphs: [
+      "Toute personne concernée dispose d'un droit d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité de ses données, ainsi que du droit d'introduire une réclamation auprès de l'autorité de contrôle compétente. Ces droits s'exercent en écrivant à contact@koraglobalsystems.com.",
+    ],
+  },
+  {
+    number: "09",
+    title: "Sécurité",
+    paragraphs: [
+      "KGS met en œuvre des mesures raisonnables pour protéger les données collectées contre l'accès non autorisé, la perte ou l'altération.",
+    ],
+  },
+  {
+    number: "10",
+    title: "Modifications",
+    paragraphs: [
+      "Cette politique de confidentialité peut être mise à jour périodiquement pour refléter l'évolution des pratiques ou des exigences légales.",
     ],
   },
 ];
@@ -66,7 +94,7 @@ const PrivacyPolicy = () => {
           className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back
+          Retour
         </Link>
       </nav>
 
@@ -77,11 +105,14 @@ const PrivacyPolicy = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
-            Legal
+            Légal
           </p>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3 leading-tight">
-            Privacy Policy
+            Politique de confidentialité
           </h1>
+          <p className="text-muted-foreground text-sm mb-2">
+            Dernière mise à jour : 3 septembre 2026
+          </p>
           <div className="w-12 h-px bg-primary/30 mt-6 mb-12" />
         </motion.div>
 
@@ -125,7 +156,7 @@ const PrivacyPolicy = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          © 2024 KORA Global Systems. All rights reserved.
+          © 2026 Kora Global Systems. Tous droits réservés.
         </motion.p>
       </div>
     </div>
