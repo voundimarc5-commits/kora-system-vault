@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import LetterReveal from "./LetterReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const WORKSHOP_URL = "https://access.koraglobalsystems.com";
@@ -26,11 +27,10 @@ const WorkshopCasesSection = () => {
         <ScrollReveal direction="down">
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.workshopCases.label}</p>
         </ScrollReveal>
-        <ScrollReveal direction="down" delay={0.1}>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-5 leading-[1.1] tracking-tight max-w-3xl">
-            {t.workshopCases.title}
-          </h2>
-        </ScrollReveal>
+        <LetterReveal
+            text={t.workshopCases.title}
+            className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-5 leading-[1.1] tracking-tight max-w-3xl"
+          />
         <ScrollReveal direction="down" delay={0.15}>
           <p className="text-muted-foreground mb-10 max-w-2xl leading-relaxed">{t.workshopCases.subtitle}</p>
         </ScrollReveal>

@@ -1,4 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
+import LetterReveal from "./LetterReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ScopeGovernanceSection = () => {
@@ -10,9 +11,10 @@ const ScopeGovernanceSection = () => {
         <ScrollReveal direction="right">
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.scopeGovernance.label}</p>
         </ScrollReveal>
-        <ScrollReveal direction="right" delay={0.1}>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-8 leading-[1.1] tracking-tight">{t.scopeGovernance.title}</h2>
-        </ScrollReveal>
+        <LetterReveal
+            text={t.scopeGovernance.title}
+            className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-8 leading-[1.1] tracking-tight"
+          />
         <ScrollReveal direction="right" delay={0.2}>
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>{t.scopeGovernance.p1}</p>

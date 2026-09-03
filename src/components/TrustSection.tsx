@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import LetterReveal from "./LetterReveal";
 import GradientBlob from "./GradientBlob";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -15,9 +16,10 @@ const TrustSection = () => {
         <ScrollReveal>
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.trust.label}</p>
         </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8 leading-tight">{t.trust.title}</h2>
-        </ScrollReveal>
+        <LetterReveal
+            text={t.trust.title}
+            className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8 leading-tight"
+          />
         <ScrollReveal delay={0.2}>
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>{t.trust.intro}</p>

@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import LetterReveal from "./LetterReveal";
 import africaCoastalPort from "@/assets/africa-coastal-port.jpg";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -21,9 +22,10 @@ const GlobalVisionSection = () => {
             <ScrollReveal>
               <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.globalVision.label}</p>
             </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8 leading-tight">{t.globalVision.title}</h2>
-            </ScrollReveal>
+            <LetterReveal
+            text={t.globalVision.title}
+            className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8 leading-tight"
+          />
             <ScrollReveal delay={0.2}>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>{t.globalVision.p1}</p>

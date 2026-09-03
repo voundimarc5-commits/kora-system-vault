@@ -1,4 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
+import LetterReveal from "./LetterReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PhilosophySection = () => {
@@ -16,11 +17,10 @@ const PhilosophySection = () => {
         <ScrollReveal direction="right">
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.method.label}</p>
         </ScrollReveal>
-        <ScrollReveal direction="right" delay={0.1}>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-16 leading-[1.1] tracking-tight max-w-3xl">
-            {t.method.title}
-          </h2>
-        </ScrollReveal>
+        <LetterReveal
+            text={t.method.title}
+            className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-16 leading-[1.1] tracking-tight max-w-3xl"
+          />
 
         <div className="border-t border-border">
           {steps.map((s, i) => (
