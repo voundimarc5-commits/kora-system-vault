@@ -1,54 +1,40 @@
-# Repositionnement réglementaire Cameroun / CEMAC
+# Mise en page, blocs colorés, contenu légal
 
-État vérifié avant plan : `src/i18n/fr.ts` et `src/i18n/en.ts` contiennent aujourd'hui le contenu GRC générique (hero « Le risque maîtrisé devient un avantage de confiance », `whoWeAre` s'arrête à `p3`, `domains.card1*` sans paliers). Aucune page secteur financier n'existe (`src/App.tsx` : `/`, `/advisory`, pages légales). Aucune zone de logos clients n'existe sur le site — il n'y a donc rien à remplacer, mais un bloc de citations réglementaires sera ajouté.
+État vérifié : `WhatWeDoSection.tsx` utilise un dégradé doré (`linear-gradient(135deg, hsl(var(--primary)) → hsl(42 92% 60%))` + `GradientBlob`) uniquement sur la carte 1 de « Nos deux domaines » ; les paliers et la répartition des rôles sont en `bg-card/40` neutre. `WhoWeAreSection.tsx` place tout le texte (p1, p2, p4) dans une colonne de 2/5 à côté de l'image. Les 3 pages légales contiennent un template anglais générique (activités « systems architecture », transactions financières). `App.tsx` route `/terms` vers `Terms.tsx` ; deux liens internes pointent encore vers `/terms` (`Footer.tsx` ligne 94, `FooterCTA.tsx` ligne 16). `Advisory.tsx` et `FinancialSector.tsx` utilisent bien `font-display` (Archivo) et les tokens actuels (`--adv-*`, `--primary`) — aucun résidu Bricolage Grotesque.
 
-## 1. Hero (`FounderHero.tsx` + i18n)
+## 1. WhoWeAreSection — dernier paragraphe en pleine largeur
 
-- `hero.title` et `hero.subtitle` remplacés par les textes fournis (FR), avec équivalent EN fidèle.
-- Inversion des boutons : `ctaContact` (lien `#contact`) devient le bouton plein `bg-primary`, `ctaWorkshop` (lien access.koraglobalsystems.com) passe en contour `border-border`. Ordre visuel : contact d'abord.
-- Aucun changement de mise en page, d'image ni d'animation.
+- La grille 3/2 (image | texte) conserve label, titre, `p1`, `p2`.
+- `p4` sort de la colonne et devient un bloc pleine largeur sous la grille, avec un filet supérieur fin et une largeur de lecture confortable (`max-w-4xl`), ScrollReveal cohérent.
+- `p3` reste dans la carte superposée sur l'image. Aucun changement d'image ni d'animation.
 
-## 2. À propos (`WhoWeAreSection.tsx` + i18n)
+## 2. Blocs colorés — paliers et répartition des rôles
 
-- Ajout de `whoWeAre.p4` (texte fourni), rendu juste après `p2`/`p3` dans le même bloc de paragraphes. `p1`, `p2`, `p3` inchangés.
+- Extraction du traitement existant de la carte 1 en un style partagé : dégradé doré subtil + `GradientBlob` en overlay.
+- Les 3 sous-cartes de paliers passent sur une version atténuée de ce dégradé (nuance dorée douce sur fond clair, bordure fine conservée) afin de rester lisibles en texte foncé — même famille visuelle que la carte 1, sans copier son intensité pleine.
+- Les 2 blocs « Répartition des rôles » reçoivent le même traitement, en gardant la distinction voulue : bloc KGS légèrement plus affirmé, bloc partenaire technique en bordure pointillée et nuance plus discrète (les deux jamais fusionnés).
+- Aucun texte modifié, aucun nouveau token de couleur : réutilisation de `--primary`/`--accent`.
 
-## 3. Offre / services (`WhatWeDoSection.tsx` + i18n)
+## 3. Contenu légal (FR, textes fournis à la lettre)
 
-Structure actuelle : grille 2 colonnes, carte 1 = accompagnement (fond doré), carte 2 = atelier NIST. La carte 1 est trop dense pour absorber les paliers ; nouvelle organisation de la section :
+- `LegalNotice.tsx` : réécrit en français avec éditeur, siège/agent enregistré Sheridan WY, directeur de la publication Marc Voundi Zeh, nature des activités (conseil GRC cybersécurité + formation publique NIST CSF 2.0), hébergement Hostinger (Chypre, données en Allemagne), contact, propriété intellectuelle.
+- `TermsOfUse.tsx` : réécrit en français, structure numérotée existante conservée, sections : dernière mise à jour 3 septembre 2026, objet, description des services, absence de garantie de résultat réglementaire, absence de conseil professionnel engageant, inscription à l'atelier, propriété intellectuelle (renvoi aux mentions légales), utilisation du site, liens externes, limitation de responsabilité, modification des CGU, droit applicable (Wyoming + dispositions impératives locales), contact.
+- `PrivacyPolicy.tsx` : réécrit en français, sections : dernière mise à jour, responsable du traitement, données collectées, finalités et base légale, durée de conservation (3 ans max), destinataires (Marc Voundi Zeh + Hostinger uniquement), transferts, cadres légaux (RGPD, loi camerounaise 2024/017, loi sénégalaise 2008-12/CDP, loi ivoirienne 2013-450/ARTCI), droits, sécurité, modifications et contact. **Aucune section cookies**, aucun autre sous-traitant.
+- Mentions de bas de page mises à jour (année et nom institutionnel), titres de pages en français.
 
-```text
-[label / titre / sous-titre]
-[grille 2 colonnes : carte 1 accompagnement | carte 2 atelier NIST]   (inchangée)
-[NOUVEAU  Trois paliers d'intervention — 3 sous-cartes en grille 3 col.]
-   Palier 1 Diagnostic de conformité (2-4 semaines)
-   Palier 2 Programme de mise en conformité (3-6 mois)
-   Palier 3 Conformité continue (suivi annuel)
-[NOUVEAU  Bloc méthode — paragraphe « nous vous montrons pourquoi »]
-[NOUVEAU  Deux blocs séparés, côte à côte, jamais fusionnés :
-   « KGS — gouvernance & conformité »  |  « Partenaire technique — exécution »
-   + mention : audit ANTIC final réalisé par un auditeur accrédité tiers]
-[NOUVEAU  Bloc « Cadres de référence » — 3 citations réglementaires réelles :
-   loi n°2024/017, COBAC R-2024/01, audits de sécurité ANTIC]
-```
+## 4. Consolidation /terms → /terms-of-use
 
-Traitement visuel : sous-cartes à bordures fines sur fond clair, numéro de palier + durée en petites capitales, liste de contenu, ligne « Livrable » pour le palier 1. Le palier 1 porte une mention explicite de point d'entrée accessible (petit établissement de paiement / EMF). ScrollReveal alterné, cohérent avec la section.
+- `App.tsx` : `/terms` rend `<Navigate to="/terms-of-use" replace />`, import de `Terms` retiré.
+- `Footer.tsx` : le lien dupliqué vers `/terms` est retiré (le lien « Conditions d'utilisation » vers `/terms-of-use` subsiste).
+- `FooterCTA.tsx` : l'entrée pointant vers `/terms` est redirigée vers `/terms-of-use`.
+- `src/pages/Terms.tsx` supprimé une fois plus aucune référence.
 
-## 4. Nouvelle page secteur financier
+## Vérification
 
-- Route `/secteur-financier` ajoutée dans `src/App.tsx` (avant le catch-all), nouveau fichier `src/pages/FinancialSector.tsx`, avec `Navigation` + `Footer` existants.
-- Contenu : le paragraphe COBAC R-2024/01 fourni (adoption 13 décembre 2024, applicable depuis le 1er janvier 2026 pour établissements de crédit et de paiement, depuis le 1er juillet 2026 pour la microfinance), plus le paragraphe optionnel sur les constats de contrôle 2024 (banques : PCA inexistant, sécurité SI faible ; EMF : incohérences de données, équipements obsolètes).
-- Discours gouvernance pur : **aucune** mention de partenaire technique sur cette page.
-- Aucune confusion avec le règlement COBAC EMF R-2024/01 / R-2024/02 sur les astreintes — non mentionné.
-- Lien vers cette page ajouté depuis la navigation (`nav`) et depuis le bloc secteur financier de la section offre.
-
-## 5. Garde-fous
-
-- Les deux formulations écartées (« Helping regulated organisations become cyber-compliant… » et « We don't just identify compliance gaps… ») n'apparaîtront nulle part dans le code.
-- Aucun logo client, aucun chiffre, client ou certification inventés.
-- Vocabulaire : pas de jargon « GRC » dans le hero ; « KGS » en texte courant, « Kora Global Systems » pour le nom institutionnel (hero subtitle tel que fourni).
+- `npx tsgo --noEmit`.
+- Captures Playwright : `/legal-notice`, `/terms-of-use`, `/privacy-policy`, section Offre/Services (paliers + rôles) et section À propos.
 
 ## Détails techniques
 
-- Toutes les chaînes passent par `src/i18n/fr.ts` (référence) et `src/i18n/en.ts` (mêmes clés, traduction fidèle) — le typage `Translations` dérive de `en`, donc les clés doivent être ajoutées des deux côtés.
-- Nouvelles clés : `hero.*` (remplacées), `whoWeAre.p4`, `domains.tiersLabel/tiersTitle`, `domains.tier1*`…`tier3*`, `domains.methodTitle/methodBody`, `domains.splitKgs*`/`splitPartner*`/`anticNote`, `domains.frameworksLabel` + 3 entrées, et un bloc `financialSector.*` pour la nouvelle page.
-- Aucune modification du design system (`index.css`), des tokens ou de la logique du diagnostic.
+- Les pages légales sont du contenu statique non i18n aujourd'hui ; elles restent statiques en français (pas d'ajout de clés i18n) — cohérent avec le français par défaut.
+- Aucune modification de `index.css`, des tokens, ni de la logique du diagnostic.
