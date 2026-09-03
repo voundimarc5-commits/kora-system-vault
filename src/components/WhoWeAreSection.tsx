@@ -1,4 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
+import LetterReveal from "./LetterReveal";
 import glassBridge from "@/assets/glass-bridge-corporate.jpg";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -57,15 +58,15 @@ const WhoWeAreSection = () => {
                 {t.whoWeAre.label}
               </p>
             </ScrollReveal>
-            <ScrollReveal direction="right" delay={0.1}>
-              <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-8 leading-[1.12] tracking-tight">
-                {t.whoWeAre.title}
-              </h2>
-            </ScrollReveal>
+            <LetterReveal
+              text={t.whoWeAre.title}
+              className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-8 leading-[1.12] tracking-tight"
+            />
             <ScrollReveal direction="right" delay={0.2}>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>{t.whoWeAre.p1}</p>
                 <p>{t.whoWeAre.p2}</p>
+                <p>{t.whoWeAre.p4}</p>
               </div>
             </ScrollReveal>
           </div>
