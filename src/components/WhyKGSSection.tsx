@@ -1,5 +1,6 @@
 import { Briefcase, Handshake } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import LetterReveal from "./LetterReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhyKGSSection = () => {
@@ -28,11 +29,10 @@ const WhyKGSSection = () => {
         <ScrollReveal direction="left">
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.whyKGS.label}</p>
         </ScrollReveal>
-        <ScrollReveal direction="left" delay={0.1}>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-16 leading-[1.1] tracking-tight max-w-3xl">
-            {t.whyKGS.title}
-          </h2>
-        </ScrollReveal>
+        <LetterReveal
+            text={t.whyKGS.title}
+            className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-16 leading-[1.1] tracking-tight max-w-3xl"
+          />
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {columns.map((col, i) => (

@@ -1,4 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
+import LetterReveal from "./LetterReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const EthosSection = () => {
@@ -10,9 +11,10 @@ const EthosSection = () => {
         <ScrollReveal>
           <p className="text-primary font-display text-[11px] tracking-[0.3em] uppercase mb-4">{t.ethos.label}</p>
         </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8 leading-tight">{t.ethos.title}</h2>
-        </ScrollReveal>
+        <LetterReveal
+            text={t.ethos.title}
+            className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8 leading-tight"
+          />
         <ScrollReveal delay={0.2}>
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>{t.ethos.p1}</p>
