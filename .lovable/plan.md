@@ -1,54 +1,54 @@
-# Repositionnement KORA Global Systems : de l'infrastructure numérique au cabinet GRC
+# Repositionnement réglementaire Cameroun / CEMAC
 
-Refonte de contenu uniquement. La direction artistique (palette, typographie, animations, ordre des sections) reste identique. Aucun faux client, fausse métrique ou certification inventée n'est introduit.
+État vérifié avant plan : `src/i18n/fr.ts` et `src/i18n/en.ts` contiennent aujourd'hui le contenu GRC générique (hero « Le risque maîtrisé devient un avantage de confiance », `whoWeAre` s'arrête à `p3`, `domains.card1*` sans paliers). Aucune page secteur financier n'existe (`src/App.tsx` : `/`, `/advisory`, pages légales). Aucune zone de logos clients n'existe sur le site — il n'y a donc rien à remplacer, mais un bloc de citations réglementaires sera ajouté.
 
-## Nouveau positionnement en deux piliers
+## 1. Hero (`FounderHero.tsx` + i18n)
 
-1. **Accompagnement GRC** — conseil et accompagnement en gouvernance, risque et conformité pour PME et structures en croissance. Formulation modeste : cadrage, priorisation, documentation, préparation aux exigences clients ou partenaires. Pas de promesse d'audit certifié ni d'évaluation de risque « enterprise-scale ».
-2. **Atelier NIST CSF 2.0** — outil de formation pratique déjà en ligne à `https://access.koraglobalsystems.com`, présenté comme la vitrine concrète de la compétence GRC : parcours d'apprentissage public sur le référentiel NIST CSF 2.0, cas réels documentés, niveaux de preuve explicites.
+- `hero.title` et `hero.subtitle` remplacés par les textes fournis (FR), avec équivalent EN fidèle.
+- Inversion des boutons : `ctaContact` (lien `#contact`) devient le bouton plein `bg-primary`, `ctaWorkshop` (lien access.koraglobalsystems.com) passe en contour `border-border`. Ordre visuel : contact d'abord.
+- Aucun changement de mise en page, d'image ni d'animation.
 
-## Sections réécrites (contenu)
+## 2. À propos (`WhoWeAreSection.tsx` + i18n)
 
-- **Hero** (`FounderHero` via i18n) : nouveau titre en deux lignes du type « GOUVERNANCE, RISQUE / ET CONFORMITÉ », sous-titre « Pour les structures en croissance », description recentrée : accompagnement GRC et atelier pratique NIST CSF 2.0. Les deux boutons restent (Explorer / Contact), le CTA de diagnostic reste.
-- **Marquee** : passe de trois logos de branches à deux entrées : « Accompagnement GRC » et « Atelier NIST CSF 2.0 » (lien vers le sous-domaine access). Les logos de branches Access/Automations/Market Entry sont retirés du bandeau ; on garde le traitement typographique existant, avec le logo KGS si un visuel est nécessaire.
-- **Problème** : les trois problèmes deviennent des problèmes GRC réels des PME : gouvernance informelle non documentée, risques identifiés mais non priorisés, exigences de conformité subies (questionnaires clients, appels d'offres, assureurs). La « réponse KGS » devient : cadrer, prioriser, documenter, avec un référentiel reconnu plutôt qu'un outillage maison.
-- **Qui nous sommes** : réécrit autour de l'origine du cabinet et du choix du NIST CSF 2.0 comme socle méthodologique, en gardant la note sur le nom « Kora » (transmission, connexion) et le lien avec les réalités locales.
-- **Notre méthode** (`PhilosophySection`) : discipline, honnêteté sur le périmètre, progression par étapes ; ce qu'on fait et ce qu'on ne fait pas.
-- **Nos piliers** (`WhatWeDoSection`) : grille de 3 → 2 cartes. Voir la maquette texte ci-dessous.
-- **Pourquoi Kora** (`WhyKGSSection`) : les deux colonnes deviennent « Pour le dirigeant » (clarté sur les risques, documentation présentable, décisions tracées) et « Pour le partenaire / l'assureur / le client » (référentiel reconnu, preuves explicites, périmètre honnête). Le bandeau de signaux de confiance retire « Built for enterprise ».
-- **Vision globale**, **Confiance & positionnement**, **Engagement**, **Studio Lab** : mêmes structures, texte recentré sur GRC (standards internationaux + intelligence locale, partenariats longs, innovation responsable, espace de co-construction des ateliers et référentiels).
-- **Périmètre & gouvernance** + **disclaimer du footer** : on garde la séparation stricte vis-à-vis des activités régulées, et on ajoute explicitement que KGS accompagne et forme, sans délivrer de certification ni d'attestation de conformité.
-- **Diagnostic d'orientation** (`/advisory`, i18n `advisory`) : les questions et résultats basés sur les trois branches sont réécrits vers deux issues : accompagnement GRC ou atelier NIST CSF 2.0. Questions recentrées sur maturité de gouvernance, exigences externes, taille de structure, besoin (se former vs être accompagné).
-- **Métadonnées** (`index.html`) : title, meta description, og:title/description alignés sur le positionnement GRC.
+- Ajout de `whoWeAre.p4` (texte fourni), rendu juste après `p2`/`p3` dans le même bloc de paragraphes. `p1`, `p2`, `p3` inchangés.
 
-## Maquette texte de la carte « Atelier NIST CSF 2.0 »
+## 3. Offre / services (`WhatWeDoSection.tsx` + i18n)
 
-Même style de carte que les piliers actuels (bordure, hover, icône animée). Pas de faux visuel du produit : on remplace la photo par un bloc typographique sur fond de carte, avec le sigle du référentiel et les six fonctions.
+Structure actuelle : grille 2 colonnes, carte 1 = accompagnement (fond doré), carte 2 = atelier NIST. La carte 1 est trop dense pour absorber les paliers ; nouvelle organisation de la section :
 
 ```text
-[ NIST CSF 2.0 · GOVERN IDENTIFY PROTECT DETECT RESPOND RECOVER ]
-
-Atelier NIST CSF 2.0                                   (icône : BookOpen)
-Outil de formation pratique, en ligne et accessible publiquement.
-
-Il permet de parcourir le référentiel NIST CSF 2.0 fonction par
-fonction, avec des cas réels documentés et des niveaux de preuve
-explicites pour chaque affirmation.
-
-· Parcours par les six fonctions du référentiel
-· Cas réels documentés, sources indiquées
-· Niveaux de preuve explicites, pas d'affirmation non sourcée
-
-Ouvrir l'atelier →   access.koraglobalsystems.com
+[label / titre / sous-titre]
+[grille 2 colonnes : carte 1 accompagnement | carte 2 atelier NIST]   (inchangée)
+[NOUVEAU  Trois paliers d'intervention — 3 sous-cartes en grille 3 col.]
+   Palier 1 Diagnostic de conformité (2-4 semaines)
+   Palier 2 Programme de mise en conformité (3-6 mois)
+   Palier 3 Conformité continue (suivi annuel)
+[NOUVEAU  Bloc méthode — paragraphe « nous vous montrons pourquoi »]
+[NOUVEAU  Deux blocs séparés, côte à côte, jamais fusionnés :
+   « KGS — gouvernance & conformité »  |  « Partenaire technique — exécution »
+   + mention : audit ANTIC final réalisé par un auditeur accrédité tiers]
+[NOUVEAU  Bloc « Cadres de référence » — 3 citations réglementaires réelles :
+   loi n°2024/017, COBAC R-2024/01, audits de sécurité ANTIC]
 ```
 
-La carte « Accompagnement GRC » garde une photo existante sobre (planification / salle de travail) et une formulation en trois points : cadrage de gouvernance, priorisation des risques, documentation et préparation aux exigences externes.
+Traitement visuel : sous-cartes à bordures fines sur fond clair, numéro de palier + durée en petites capitales, liste de contenu, ligne « Livrable » pour le palier 1. Le palier 1 porte une mention explicite de point d'entrée accessible (petit établissement de paiement / EMF). ScrollReveal alterné, cohérent avec la section.
+
+## 4. Nouvelle page secteur financier
+
+- Route `/secteur-financier` ajoutée dans `src/App.tsx` (avant le catch-all), nouveau fichier `src/pages/FinancialSector.tsx`, avec `Navigation` + `Footer` existants.
+- Contenu : le paragraphe COBAC R-2024/01 fourni (adoption 13 décembre 2024, applicable depuis le 1er janvier 2026 pour établissements de crédit et de paiement, depuis le 1er juillet 2026 pour la microfinance), plus le paragraphe optionnel sur les constats de contrôle 2024 (banques : PCA inexistant, sécurité SI faible ; EMF : incohérences de données, équipements obsolètes).
+- Discours gouvernance pur : **aucune** mention de partenaire technique sur cette page.
+- Aucune confusion avec le règlement COBAC EMF R-2024/01 / R-2024/02 sur les astreintes — non mentionné.
+- Lien vers cette page ajouté depuis la navigation (`nav`) et depuis le bloc secteur financier de la section offre.
+
+## 5. Garde-fous
+
+- Les deux formulations écartées (« Helping regulated organisations become cyber-compliant… » et « We don't just identify compliance gaps… ») n'apparaîtront nulle part dans le code.
+- Aucun logo client, aucun chiffre, client ou certification inventés.
+- Vocabulaire : pas de jargon « GRC » dans le hero ; « KGS » en texte courant, « Kora Global Systems » pour le nom institutionnel (hero subtitle tel que fourni).
 
 ## Détails techniques
 
-- Réécriture de `src/i18n/en.ts` et `src/i18n/fr.ts` en conservant strictement la même forme de clés, en supprimant les clés propres aux trois anciennes branches et en ajoutant les clés des deux nouveaux piliers.
-- `WhatWeDoSection.tsx` : grille `md:grid-cols-3` → `md:grid-cols-2` avec largeur contenue, et variante de carte « sans image » pour l'atelier.
-- `Marquee.tsx` : deux items, retrait des imports de logos de branches.
-- `advisory/DiagnosticFlow.tsx` et `ExposureResults.tsx` : la logique de scoring passe de trois résultats à deux ; mêmes composants, mêmes visuels.
-- Composants morts non montés dans `Index.tsx` (`SystemsSection`, `SystemsApproachSection`, `AboutSection`, `ApproachSection`, `HeroSection`, `BenefitsSection`, `ImageCarousel`) : supprimés s'ils ne sont référencés nulle part, pour éviter que l'ancien positionnement subsiste dans le dépôt.
-- Ton conforme aux règles éditoriales : pas de tirets longs, phrasé sobre de cabinet.
+- Toutes les chaînes passent par `src/i18n/fr.ts` (référence) et `src/i18n/en.ts` (mêmes clés, traduction fidèle) — le typage `Translations` dérive de `en`, donc les clés doivent être ajoutées des deux côtés.
+- Nouvelles clés : `hero.*` (remplacées), `whoWeAre.p4`, `domains.tiersLabel/tiersTitle`, `domains.tier1*`…`tier3*`, `domains.methodTitle/methodBody`, `domains.splitKgs*`/`splitPartner*`/`anticNote`, `domains.frameworksLabel` + 3 entrées, et un bloc `financialSector.*` pour la nouvelle page.
+- Aucune modification du design system (`index.css`), des tokens ou de la logique du diagnostic.
