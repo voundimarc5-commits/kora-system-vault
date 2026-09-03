@@ -24,7 +24,7 @@ const Footer = () => {
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Globe className="w-5 h-5" />
-                <span>International</span>
+                <span>Yaoundé, Cameroun</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Clock className="w-5 h-5" />

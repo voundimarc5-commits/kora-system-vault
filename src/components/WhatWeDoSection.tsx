@@ -1,14 +1,38 @@
 import { Scale, BookOpen, ArrowRight, Check, FileText, Compass, Shield, ShieldCheck, Wrench, Landmark } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 import LetterReveal from "./LetterReveal";
 import GradientBlob from "./GradientBlob";
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "./ui/hover-card";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const CSF_FUNCTIONS = ["GOVERN", "IDENTIFY", "PROTECT", "DETECT", "RESPOND", "RECOVER"];
 
+const TIER_DETAILS: string[][] = [
+  [
+    "Méthode : entretiens structurés avec les fonctions clés (direction, IT, opérations), revue documentaire des politiques et contrats existants, cartographie des actifs et processus critiques.",
+    "Structuration : grille croisée inspirée des 6 fonctions du NIST CSF 2.0 (gouvernance, identification, protection, détection, réponse, rétablissement), adaptée aux obligations réglementaires locales identifiées selon le secteur du client.",
+    "Livrable : rapport de maturité par fonction, registre des écarts avec sévérité et référence réglementaire associée, matrice de risques priorisée, feuille de route à 30/90/180 jours.",
+  ],
+  [
+    "Construction ou refonte des politiques de gouvernance : charte de gouvernance des risques, politique de sécurité de l'information, procédures de gestion des incidents.",
+    "Structuration du registre des risques : méthode, propriétaires assignés, plan de traitement, calendrier de revue.",
+    "Accompagnement à la collecte de preuves : documentation des contrôles réellement en place, pas seulement déclarés.",
+    "Simulation d'audit avant l'échéance réelle, avec restitution des points de non-conformité résiduels.",
+    "Jalons mensuels documentés sur 3 à 6 mois.",
+  ],
+  [
+    "Suivi trimestriel du registre des risques et des contrôles, avec revue de pertinence selon l'évolution de l'activité.",
+    "Veille réglementaire ciblée sur les textes applicables au client.",
+    "Préparation renouvelée avant chaque échéance d'audit externe.",
+    "Point de gouvernance annuel avec la direction.",
+  ],
+];
+
 const WhatWeDoSection = () => {
   const { t } = useLanguage();
+  const [openTier, setOpenTier] = useState<number | null>(null);
 
   const card1Points = [t.domains.card1Point1, t.domains.card1Point2, t.domains.card1Point3];
   const card2Points = [t.domains.card2Point1, t.domains.card2Point2, t.domains.card2Point3];
@@ -150,28 +174,54 @@ const WhatWeDoSection = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {tiers.map((tier, i) => (
               <ScrollReveal key={tier.name} direction={i % 2 === 0 ? "up" : "down"} delay={0.15 + i * 0.08}>
-                <article
-                  className="h-full border border-border rounded-lg p-7 flex flex-col"
-                  style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.07) 0%, hsl(var(--accent) / 0.06) 100%)" }}
+                <HoverCard
+                  open={openTier === i}
+                  onOpenChange={(o) => setOpenTier(o ? i : null)}
+                  openDelay={100}
                 >
-                  <div className="flex items-center justify-between mb-5">
-                    <span className="font-display text-[11px] tracking-[0.24em] text-primary/60">{tier.step}</span>
-                    <tier.icon className="h-4 w-4 text-primary/60" />
-                  </div>
-                  <h4 className="font-display text-lg font-semibold text-foreground mb-2 leading-snug">{tier.name}</h4>
-                  <p className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground/70 mb-5">
-                    {tier.duration}
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{tier.desc}</p>
-                  {tier.deliverable && (
-                    <p className="mt-5 text-sm text-foreground/80 leading-relaxed border-t border-border pt-5">
-                      {tier.deliverable}
+                  <HoverCardTrigger asChild>
+                    <article
+                      onClick={() => setOpenTier(openTier === i ? null : i)}
+                      className="h-full border border-border rounded-lg p-7 flex flex-col cursor-pointer"
+                      style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.07) 0%, hsl(var(--accent) / 0.06) 100%)" }}
+                    >
+                      <div className="flex items-center justify-between mb-5">
+                        <span className="font-display text-[11px] tracking-[0.24em] text-primary/60">{tier.step}</span>
+                        <tier.icon className="h-4 w-4 text-primary/60" />
+                      </div>
+                      <h4 className="font-display text-lg font-semibold text-foreground mb-2 leading-snug">{tier.name}</h4>
+                      <p className="font-display text-[10px] tracking-[0.2em] uppercase text-muted-foreground/70 mb-5">
+                        {tier.duration}
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{tier.desc}</p>
+                      {tier.deliverable && (
+                        <p className="mt-5 text-sm text-foreground/80 leading-relaxed border-t border-border pt-5">
+                          {tier.deliverable}
+                        </p>
+                      )}
+                      {tier.note && (
+                        <p className="mt-4 text-xs text-muted-foreground/80 leading-relaxed">{tier.note}</p>
+                      )}
+                    </article>
+                  </HoverCardTrigger>
+                  <HoverCardContent
+                    side="top"
+                    align="center"
+                    className="w-[22rem] md:w-[26rem] max-w-[90vw] p-6 border-border shadow-lg"
+                  >
+                    <p className="font-display text-[10px] tracking-[0.24em] uppercase text-primary/70 mb-3">
+                      {tier.name} — détail
                     </p>
-                  )}
-                  {tier.note && (
-                    <p className="mt-4 text-xs text-muted-foreground/80 leading-relaxed">{tier.note}</p>
-                  )}
-                </article>
+                    <ul className="space-y-2.5">
+                      {TIER_DETAILS[i].map((line, j) => (
+                        <li key={j} className="flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed">
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/60" />
+                          {line}
+                        </li>
+                      ))}
+                    </ul>
+                  </HoverCardContent>
+                </HoverCard>
               </ScrollReveal>
             ))}
           </div>

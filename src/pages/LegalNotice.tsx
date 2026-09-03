@@ -55,6 +55,10 @@ const LegalNotice = () => {
           </div>
 
           <div className="space-y-2">
+            <p><strong className="text-foreground">Présence opérationnelle :</strong><br />Yaoundé, Cameroun.</p>
+          </div>
+
+          <div className="space-y-2">
             <p><strong className="text-foreground">Directeur de la publication :</strong><br />Marc Voundi Zeh, Membre unique et gérant.</p>
           </div>
 
