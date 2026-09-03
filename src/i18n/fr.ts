@@ -10,7 +10,7 @@ export const fr = {
   },
   hero: {
     eyebrow: "CONFIANCE, RÉSILIENCE, DÉCISION",
-    title: "En règle avec votre réglementation — pas avec une autre.",
+    title: "Votre réglementation. Pas une autre.",
     subtitle: "Kora Global Systems accompagne les entreprises camerounaises et de la zone CEMAC dans leur mise en conformité réglementaire, au regard de leurs obligations réelles — loi n°2024/017 sur les données personnelles, audits de sécurité ANTIC, exigences de gouvernance du risque informatique de la COBAC — avec, si le projet l'exige, un partenaire technique pour la mise en œuvre opérationnelle.",
     ctaWorkshop: "Découvrir l'atelier NIST CSF 2.0",
     ctaContact: "Échanger sur un accompagnement",

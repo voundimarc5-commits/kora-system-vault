@@ -71,7 +71,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        display: ['Bricolage Grotesque', 'sans-serif'],
+        display: ['Archivo', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

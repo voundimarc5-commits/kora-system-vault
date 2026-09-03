@@ -10,7 +10,7 @@ export const en = {
   },
   hero: {
     eyebrow: "TRUST, RESILIENCE, DECISION",
-    title: "Compliant with your own regulation — not someone else's.",
+    title: "Your regulation. Not someone else's.",
     subtitle: "Kora Global Systems supports Cameroonian and CEMAC-zone companies in their regulatory compliance, against their real obligations — law no. 2024/017 on personal data, ANTIC security audits, COBAC requirements for IT risk governance — with, where the project calls for it, a technical partner for operational implementation.",
     ctaWorkshop: "Discover the NIST CSF 2.0 workshop",
     ctaContact: "Discuss an engagement",
