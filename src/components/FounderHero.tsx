@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import GradientBlob from "./GradientBlob";
+import LetterReveal from "./LetterReveal";
 import africaGreen from "@/assets/africa-green-innovation.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -31,14 +32,14 @@ const FounderHero = () => {
           {t.hero.eyebrow}
         </motion.p>
 
-        <motion.h1
+        <LetterReveal
+          as="h1"
+          text={t.hero.title}
+          immediate
+          delay={0.25}
+          stagger={0.018}
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.02] tracking-tight max-w-3xl mb-8"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-        >
-          {t.hero.title}
-        </motion.h1>
+        />
 
         <motion.div
           className="w-16 h-px bg-primary/50 mb-8"
@@ -64,20 +65,20 @@ const FounderHero = () => {
           className="flex flex-col sm:flex-row items-start gap-4"
         >
           <a
-            href="https://access.koraglobalsystems.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-7 py-3.5 bg-primary text-primary-foreground font-display font-semibold text-sm tracking-wide rounded-md transition-colors hover:opacity-90"
-          >
-            {t.hero.ctaWorkshop}
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-foreground font-display font-semibold text-sm rounded-md hover:border-primary/60 transition-colors"
+            className="group inline-flex items-center gap-3 px-7 py-3.5 bg-primary text-primary-foreground font-display font-semibold text-sm tracking-wide rounded-md transition-colors hover:opacity-90"
           >
             <Mail className="h-4 w-4" />
             {t.hero.ctaContact}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="https://access.koraglobalsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-foreground font-display font-semibold text-sm rounded-md hover:border-primary/60 transition-colors"
+          >
+            {t.hero.ctaWorkshop}
           </a>
         </motion.div>
       </div>
