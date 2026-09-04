@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
-import KGSLogo from "@/components/KGSLogo";
+import Navigation from "@/components/Navigation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const LegalNotice = () => {
+  const { t } = useLanguage();
+
   return (
     <div
       className="min-h-screen"
@@ -12,30 +13,20 @@ const LegalNotice = () => {
           "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(30 20% 95%) 15%, hsl(32 18% 93%) 50%, hsl(30 20% 95%) 85%, hsl(var(--background)) 100%)",
       }}
     >
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between bg-background/90 backdrop-blur-md border-b border-border/30">
-        <Link to="/" className="flex items-center gap-3">
-          <KGSLogo size="sm" className="h-10" />
-        </Link>
-        <Link
-          to="/"
-          className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Retour
-        </Link>
-      </nav>
+      <Navigation />
+      <div className="h-[100px]" />
 
-      <div className="pt-28 pb-20 max-w-3xl mx-auto px-6">
+      <div className="pt-8 pb-20 max-w-3xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <p className="text-primary font-display text-xs tracking-[0.3em] uppercase mb-4">
-            Légal
+            {t.legalNotice.label}
           </p>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3 leading-tight">
-            Mentions légales
+            {t.legalNotice.title}
           </h1>
           <div className="w-12 h-px bg-primary/30 mt-6 mb-12" />
         </motion.div>
@@ -47,37 +38,33 @@ const LegalNotice = () => {
           className="space-y-6 text-muted-foreground text-sm leading-relaxed"
         >
           <div className="space-y-2">
-            <p><strong className="text-foreground">Éditeur :</strong><br />Kora Global Systems LLC, société à responsabilité limitée de droit américain, Wyoming.</p>
+            <p><strong className="text-foreground">{t.legalNotice.editorLabel}</strong><br />{t.legalNotice.editorValue}</p>
           </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Siège social / agent enregistré :</strong><br />30 N Gould Street, #57810, Sheridan, WY 82801, États-Unis.</p>
+            <p><strong className="text-foreground">{t.legalNotice.registeredOfficeLabel}</strong><br />{t.legalNotice.registeredOfficeValue}</p>
           </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Présence opérationnelle :</strong><br />Yaoundé, Cameroun.</p>
+            <p><strong className="text-foreground">{t.legalNotice.operationalPresenceLabel}</strong><br />{t.legalNotice.operationalPresenceValue}</p>
           </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Directeur de la publication :</strong><br />Marc Voundi Zeh, Membre unique et gérant.</p>
+            <p><strong className="text-foreground">{t.legalNotice.natureLabel}</strong><br />{t.legalNotice.natureValue}</p>
           </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Nature des activités :</strong><br />Conseil en gouvernance, risque et conformité appliqué à la cybersécurité pour organisations en croissance, et formation publique sur le référentiel NIST CSF 2.0.</p>
+            <p><strong className="text-foreground">{t.legalNotice.hostingLabel}</strong><br />{t.legalNotice.hostingValue}</p>
           </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Hébergement du site :</strong><br />Hostinger International Limited, société de droit chypriote, 61 Lordou Vironos str., 6023 Larnaca, Chypre (hébergement des données effectué en Allemagne).</p>
-          </div>
-
-          <div className="space-y-2">
-            <p><strong className="text-foreground">Contact :</strong><br />
+            <p><strong className="text-foreground">{t.legalNotice.contactLabel}</strong><br />
               <a href="mailto:contact@koraglobalsystems.com" className="text-primary hover:underline">contact@koraglobalsystems.com</a>
             </p>
           </div>
 
           <div className="space-y-2">
-            <p><strong className="text-foreground">Propriété intellectuelle :</strong><br />L'ensemble des éléments du site (textes, graphismes, logo, éléments visuels) est la propriété de Kora Global Systems LLC, sauf mention contraire. Toute reproduction est interdite sans autorisation écrite préalable.</p>
+            <p><strong className="text-foreground">{t.legalNotice.ipLabel}</strong><br />{t.legalNotice.ipValue}</p>
           </div>
         </motion.div>
 
@@ -87,7 +74,7 @@ const LegalNotice = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          © 2026 Kora Global Systems. Tous droits réservés.
+          {t.legalNotice.copyright}
         </motion.p>
       </div>
     </div>

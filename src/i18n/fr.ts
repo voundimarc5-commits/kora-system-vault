@@ -318,4 +318,187 @@ export const fr = {
     pathwayBtn: "Demander cet échange",
     pathwaysDisclaimer: "KORA GLOBAL SYSTEMS accompagne et forme. Le cabinet ne délivre ni certification, ni attestation de conformité réglementaire, ni audit au sens légal du terme.",
   },
+  legalNotice: {
+    label: "Légal",
+    title: "Mentions légales",
+    editorLabel: "Éditeur :",
+    editorValue: "Kora Global Systems LLC, société à responsabilité limitée de droit américain, Wyoming.",
+    registeredOfficeLabel: "Siège social / agent enregistré :",
+    registeredOfficeValue: "30 N Gould Street, #57810, Sheridan, WY 82801, États-Unis.",
+    operationalPresenceLabel: "Présence opérationnelle :",
+    operationalPresenceValue: "Yaoundé, Cameroun.",
+    natureLabel: "Nature des activités :",
+    natureValue: "Conseil en gouvernance, risque et conformité appliqué à la cybersécurité pour organisations en croissance, et formation publique sur le référentiel NIST CSF 2.0.",
+    hostingLabel: "Hébergement du site :",
+    hostingValue: "Hostinger International Limited, société de droit chypriote, 61 Lordou Vironos str., 6023 Larnaca, Chypre (hébergement des données effectué en Allemagne).",
+    contactLabel: "Contact :",
+    ipLabel: "Propriété intellectuelle :",
+    ipValue: "L'ensemble des éléments du site (textes, graphismes, logo, éléments visuels) est la propriété de Kora Global Systems LLC, sauf mention contraire. Toute reproduction est interdite sans autorisation écrite préalable.",
+    copyright: "© 2026 Kora Global Systems. Tous droits réservés.",
+  },
+  termsOfUse: {
+    label: "Légal",
+    title: "Conditions générales d'utilisation",
+    lastUpdated: "Dernière mise à jour : 3 septembre 2026",
+    sections: [
+      {
+        number: "01",
+        title: "Objet",
+        paragraphs: [
+          "Les présentes conditions générales d'utilisation (CGU) régissent l'accès et l'utilisation de ce site. Elles ne constituent pas un contrat de prestation de services : toute mission de conseil fait l'objet d'un contrat distinct, négocié et signé séparément.",
+        ],
+      },
+      {
+        number: "02",
+        title: "Description des services",
+        paragraphs: [
+          "Kora Global Systems (KGS) propose un accompagnement en gouvernance, gestion des risques et conformité appliqué à la cybersécurité, ainsi qu'un atelier public de formation au référentiel NIST CSF 2.0. Les informations présentées sur ce site ont une vocation informative et ne constituent en aucun cas une offre contractuelle ferme.",
+        ],
+      },
+      {
+        number: "03",
+        title: "Absence de garantie de résultat réglementaire",
+        paragraphs: [
+          "KGS ne garantit aucun résultat de conformité, aucune certification, ni aucune décision d'un tiers (autorité de supervision, auditeur, partenaire, assureur). La responsabilité du respect effectif des obligations réglementaires applicables incombe entièrement à l'organisation cliente.",
+          "L'atelier NIST CSF 2.0 est un outil pédagogique public : il ne confère aucune certification officielle délivrée par le NIST, sauf mention contraire explicite au moment de l'inscription.",
+        ],
+      },
+      {
+        number: "04",
+        title: "Absence de conseil professionnel engageant",
+        paragraphs: [
+          "Les contenus publiés sur ce site sont des informations générales à caractère pédagogique. Ils ne constituent ni un avis juridique, ni un avis financier, ni un audit opposable à un tiers, et ne sauraient se substituer à une consultation professionnelle adaptée à la situation particulière de chaque organisation.",
+        ],
+      },
+      {
+        number: "05",
+        title: "Inscription à l'atelier",
+        paragraphs: [
+          "L'accès complet à l'atelier NIST CSF 2.0 nécessite la création d'un compte. Les conditions d'inscription sont propres à chaque session et précisées au moment de l'inscription.",
+        ],
+      },
+      {
+        number: "06",
+        title: "Propriété intellectuelle",
+        paragraphs: [
+          "Voir les mentions légales pour les dispositions relatives à la propriété intellectuelle des éléments du site.",
+        ],
+      },
+      {
+        number: "07",
+        title: "Utilisation du site",
+        paragraphs: [
+          "L'utilisateur s'interdit toute extraction ou réutilisation commerciale du contenu du site, toute action visant à perturber son fonctionnement, ainsi que tout détournement des formulaires mis à disposition (contact, inscription) à des fins autres que celles prévues.",
+        ],
+      },
+      {
+        number: "08",
+        title: "Liens externes",
+        paragraphs: [
+          "Ce site peut contenir des liens vers des sites tiers. KGS n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou leur disponibilité.",
+        ],
+      },
+      {
+        number: "09",
+        title: "Limitation de responsabilité",
+        paragraphs: [
+          "Dans la limite permise par la loi applicable, la responsabilité de KGS ne saurait être engagée au titre de l'utilisation de ce site ou des informations qu'il contient, sans que cela n'exclue une responsabilité impérative prévue par le droit local applicable à l'utilisateur.",
+        ],
+      },
+      {
+        number: "10",
+        title: "Modification des CGU",
+        paragraphs: [
+          "KGS se réserve le droit de modifier les présentes CGU à tout moment. La version en vigueur est celle publiée sur le site à la date de consultation.",
+        ],
+      },
+      {
+        number: "11",
+        title: "Droit applicable",
+        paragraphs: [
+          "Les présentes CGU sont régies par le droit de l'État du Wyoming (États-Unis), sans préjudice des dispositions impératives de protection des consommateurs applicables dans le pays de résidence de l'utilisateur.",
+        ],
+      },
+    ],
+    contactIntro: "Pour toute question relative aux présentes CGU :",
+    copyright: "© 2026 Kora Global Systems. Tous droits réservés.",
+  },
+  privacyPolicy: {
+    label: "Légal",
+    title: "Politique de confidentialité",
+    lastUpdated: "Dernière mise à jour : 3 septembre 2026",
+    sections: [
+      {
+        number: "01",
+        title: "Responsable du traitement",
+        paragraphs: [
+          "Le responsable du traitement des données à caractère personnel collectées sur ce site est Kora Global Systems LLC, représentée par Marc Voundi Zeh. Contact : contact@koraglobalsystems.com.",
+        ],
+      },
+      {
+        number: "02",
+        title: "Données collectées",
+        paragraphs: [
+          "Via les formulaires de contact et d'inscription, KGS collecte : nom, adresse e-mail, organisation, fonction, et le contenu du message transmis.",
+        ],
+      },
+      {
+        number: "03",
+        title: "Finalités et base légale",
+        paragraphs: [
+          "Ces données sont utilisées pour répondre à la demande, évaluer un besoin d'accompagnement, gérer l'inscription à l'atelier, et assurer le suivi de la relation. Le traitement repose sur le consentement de la personne concernée et/ou sur l'intérêt légitime de KGS à répondre aux sollicitations reçues.",
+        ],
+      },
+      {
+        number: "04",
+        title: "Durée de conservation",
+        paragraphs: [
+          "Les données sont conservées pour la durée nécessaire aux finalités décrites ci-dessus, et au maximum trois ans après le dernier contact, sauf obligation légale de conservation plus longue ou contrat en cours.",
+        ],
+      },
+      {
+        number: "05",
+        title: "Destinataires des données",
+        paragraphs: [
+          "Les données sont accessibles à Marc Voundi Zeh et à Hostinger International Limited (Chypre), en tant qu'hébergeur du site — les données étant hébergées en Allemagne. Aucun autre sous-traitant n'est mobilisé à ce jour ; cette section sera mise à jour si cela évolue.",
+        ],
+      },
+      {
+        number: "06",
+        title: "Transferts de données",
+        paragraphs: [
+          "L'hébergement principal des données est assuré en Allemagne, au sein de l'Union européenne.",
+        ],
+      },
+      {
+        number: "07",
+        title: "Cadres légaux applicables",
+        paragraphs: [
+          "Ce traitement est conduit dans le respect du Règlement général sur la protection des données (RGPD, UE/Royaume-Uni), de la loi camerounaise n°2024/017 du 23 décembre 2024 relative à la protection des données à caractère personnel, de la loi sénégalaise n°2008-12 du 25 janvier 2008 sur la protection des données à caractère personnel (CDP), et de la loi ivoirienne n°2013-450 du 19 juin 2013 relative à la protection des données à caractère personnel (ARTCI).",
+        ],
+      },
+      {
+        number: "08",
+        title: "Vos droits",
+        paragraphs: [
+          "Toute personne concernée dispose d'un droit d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité de ses données, ainsi que du droit d'introduire une réclamation auprès de l'autorité de contrôle compétente. Ces droits s'exercent en écrivant à contact@koraglobalsystems.com.",
+        ],
+      },
+      {
+        number: "09",
+        title: "Sécurité",
+        paragraphs: [
+          "KGS met en œuvre des mesures raisonnables pour protéger les données collectées contre l'accès non autorisé, la perte ou l'altération.",
+        ],
+      },
+      {
+        number: "10",
+        title: "Modifications",
+        paragraphs: [
+          "Cette politique de confidentialité peut être mise à jour périodiquement pour refléter l'évolution des pratiques ou des exigences légales.",
+        ],
+      },
+    ],
+    copyright: "© 2026 Kora Global Systems. Tous droits réservés.",
+  },
 };
