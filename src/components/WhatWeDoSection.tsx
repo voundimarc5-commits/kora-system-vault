@@ -1,10 +1,9 @@
-import { Scale, BookOpen, ArrowRight, Check, FileText, Compass, Shield, ShieldCheck, Wrench, Landmark } from "lucide-react";
+import { Scale, BookOpen, ArrowRight, Check, FileText, Compass, Shield, ShieldCheck, Wrench, Landmark, MousePointerClick } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 import LetterReveal from "./LetterReveal";
 import GradientBlob from "./GradientBlob";
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "./ui/hover-card";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const CSF_FUNCTIONS = ["GOVERN", "IDENTIFY", "PROTECT", "DETECT", "RESPOND", "RECOVER"];
@@ -32,7 +31,15 @@ const TIER_DETAILS: string[][] = [
 
 const WhatWeDoSection = () => {
   const { t } = useLanguage();
-  const [openTier, setOpenTier] = useState<number | null>(null);
+  const [flipped, setFlipped] = useState<[boolean, boolean, boolean]>([false, false, false]);
+
+  const toggleFlip = (i: number) => {
+    setFlipped((prev) => {
+      const next = [...prev] as [boolean, boolean, boolean];
+      next[i] = !next[i];
+      return next;
+    });
+  };
 
   const card1Points = [t.domains.card1Point1, t.domains.card1Point2, t.domains.card1Point3];
   const card2Points = [t.domains.card2Point1, t.domains.card2Point2, t.domains.card2Point3];
@@ -174,16 +181,34 @@ const WhatWeDoSection = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {tiers.map((tier, i) => (
               <ScrollReveal key={tier.name} direction={i % 2 === 0 ? "up" : "down"} delay={0.15 + i * 0.08}>
-                <HoverCard
-                  open={openTier === i}
-                  onOpenChange={(o) => setOpenTier(o ? i : null)}
-                  openDelay={100}
-                >
-                  <HoverCardTrigger asChild>
+                <div className="h-full min-h-[26rem] md:min-h-[28rem]" style={{ perspective: "1600px" }}>
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={flipped[i]}
+                    aria-label={`${tier.name} — ${flipped[i] ? t.domains.tierBackLabel : t.domains.tierFlipHint}`}
+                    onClick={() => toggleFlip(i)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        toggleFlip(i);
+                      }
+                    }}
+                    className="relative w-full h-full cursor-pointer outline-none"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transition: "transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1)",
+                      transform: flipped[i] ? "rotateY(180deg)" : "rotateY(0deg)",
+                    }}
+                  >
+                    {/* Front */}
                     <article
-                      onClick={() => setOpenTier(openTier === i ? null : i)}
-                      className="h-full border border-border rounded-lg p-7 flex flex-col cursor-pointer"
-                      style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.07) 0%, hsl(var(--accent) / 0.06) 100%)" }}
+                      className="absolute inset-0 border border-border rounded-lg p-7 flex flex-col"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        WebkitBackfaceVisibility: "hidden",
+                        background: "linear-gradient(135deg, hsl(var(--primary) / 0.07) 0%, hsl(var(--accent) / 0.06) 100%)",
+                      }}
                     >
                       <div className="flex items-center justify-between mb-5">
                         <span className="font-display text-[11px] tracking-[0.24em] text-primary/60">{tier.step}</span>
@@ -202,26 +227,42 @@ const WhatWeDoSection = () => {
                       {tier.note && (
                         <p className="mt-4 text-xs text-muted-foreground/80 leading-relaxed">{tier.note}</p>
                       )}
+                      <div className="mt-auto pt-5 flex items-center gap-1.5 text-[11px] text-muted-foreground/60">
+                        <MousePointerClick className="h-3.5 w-3.5 shrink-0" />
+                        {t.domains.tierFlipHint}
+                      </div>
                     </article>
-                  </HoverCardTrigger>
-                  <HoverCardContent
-                    side="top"
-                    align="center"
-                    className="w-[22rem] md:w-[26rem] max-w-[90vw] p-6 border-border shadow-lg"
-                  >
-                    <p className="font-display text-[10px] tracking-[0.24em] uppercase text-primary/70 mb-3">
-                      {tier.name} — détail
-                    </p>
-                    <ul className="space-y-2.5">
-                      {TIER_DETAILS[i].map((line, j) => (
-                        <li key={j} className="flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed">
-                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/60" />
-                          {line}
-                        </li>
-                      ))}
-                    </ul>
-                  </HoverCardContent>
-                </HoverCard>
+
+                    {/* Back */}
+                    <div
+                      className="absolute inset-0 border border-primary/30 rounded-lg p-6 flex flex-col overflow-y-auto bg-popover shadow-lg"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        WebkitBackfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <p className="font-display text-[10px] tracking-[0.24em] uppercase text-primary/70 mb-3">
+                        {tier.name} — {t.domains.tierBackLabel}
+                      </p>
+                      <ul className="space-y-2.5">
+                        {TIER_DETAILS[i].map((line, j) => (
+                          <li key={j} className="flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed">
+                            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/60" />
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                      <a
+                        href="#contact"
+                        onClick={(e) => e.stopPropagation()}
+                        className="mt-5 pt-4 border-t border-border text-xs font-display font-semibold text-primary hover:text-primary/80 transition-colors"
+                      >
+                        {t.domains.tierContactCta}
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </ScrollReveal>
             ))}
           </div>
