@@ -10,7 +10,7 @@ export const en = {
   },
   hero: {
     eyebrow: "TRUST, RESILIENCE, DECISION",
-    title: "Your regulation. Not someone else's.",
+    title: "The rule is local. The rigor, universal.",
     subtitle: "Kora Global Systems supports Cameroonian and CEMAC-zone companies in their regulatory compliance, against their real obligations — law no. 2024/017 on personal data, ANTIC security audits, COBAC requirements for IT risk governance — with, where the project calls for it, a technical partner for operational implementation.",
     subtitleBaseline: "A legal obligation, not an optional best practice — the 23 June 2026 deadline is approaching.",
     ctaWorkshop: "Discover the NIST CSF 2.0 workshop",

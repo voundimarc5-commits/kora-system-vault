@@ -10,7 +10,7 @@ export const fr = {
   },
   hero: {
     eyebrow: "CONFIANCE, RÉSILIENCE, DÉCISION",
-    title: "Votre réglementation. Pas une autre.",
+    title: "La règle est locale. La rigueur, universelle.",
     subtitle: "Kora Global Systems accompagne les entreprises camerounaises et de la zone CEMAC dans leur mise en conformité réglementaire, au regard de leurs obligations réelles — loi n°2024/017 sur les données personnelles, audits de sécurité ANTIC, exigences de gouvernance du risque informatique de la COBAC — avec, si le projet l'exige, un partenaire technique pour la mise en œuvre opérationnelle.",
     subtitleBaseline: "Une obligation légale, pas une bonne pratique optionnelle — l'échéance du 23 juin 2026 approche.",
     ctaWorkshop: "Découvrir l'atelier NIST CSF 2.0",
