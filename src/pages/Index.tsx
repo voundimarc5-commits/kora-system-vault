@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import FounderHero from "@/components/FounderHero";
+import KeyFiguresSection from "@/components/KeyFiguresSection";
 import ProblemSection from "@/components/ProblemSection";
 import WhoWeAreSection from "@/components/WhoWeAreSection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
@@ -22,6 +23,7 @@ const Index = () => {
       <Navigation />
       <div className="h-[100px]" />
       <FounderHero />
+      <KeyFiguresSection />
       <ProblemSection />
       <WhoWeAreSection />
       <PhilosophySection />

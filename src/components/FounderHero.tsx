@@ -50,12 +50,21 @@ const FounderHero = () => {
         />
 
         <motion.p
-          className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-10"
+          className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           {t.hero.subtitle}
+        </motion.p>
+
+        <motion.p
+          className="text-sm text-primary/80 font-display font-medium max-w-2xl leading-relaxed mb-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+        >
+          {t.hero.subtitleBaseline}
         </motion.p>
 
         <motion.div
